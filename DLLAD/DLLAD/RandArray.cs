@@ -8,17 +8,13 @@ namespace DLLAD
 {
     public class RandArray
     {
-        int[] RandomArray = new 
-        public static void createArray(int max)
-        {
-            int[] RandomArray = new int[max];
-            inputArray(max);
-        }
+        static int[] RandomArray = new int[1000000];
+        
 
-        public static void inputArray(int max)
+        public static void inputArray()
         {
             
-            int maxRand = max * 2;
+            int maxRand = RandomArray.Length * 2;
             int min = 0;
             Random randomNo = new Random();
             int count = 0;
@@ -30,14 +26,9 @@ namespace DLLAD
             }
         }
 
-        public void showArray()
+        public static int showArray(int number)
         {
-            int count = 0;
-            foreach (int value in RandomArray)
-            {
-                Console.WriteLine(RandomArray[count]);
-                count++;
-            }
+            return (RandomArray[number]);
         }
 
     }

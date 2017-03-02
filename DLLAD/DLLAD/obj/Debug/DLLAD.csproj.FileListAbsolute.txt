@@ -12,3 +12,17 @@ C:\Users\thefo\documents\visual studio 2015\Projects\DLLAD\DLLAD\obj\Debug\DLLAD
 C:\Users\thefo\documents\visual studio 2015\Projects\DLLAD\DLLAD\obj\Debug\DLLAD.csproj.GenerateResource.Cache
 C:\Users\thefo\documents\visual studio 2015\Projects\DLLAD\DLLAD\obj\Debug\DLLAD.exe
 C:\Users\thefo\documents\visual studio 2015\Projects\DLLAD\DLLAD\obj\Debug\DLLAD.pdb
+C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\bin\Debug\DLLAD.exe.config
+C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\DLLAD.exe
+C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\DLLAD.pdb
+C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\bin\Debug\DLLAD.exe
+C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\bin\Debug\DLLAD.pdb
+C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\DLLAD.csprojResolveAssemblyReference.cache
+C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\MainWindow.g.cs
+C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\App.g.cs
+C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\DLLAD_MarkupCompile.cache
+C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\DLLAD_MarkupCompile.lref
+C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\MainWindow.baml
+C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\DLLAD.g.resources
+C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\DLLAD.Properties.Resources.resources
+C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\DLLAD.csproj.GenerateResource.Cache

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Text.RegularExpressions;
 
 namespace DLLAD
 {
@@ -27,12 +28,27 @@ namespace DLLAD
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            CreateArray(textBox.Text);
+            RandArray.inputArray();
+            label1.Content = "An array is created!";
+
+        }
+
+        private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
         }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            int no = Convert.ToInt32(textBox.Text);
+            label.Content = RandArray.showArray(no);
+            textBox.Text = null;
         }
     }
 }
