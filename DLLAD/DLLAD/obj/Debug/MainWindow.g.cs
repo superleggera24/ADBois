@@ -48,22 +48,6 @@ namespace DLLAD {
         #line default
         #line hidden
         
-        
-        #line 11 "..\..\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Button button;
-        
-        #line default
-        #line hidden
-        
-        
-        #line 12 "..\..\MainWindow.xaml"
-        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.Label label;
-        
-        #line default
-        #line hidden
-        
         private bool _contentLoaded;
         
         /// <summary>
@@ -96,24 +80,6 @@ namespace DLLAD {
             {
             case 1:
             this.textBox = ((System.Windows.Controls.TextBox)(target));
-            
-            #line 10 "..\..\MainWindow.xaml"
-            this.textBox.TextChanged += new System.Windows.Controls.TextChangedEventHandler(this.textBox_TextChanged);
-            
-            #line default
-            #line hidden
-            return;
-            case 2:
-            this.button = ((System.Windows.Controls.Button)(target));
-            
-            #line 11 "..\..\MainWindow.xaml"
-            this.button.Click += new System.Windows.RoutedEventHandler(this.button_Click);
-            
-            #line default
-            #line hidden
-            return;
-            case 3:
-            this.label = ((System.Windows.Controls.Label)(target));
             return;
             }
             this._contentLoaded = true;
