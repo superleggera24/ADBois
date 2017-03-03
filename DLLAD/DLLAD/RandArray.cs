@@ -8,9 +8,10 @@ namespace DLLAD
 {
     public class RandArray
     {
-        static int[] RandomArray = new int[1000000];
+        // hieronder wordt de array gemaakt
+        static int[] RandomArray = new int[1000];
         
-
+        // met deze functie worden er gegevens in de array ingevoerd
         public static void inputArray()
         {
             
@@ -26,10 +27,16 @@ namespace DLLAD
             }
         }
 
+        // Met deze functie kan er een plaats in de array worden opgevraagd
         public static int showArray(int number)
         {
             return (RandomArray[number]);
         }
 
+        // Deze functie initieert het sorteren via een BubbleSort.
+        public static void bubbleArray()
+        {
+            BubbleSort.BubbleSortArrayList<int>(RandomArray);
+        }
     }
 }

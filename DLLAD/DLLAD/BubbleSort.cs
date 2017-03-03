@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DLLAD
 {
-    public static class Bubblesort
+    public static class BubbleSort
     {
         public static void BubbleSortArrayList<T>(this T[] arr) where T : IComparable<T>
         {

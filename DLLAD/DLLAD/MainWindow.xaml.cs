@@ -26,6 +26,7 @@ namespace DLLAD
             InitializeComponent();
         }
 
+        // hier wordt een array gemaakt.
         private void button_Click(object sender, RoutedEventArgs e)
         {
             RandArray.inputArray();
@@ -33,6 +34,7 @@ namespace DLLAD
 
         }
 
+        // Hiermee wordt gecheckt of het ingevoerde nummer wel een nummer is.
         private void NumberValidationTextBox(object sender, TextCompositionEventArgs e)
         {
             Regex regex = new Regex("[^0-9]+");
@@ -44,11 +46,21 @@ namespace DLLAD
 
         }
 
+        // Klikt de 'show' button aan en gebruikt de input van een nummer om de corresponderende plaats
+        // binnen de array weer te geven.
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             int no = Convert.ToInt32(textBox.Text);
             label.Content = RandArray.showArray(no);
             textBox.Text = null;
+        }
+
+        private void sort_Click(object sender, RoutedEventArgs e)
+        {
+            if (radioBubble.IsChecked == true)
+            {
+                RandArray.bubbleArray();
+            }
         }
     }
 }
