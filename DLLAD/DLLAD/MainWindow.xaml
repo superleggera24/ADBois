@@ -12,14 +12,19 @@
         <Label x:Name="label1" Content="" HorizontalAlignment="Left" Margin="21,61,0,0" VerticalAlignment="Top" Width="113"/>
         <Button x:Name="button1" Content="Show" HorizontalAlignment="Left" Margin="432,10,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="334,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="93" PreviewTextInput="NumberValidationTextBox"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="100" Margin="21,87,0,0" VerticalAlignment="Top" Width="100">
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="197" Margin="21,87,0,0" VerticalAlignment="Top" Width="100">
             <RadioButton x:Name="radioBubble" Content="BubbleSort"/>
             <RadioButton x:Name="radioInsert" Content="InsertSort"/>
             <RadioButton x:Name="radioButton2" Content="RadioButton"/>
             <RadioButton x:Name="radioButton3" Content="RadioButton"/>
             <RadioButton x:Name="radioButton4" Content="RadioButton"/>
+            <RadioButton x:Name="radioButton" Content="RadioButton"/>
+            <RadioButton x:Name="radioButton1" Content="RadioButton"/>
+            <RadioButton x:Name="radioButton5" Content="RadioButton"/>
+            <RadioButton x:Name="radioButton6" Content="RadioButton"/>
+            <RadioButton x:Name="radioButton7" Content="RadioButton"/>
         </ListBox>
-        <Button x:Name="sort" Content="Sort" HorizontalAlignment="Left" Margin="21,205,0,0" VerticalAlignment="Top" Width="75" Click="sort_Click"/>
+        <Button x:Name="sort" Content="Sort" HorizontalAlignment="Left" Margin="21,289,0,0" VerticalAlignment="Top" Width="75" Click="sort_Click"/>
 
     </Grid>
 </Window>
