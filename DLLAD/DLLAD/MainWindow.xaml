@@ -14,7 +14,7 @@
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="334,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="93" PreviewTextInput="NumberValidationTextBox"/>
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="100" Margin="21,87,0,0" VerticalAlignment="Top" Width="100">
             <RadioButton x:Name="radioBubble" Content="BubbleSort"/>
-            <RadioButton x:Name="radioButton1" Content="RadioButton"/>
+            <RadioButton x:Name="radioInsert" Content="InsertSort"/>
             <RadioButton x:Name="radioButton2" Content="RadioButton"/>
             <RadioButton x:Name="radioButton3" Content="RadioButton"/>
             <RadioButton x:Name="radioButton4" Content="RadioButton"/>
