@@ -26,3 +26,6 @@ C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\MainWindow.baml
 C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\DLLAD.g.resources
 C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\DLLAD.Properties.Resources.resources
 C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\DLLAD.csproj.GenerateResource.Cache
+C:\Users\Denni\OneDrive\Documenten\Visual Studio 2015\Projects\ADBois\DLLAD\DLLAD\bin\Debug\DLLAD.exe.config
+C:\Users\Denni\OneDrive\Documenten\Visual Studio 2015\Projects\ADBois\DLLAD\DLLAD\obj\Debug\DLLAD.exe
+C:\Users\Denni\OneDrive\Documenten\Visual Studio 2015\Projects\ADBois\DLLAD\DLLAD\obj\Debug\DLLAD.pdb
