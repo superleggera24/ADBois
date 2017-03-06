@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 //make calls to native Win32 functions
 using System.Runtime.InteropServices;
 
-namespace DLLAD
+namespace AD
 {
     // Query Performance Counter class, meet de duur van de uit te voeren sorteermethode
     public class QueryPerfCounter
