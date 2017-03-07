@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+//win32 exception?
+using System.ComponentModel;
 //make calls to native Win32 functions
 using System.Runtime.InteropServices;
 
@@ -19,10 +21,14 @@ namespace AD
         [DllImport("Kernel32.dll")]
         private static extern bool QueryPerformanceFrequency(out long lpFrequency);
 
-
-
         private long frequency;
+        private long start;
+        private long stop;
+        Decimal multiplier = new Decimal(1.0e9);
 
+        /// <summary>
+        /// 
+        /// </summary>
         public QueryPerfCounter()
         {
             if (QueryPerformanceFrequency(out frequency) == false)
@@ -44,8 +50,8 @@ namespace AD
             QueryPerformanceCounter(out stop);
         }
 
-        //Duration method met aantal iteraties als argument
-        // returned duration value
+        // Duration method met aantal iteraties als argument
+        // Returned duration value
         // De methode berekent het aantal ticks tussen de start en stop values
         // stop-start resultaat x multiplier (duration van alle operations)
         // deel door het aantal iteraties om de duration per operation value te bekijken
