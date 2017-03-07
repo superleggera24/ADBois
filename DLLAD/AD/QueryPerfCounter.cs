@@ -17,18 +17,17 @@ namespace AD
         [DllImport("KERNEL32")]
         private static extern bool QueryPerformanceCounter(out long lpPerformanceCount);
 
-        // call de QueryPerformanceFrequenc win32 API
+        // call de QueryPerformanceFrequency win32 API
         [DllImport("Kernel32.dll")]
         private static extern bool QueryPerformanceFrequency(out long lpFrequency);
 
-        private long frequency;
+        
         private long start;
         private long stop;
+        private long frequency;
         Decimal multiplier = new Decimal(1.0e9);
 
-        /// <summary>
-        /// 
-        /// </summary>
+        // Constructor
         public QueryPerfCounter()
         {
             if (QueryPerformanceFrequency(out frequency) == false)
@@ -64,4 +63,24 @@ namespace AD
         }
 
     }
+
+
+
+    /*WRAPPER CLASS testestsetstestestttset
+     * To use the QueryPerfCounter wrapper class in your code, you need to reference QueryPerfCounter.dll and 
+     * then instantiate the QueryPerfCounter class.
+
+        QueryPerfCounter myTimer = new QueryPerfCounter();
+        // Measure without boxing
+        myTimer.Start();
+
+        for(int i = 0; i<iterations; i++)
+        {
+          // do some work to time
+        }
+        myTimer.Stop();
+
+        // Calculate time per iteration in nanoseconds
+        double result = myTimer.Duration(iterations);
+    */
 }
