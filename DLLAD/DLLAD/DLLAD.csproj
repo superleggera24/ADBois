@@ -58,7 +58,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-	<Compile Include="InsertSort.cs" />
+    <Compile Include="BinarySearch.cs" />
+    <Compile Include="InsertSort.cs" />
     <Compile Include="RandArray.cs" />
     <Compile Include="swapclass.cs" />
     <Page Include="MainWindow.xaml">

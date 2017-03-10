@@ -8,5 +8,19 @@ namespace DLLAD
 {
     public static class InsertSort
     {
+        public static void InsertSortArrayList<>(this int[] arr)
+        {
+            int z;
+            for (var i = 1; i < arr.Length; i++)
+            {
+                z = arr[i];
+                while ((i - 1 >= 0) && (z < arr[i - 1]))
+                {
+                    arr[i] = arr[i - 1];
+                    i--;
+                }
+                arr[i] = z;
+            }
+        }
     }
 }
