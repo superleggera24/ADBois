@@ -50,9 +50,7 @@ namespace DLLAD
         // binnen de array weer te geven.
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-            int no = Convert.ToInt32(textBox.Text);
-            label.Content = RandArray.showArray(no);
-            textBox.Text = null;
+            label.Content = RandArray.ShowAll(1);
         }
 
         private void sort_Click(object sender, RoutedEventArgs e)

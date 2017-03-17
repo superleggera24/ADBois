@@ -33,6 +33,16 @@ namespace DLLAD
             return (RandomArray[number]);
         }
 
+        public static int ShowAll(int input)
+        {
+            foreach(int i in RandomArray)
+            {
+                return i;
+            }
+            int j = 0;
+            return j;
+        }
+
         // Deze functie initieert het sorteren via een BubbleSort.
         public static void bubbleArray()
         {
