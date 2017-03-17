@@ -8,7 +8,6 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Button x:Name="button" Content="Creëer Array" HorizontalAlignment="Left" Margin="21,36,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <Label x:Name="label" Content="" HorizontalAlignment="Left" Margin="348,33,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.474,0.423" Height="227" Width="159"/>
         <Label x:Name="label1" Content="" HorizontalAlignment="Left" Margin="21,61,0,0" VerticalAlignment="Top" Width="113"/>
         <Button x:Name="button1" Content="Show" HorizontalAlignment="Left" Margin="432,10,0,0" VerticalAlignment="Top" Width="75" Click="button1_Click"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="23" Margin="334,7,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="93" PreviewTextInput="NumberValidationTextBox"/>
@@ -25,6 +24,7 @@
             <RadioButton x:Name="radioButton7" Content="RadioButton"/>
         </ListBox>
         <Button x:Name="sort" Content="Sort" HorizontalAlignment="Left" Margin="21,289,0,0" VerticalAlignment="Top" Width="75" Click="sort_Click"/>
+        <Label x:Name="label" Content="Label" HorizontalAlignment="Left" Margin="319,36,0,0" VerticalAlignment="Top" Width="188" Height="273"/>
 
     </Grid>
 </Window>
