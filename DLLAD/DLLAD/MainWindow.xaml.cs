@@ -21,17 +21,24 @@ namespace DLLAD
     /// </summary>
     public partial class MainWindow : Window
     {
+        int[] RandomArray = new int[1000];
         public MainWindow()
         {
             InitializeComponent();
-        }
+            
+            int maxRand = RandomArray.Length * 2;
+            int min = 0;
+            Random randomNo = new Random();
+            int count = 0;
 
-        // hier wordt een array gemaakt.
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            RandArray.inputArray();
+            foreach (int value in RandomArray)
+            {
+                RandomArray[count] = randomNo.Next(min, maxRand);
+                ArrayTextbox.Text += RandomArray[count].ToString();
+                ArrayTextbox.Text += Environment.NewLine;
+                count++;
+            }
             label1.Content = "An array is created!";
-
         }
 
         // Hiermee wordt gecheckt of het ingevoerde nummer wel een nummer is.
@@ -41,23 +48,24 @@ namespace DLLAD
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         // Klikt de 'show' button aan en gebruikt de input van een nummer om de corresponderende plaats
         // binnen de array weer te geven.
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            label.Content = RandArray.ShowAll(1);
-        }
 
         private void sort_Click(object sender, RoutedEventArgs e)
         {
             if (radioBubble.IsChecked == true)
             {
-                RandArray.bubbleArray();
+                label1.Content = "Busy... ";
+                int count = 0;
+                ArrayTextbox.Text = String.Empty;
+                BubbleSort.BubbleSortArrayList<int>(RandomArray);
+                foreach (int value in RandomArray)
+                {
+                    ArrayTextbox.Text += RandomArray[count].ToString();
+                    ArrayTextbox.Text += Environment.NewLine;
+                    count++;
+                }
+                label1.Content = "Done!";
             }
         }
     }
