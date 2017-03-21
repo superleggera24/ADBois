@@ -13,15 +13,19 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
+using AD;
 
 namespace DLLAD
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
     public partial class MainWindow : Window
     {
         int[] RandomArray = new int[1000];
+        QueryPerfCounter QueryCounter = new QueryPerfCounter();
         public MainWindow()
         {
             InitializeComponent();
@@ -53,18 +57,22 @@ namespace DLLAD
 
         private void sort_Click(object sender, RoutedEventArgs e)
         {
+            
             label1.Content = "Busy... ";
             if (radioBubble.IsChecked == true)
             {
                 int count = 0;
                 ArrayTextbox.Text = String.Empty;
+                QueryCounter.Start();
                 BubbleSort.BubbleSortArrayList<int>(RandomArray);
+                QueryCounter.Stop();
                 foreach (int value in RandomArray)
                 {
                     ArrayTextbox.Text += RandomArray[count].ToString();
                     ArrayTextbox.Text += Environment.NewLine;
                     count++;
                 }
+                Counter.Content = QueryCounter.Duration(count)/1000000;
                 label1.Content = "Done!";
             }
         }

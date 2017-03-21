@@ -23,6 +23,7 @@
         <Button x:Name="sort" Content="Sort" HorizontalAlignment="Left" Margin="21,289,0,0" VerticalAlignment="Top" Width="75" Click="sort_Click"/>
         <TextBox x:Name="ArrayTextbox" HorizontalAlignment="Left" Height="272" Margin="323,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" VerticalScrollBarVisibility="Auto" IsReadOnly="True"/>
         <Button x:Name="ResetButton" Content="Reset" HorizontalAlignment="Left" Margin="21,41,0,0" VerticalAlignment="Top" Width="75" Height="26" Click="ResetButton_Click"/>
+        <Label x:Name="Counter" Content="" HorizontalAlignment="Left" Margin="323,10,0,0" VerticalAlignment="Top" Width="184"/>
 
     </Grid>
 </Window>
