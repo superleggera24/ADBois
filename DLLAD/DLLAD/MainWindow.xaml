@@ -8,10 +8,10 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <Label x:Name="label1" Content="" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Width="120"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="197" Margin="21,87,0,0" VerticalAlignment="Top" Width="100">
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="197" Margin="21,87,0,0" VerticalAlignment="Top" Width="120">
             <RadioButton x:Name="radioBubble" Content="BubbleSort"/>
             <RadioButton x:Name="radioInsert" Content="InsertSort"/>
-            <RadioButton x:Name="radioButton2" Content="RadioButton"/>
+            <RadioButton x:Name="RadioBinary" Content="BinarySearch"/>
             <RadioButton x:Name="radioButton3" Content="RadioButton"/>
             <RadioButton x:Name="radioButton4" Content="RadioButton"/>
             <RadioButton x:Name="radioButton" Content="RadioButton"/>

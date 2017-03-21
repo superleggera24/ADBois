@@ -75,6 +75,26 @@ namespace DLLAD
                 Counter.Content = QueryCounter.Duration(count)/1000000;
                 label1.Content = "Done!";
             }
+            else if(radioInsert.IsChecked == true)
+                {
+                int count = 0;
+                ArrayTextbox.Text = String.Empty;
+                QueryCounter.Start();
+                InsertSort.InsertSortArrayList(RandomArray);
+                QueryCounter.Stop();
+                foreach (int value in RandomArray)
+                {
+                    ArrayTextbox.Text += RandomArray[count].ToString();
+                    ArrayTextbox.Text += Environment.NewLine;
+                    count++;
+                }
+                Counter.Content = QueryCounter.Duration(count) / 1000000;
+                label1.Content = "Done!";
+            }
+            else if(RadioBinary.IsChecked == true)
+            {
+
+            }
         }
 
         private void ResetButton_Click(object sender, RoutedEventArgs e)
