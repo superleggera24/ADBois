@@ -21,17 +21,24 @@ namespace DLLAD
     /// </summary>
     public partial class MainWindow : Window
     {
+        int[] RandomArray = new int[1000];
         public MainWindow()
         {
             InitializeComponent();
-        }
+            
+            int maxRand = RandomArray.Length * 2;
+            int min = 0;
+            Random randomNo = new Random();
+            int count = 0;
 
-        // hier wordt een array gemaakt.
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
-            RandArray.inputArray();
+            foreach (int value in RandomArray)
+            {
+                RandomArray[count] = randomNo.Next(min, maxRand);
+                ArrayTextbox.Text += RandomArray[count].ToString();
+                ArrayTextbox.Text += Environment.NewLine;
+                count++;
+            }
             label1.Content = "An array is created!";
-
         }
 
         // Hiermee wordt gecheckt of het ingevoerde nummer wel een nummer is.
@@ -41,26 +48,44 @@ namespace DLLAD
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
         // Klikt de 'show' button aan en gebruikt de input van een nummer om de corresponderende plaats
         // binnen de array weer te geven.
-        private void button1_Click(object sender, RoutedEventArgs e)
-        {
-            int no = Convert.ToInt32(textBox.Text);
-            label.Content = RandArray.showArray(no);
-            textBox.Text = null;
-        }
 
         private void sort_Click(object sender, RoutedEventArgs e)
         {
+            label1.Content = "Busy... ";
             if (radioBubble.IsChecked == true)
             {
-                RandArray.bubbleArray();
+                int count = 0;
+                ArrayTextbox.Text = String.Empty;
+                BubbleSort.BubbleSortArrayList<int>(RandomArray);
+                foreach (int value in RandomArray)
+                {
+                    ArrayTextbox.Text += RandomArray[count].ToString();
+                    ArrayTextbox.Text += Environment.NewLine;
+                    count++;
+                }
+                label1.Content = "Done!";
             }
+        }
+
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            Array.Clear(RandomArray, 0, RandomArray.Length);
+            ArrayTextbox.Clear();
+            int maxRand = RandomArray.Length * 2;
+            int min = 0;
+            Random randomNo = new Random();
+            int count = 0;
+
+            foreach (int value in RandomArray)
+            {
+                RandomArray[count] = randomNo.Next(min, maxRand);
+                ArrayTextbox.Text += RandomArray[count].ToString();
+                ArrayTextbox.Text += Environment.NewLine;
+                count++;
+            }
+            label1.Content = "A new array is created!";
         }
     }
 }

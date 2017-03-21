@@ -33,6 +33,16 @@ namespace DLLAD
             return (RandomArray[number]);
         }
 
+        public static int GetShowAll()
+        {
+            foreach (int i in RandomArray)
+            {
+                return i;
+            }
+            int j = 0;
+            return j;            
+        }
+
         // Deze functie initieert het sorteren via een BubbleSort.
         public static void bubbleArray()
         {
@@ -41,7 +51,7 @@ namespace DLLAD
         // Deze functie initieert het sorteren via een InsertionSort.
         public static void insertSort()
         {
-            InsertSort.InsertionSort(RandomArray);
+            InsertSort.InsertSortArrayList(RandomArray);
         }
     }
 }
