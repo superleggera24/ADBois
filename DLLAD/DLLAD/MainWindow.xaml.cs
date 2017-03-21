@@ -35,6 +35,7 @@ namespace DLLAD
             Random randomNo = new Random();
             int count = 0;
 
+            // De foreach zorgt dat de array gevuld wordt en dat de textbox gevuld wordt.
             foreach (int value in RandomArray)
             {
                 RandomArray[count] = randomNo.Next(min, maxRand);
@@ -52,13 +53,12 @@ namespace DLLAD
             e.Handled = regex.IsMatch(e.Text);
         }
 
-        // Klikt de 'show' button aan en gebruikt de input van een nummer om de corresponderende plaats
-        // binnen de array weer te geven.
+        // De sort button zorgt ervoor dat de geinitieerde array wordt gesorteerd volgens de bedoelde 
+        // methode. Ondertussen zorgt de querycounter ervoor dat de tijdsduur wordt bijgehouden.
 
         private void sort_Click(object sender, RoutedEventArgs e)
         {
-            
-            label1.Content = "Busy... ";
+            label1.Content = "Busy... ";          
             if (radioBubble.IsChecked == true)
             {
                 int count = 0;
@@ -97,6 +97,7 @@ namespace DLLAD
             }
         }
 
+        // Maakt een nieuwe random Array om te gebruiken voor het sorteren.
         private void ResetButton_Click(object sender, RoutedEventArgs e)
         {
             Array.Clear(RandomArray, 0, RandomArray.Length);
