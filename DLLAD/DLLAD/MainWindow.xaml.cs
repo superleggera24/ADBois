@@ -53,9 +53,9 @@ namespace DLLAD
 
         private void sort_Click(object sender, RoutedEventArgs e)
         {
+            label1.Content = "Busy... ";
             if (radioBubble.IsChecked == true)
             {
-                label1.Content = "Busy... ";
                 int count = 0;
                 ArrayTextbox.Text = String.Empty;
                 BubbleSort.BubbleSortArrayList<int>(RandomArray);
@@ -67,6 +67,25 @@ namespace DLLAD
                 }
                 label1.Content = "Done!";
             }
+        }
+
+        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        {
+            Array.Clear(RandomArray, 0, RandomArray.Length);
+            ArrayTextbox.Clear();
+            int maxRand = RandomArray.Length * 2;
+            int min = 0;
+            Random randomNo = new Random();
+            int count = 0;
+
+            foreach (int value in RandomArray)
+            {
+                RandomArray[count] = randomNo.Next(min, maxRand);
+                ArrayTextbox.Text += RandomArray[count].ToString();
+                ArrayTextbox.Text += Environment.NewLine;
+                count++;
+            }
+            label1.Content = "A new array is created!";
         }
     }
 }
