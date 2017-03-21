@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-//win32 exception?
+//win32 exception
 using System.ComponentModel;
 //make calls to native Win32 functions
 using System.Runtime.InteropServices;
