@@ -37,6 +37,3 @@ C:\Users\manue\OneDrive\Documenten\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\MainWindo
 C:\Users\manue\OneDrive\Documenten\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\App.g.cs
 C:\Users\manue\OneDrive\Documenten\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\DLLAD_MarkupCompile.cache
 C:\Users\manue\OneDrive\Documenten\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\DLLAD_MarkupCompile.lref
-C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\bin\Debug\AD.dll
-C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\bin\Debug\AD.pdb
-C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\DLLAD\obj\Debug\GeneratedInternalTypeHelper.g.cs

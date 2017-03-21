@@ -1,5 +1,0 @@
-C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\AD\bin\Debug\AD.dll
-C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\AD\bin\Debug\AD.pdb
-C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\AD\obj\Debug\AD.csprojResolveAssemblyReference.cache
-C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\AD\obj\Debug\AD.dll
-C:\Users\thefo\Documents\GitHub\ADBois\DLLAD\AD\obj\Debug\AD.pdb
