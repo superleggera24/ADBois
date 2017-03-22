@@ -9,11 +9,11 @@
     <Grid>
         <Label x:Name="label1" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
         <ListBox Height="63" Width="110" Margin="21,4,387.4,253.8">
-                <RadioButton x:Name="ArrayButton" Content="Array"/>
-                <RadioButton Content="RadioButton"/>
-                <RadioButton Content="RadioButton"/>
-            </ListBox>
-        
+            <RadioButton x:Name="ArrayButton" Content="Array"/>
+            <RadioButton Content="RadioButton"/>
+            <RadioButton Content="RadioButton"/>
+        </ListBox>
+
         <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="101" Margin="21,123,0,0" VerticalAlignment="Top" Width="120">
             <RadioButton x:Name="radioBubble" Content="BubbleSort"/>
             <RadioButton x:Name="radioInsert" Content="InsertSort"/>
@@ -25,6 +25,11 @@
         <TextBox x:Name="ArrayTextbox" HorizontalAlignment="Left" Height="272" Margin="323,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" VerticalScrollBarVisibility="Auto" IsReadOnly="True"/>
         <Button x:Name="CreateButton" Content="Create Collection" HorizontalAlignment="Left" Margin="21,84,0,0" VerticalAlignment="Top" Width="120" Height="26" Click="CreateButton_Click"/>
         <Label x:Name="Counter" Content="" HorizontalAlignment="Left" Margin="323,10,0,0" VerticalAlignment="Top" Width="184"/>
+        <ListBox HorizontalAlignment="Left" Height="63" Margin="150,160,0,0" VerticalAlignment="Top" Width="100">
+            <RadioButton x:Name="SeqSearchRadio" Content="SeqSearch"/>
+        </ListBox>
+        <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="150,228,0,0" VerticalAlignment="Top" Width="100" Click="SearchButton_Click"/>
+        <TextBox x:Name="NumberTextBox" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="23" Margin="150,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
 </Window>

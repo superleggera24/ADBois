@@ -104,5 +104,16 @@ namespace DLLAD
         {
 
         }
+
+        private void SearchButton_Click(object sender, RoutedEventArgs e)
+        {
+            int inputNumber = Convert.ToInt16(NumberTextBox.Text);
+            int[] RandomArray = AD.Collections.RandArray._RandomArray;
+            if(SeqSearchRadio.IsChecked == true)
+            {
+                ArrayTextbox.Text = String.Empty;
+                ArrayTextbox.Text = String.Format("Your input {0} is placed at {1}", inputNumber, AD.Search.SequentialSearch.SeqSearch(RandomArray, inputNumber));
+            }
+        }
     }
 }
