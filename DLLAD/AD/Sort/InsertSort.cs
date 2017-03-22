@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DLLAD
+namespace AD.Sort
 {
     public static class InsertSort
     {

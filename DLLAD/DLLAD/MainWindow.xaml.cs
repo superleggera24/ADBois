@@ -51,7 +51,7 @@ namespace DLLAD
                 
                 ArrayTextbox.Text = String.Empty;
                 QueryCounter.Start();
-                BubbleSort.BubbleSortArrayList<int>(RandomArray);
+                AD.Sort.BubbleSort.BubbleSortArrayList<int>(RandomArray);
                 QueryCounter.Stop();
                 for (int count = 0; count <= 10; count++)
                 {
@@ -65,7 +65,7 @@ namespace DLLAD
                 {
                 ArrayTextbox.Text = String.Empty;
                 QueryCounter.Start();
-                InsertSort.InsertSortArrayList(RandomArray);
+                AD.Sort.InsertSort.InsertSortArrayList(RandomArray);
                 QueryCounter.Stop();
                 for (int count = 0; count <= 10; count++)
                 {
@@ -75,35 +75,7 @@ namespace DLLAD
                 Counter.Content = QueryCounter.Duration(RandomArray.Length) / 1000000;
                 label1.Content = "Done!";
             }
-            else if(RadioMin.IsChecked == true)
-            {
-                ArrayTextbox.Text = String.Empty;
-                QueryCounter.Start();
-                AD.Sort.Min.MinNumber(RandomArray);
-                QueryCounter.Stop();
-                for (int count = 0; count <= 10; count++)
-                {
-                    ArrayTextbox.Text += RandomArray[count].ToString();
-                    ArrayTextbox.Text += Environment.NewLine;
-                }
-                Counter.Content = QueryCounter.Duration(RandomArray.Length) / 1000000;
-                label1.Content = "Done!";
-
-            }
-            else if(RadioMax.IsChecked == true)
-            {
-                ArrayTextbox.Text = String.Empty;
-                QueryCounter.Start();
-                AD.Sort.Max.MaxNumber(RandomArray);
-                QueryCounter.Stop();
-                for (int count = 0; count <= 10; count++)
-                {
-                    ArrayTextbox.Text += RandomArray[count].ToString();
-                    ArrayTextbox.Text += Environment.NewLine;
-                }
-                Counter.Content = QueryCounter.Duration(RandomArray.Length) / 1000000;
-                label1.Content = "Done!";
-            }
+            
         }
 
         // Maakt een nieuwe random Array om te gebruiken voor het sorteren.
@@ -126,6 +98,15 @@ namespace DLLAD
                     ArrayTextbox.Text += Environment.NewLine;
                 }
                 label1.Content = "A new array is created!";
+            }
+            else if (QueueButton.IsChecked == true)
+            {
+                AD.Collections.RandQueue.InitiateRandQueue();
+
+                Queue<int> RandomQueue = AD.Collections.RandQueue._RandomQueue;
+                MinValue.Content = AD.Collections.RandQueue.Lowest;
+                MaxValue.Content = AD.Collections.RandQueue.Highest;
+                ArrayTextbox.Text = AD.Collections.RandQueue.PeekRandom().ToString();
             }
             
         }

@@ -10,7 +10,7 @@
         <Label x:Name="label1" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
         <ListBox Height="63" Width="110" Margin="21,4,387.4,253.8">
             <RadioButton x:Name="ArrayButton" Content="Array"/>
-            <RadioButton Content="RadioButton"/>
+            <RadioButton x:Name="QueueButton" Content="Queue"/>
             <RadioButton Content="RadioButton"/>
         </ListBox>
 

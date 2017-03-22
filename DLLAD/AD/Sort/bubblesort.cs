@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace AD
+namespace AD.Sort
 {
     public static class BubbleSort
     {
