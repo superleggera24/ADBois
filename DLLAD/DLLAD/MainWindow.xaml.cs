@@ -44,37 +44,35 @@ namespace DLLAD
         private void Sort_Click(object sender, RoutedEventArgs e)
         {
             int[] RandomArray = AD.Collections.RandArray.RandomArray;
+            Counter.Content = String.Empty;
             label1.Content = "Busy... ";          
             if (radioBubble.IsChecked == true)
             {
-                int count = 0;
+                
                 ArrayTextbox.Text = String.Empty;
                 QueryCounter.Start();
                 BubbleSort.BubbleSortArrayList<int>(RandomArray);
                 QueryCounter.Stop();
-                foreach (int value in RandomArray)
+                for (int count = 0; count <= 10; count++)
                 {
                     ArrayTextbox.Text += RandomArray[count].ToString();
                     ArrayTextbox.Text += Environment.NewLine;
-                    count++;
                 }
-                Counter.Content = QueryCounter.Duration(count)/1000000;
+                Counter.Content = QueryCounter.Duration(RandomArray.Length)/1000000;
                 label1.Content = "Done!";
             }
             else if(radioInsert.IsChecked == true)
                 {
-                int count = 0;
                 ArrayTextbox.Text = String.Empty;
                 QueryCounter.Start();
                 InsertSort.InsertSortArrayList(RandomArray);
                 QueryCounter.Stop();
-                foreach (int value in RandomArray)
+                for (int count = 0; count <= 10; count++)
                 {
                     ArrayTextbox.Text += RandomArray[count].ToString();
                     ArrayTextbox.Text += Environment.NewLine;
-                    count++;
                 }
-                Counter.Content = QueryCounter.Duration(count) / 1000000;
+                Counter.Content = QueryCounter.Duration(RandomArray.Length) / 1000000;
                 label1.Content = "Done!";
             }
             else if(RadioBinary.IsChecked == true)
@@ -86,17 +84,17 @@ namespace DLLAD
         // Maakt een nieuwe random Array om te gebruiken voor het sorteren.
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
+            ArrayTextbox.Text = String.Empty;
             if (ArrayButton.IsChecked == true)
             {
                 AD.Collections.RandArray.InitiateArray();
-                int count = 0;
+                
                 int[] RandomArray = AD.Collections.RandArray._RandomArray;
-                foreach (int value in RandomArray) 
+                for(int count = 0; count <= 10; count++)
                 {
 
                     ArrayTextbox.Text += RandomArray[count].ToString();
                     ArrayTextbox.Text += Environment.NewLine;
-                    count++;
                 }
                 label1.Content = "A new array is created!";
             }
