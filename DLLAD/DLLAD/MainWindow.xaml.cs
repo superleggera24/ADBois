@@ -75,6 +75,21 @@ namespace DLLAD
                 Counter.Content = QueryCounter.Duration(RandomArray.Length) / 1000000;
                 label1.Content = "Done!";
             }
+            else if(RadioMin.IsChecked == true)
+            {
+                ArrayTextbox.Text = String.Empty;
+                QueryCounter.Start();
+                Min.MinNumber(RandomArray);
+                QueryCounter.Stop();
+                for (int count = 0; count <= 10; count++)
+                {
+                    ArrayTextbox.Text += RandomArray[count].ToString();
+                    ArrayTextbox.Text += Environment.NewLine;
+                }
+                Counter.Content = QueryCounter.Duration(RandomArray.Length) / 1000000;
+                label1.Content = "Done!";
+
+            }
             else if(RadioBinary.IsChecked == true)
             {
 
@@ -114,6 +129,11 @@ namespace DLLAD
                 ArrayTextbox.Text = String.Empty;
                 ArrayTextbox.Text = String.Format("Your input {0} is placed at {1}", inputNumber, AD.Search.SequentialSearch.SeqSearch(RandomArray, inputNumber));
             }
+        }
+
+        private void RadioMax_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

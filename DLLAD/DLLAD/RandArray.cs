@@ -53,5 +53,9 @@ namespace DLLAD
         {
             InsertSort.InsertSortArrayList(RandomArray);
         }
+        public static void min()
+        {
+            Min.MinNumber(RandomArray);
+        }
     }
 }

@@ -18,8 +18,8 @@
             <RadioButton x:Name="radioBubble" Content="BubbleSort"/>
             <RadioButton x:Name="radioInsert" Content="InsertSort"/>
             <RadioButton x:Name="RadioBinary" Content="BinarySearch"/>
-            <RadioButton x:Name="radioButton3" Content="RadioButton"/>
-            <RadioButton x:Name="radioButton4" Content="RadioButton"/>
+            <RadioButton x:Name="RadioMin" Content="Min"/>
+            <RadioButton x:Name="RadioMax" Content="Max" Checked="RadioMax_Checked"/>
         </ListBox>
         <Button x:Name="Sort" Content="Sort" HorizontalAlignment="Left" Margin="21,229,0,0" VerticalAlignment="Top" Width="120" Click="Sort_Click"/>
         <TextBox x:Name="ArrayTextbox" HorizontalAlignment="Left" Height="272" Margin="323,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" VerticalScrollBarVisibility="Auto" IsReadOnly="True"/>
