@@ -30,6 +30,8 @@
         </ListBox>
         <Button x:Name="SearchButton" Content="Search" HorizontalAlignment="Left" Margin="150,228,0,0" VerticalAlignment="Top" Width="100" Click="SearchButton_Click"/>
         <TextBox x:Name="NumberTextBox" PreviewTextInput="NumberValidationTextBox" HorizontalAlignment="Left" Height="23" Margin="150,125,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="100"/>
+        <Label x:Name="MinValue" Content="" HorizontalAlignment="Left" Margin="21,274,0,0" VerticalAlignment="Top" Width="120"/>
+        <Label x:Name="MaxValue" Content="" HorizontalAlignment="Left" Margin="150,273,0,0" VerticalAlignment="Top" Width="100"/>
 
     </Grid>
 </Window>

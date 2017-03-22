@@ -79,7 +79,7 @@ namespace DLLAD
             {
                 ArrayTextbox.Text = String.Empty;
                 QueryCounter.Start();
-                Min.MinNumber(RandomArray);
+                AD.Sort.Min.MinNumber(RandomArray);
                 QueryCounter.Stop();
                 for (int count = 0; count <= 10; count++)
                 {
@@ -90,22 +90,36 @@ namespace DLLAD
                 label1.Content = "Done!";
 
             }
-            else if(RadioBinary.IsChecked == true)
+            else if(RadioMax.IsChecked == true)
             {
-
+                ArrayTextbox.Text = String.Empty;
+                QueryCounter.Start();
+                AD.Sort.Max.MaxNumber(RandomArray);
+                QueryCounter.Stop();
+                for (int count = 0; count <= 10; count++)
+                {
+                    ArrayTextbox.Text += RandomArray[count].ToString();
+                    ArrayTextbox.Text += Environment.NewLine;
+                }
+                Counter.Content = QueryCounter.Duration(RandomArray.Length) / 1000000;
+                label1.Content = "Done!";
             }
         }
 
         // Maakt een nieuwe random Array om te gebruiken voor het sorteren.
         private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
+            MinValue.Content = String.Empty;
+            MaxValue.Content = String.Empty;
             ArrayTextbox.Text = String.Empty;
             if (ArrayButton.IsChecked == true)
             {
                 AD.Collections.RandArray.InitiateArray();
                 
                 int[] RandomArray = AD.Collections.RandArray._RandomArray;
-                for(int count = 0; count <= 10; count++)
+                MinValue.Content = AD.Search.Min.MinNumber(RandomArray);
+                MaxValue.Content = AD.Search.Max.MaxNumber(RandomArray);
+                for (int count = 0; count <= 10; count++)
                 {
 
                     ArrayTextbox.Text += RandomArray[count].ToString();
@@ -113,6 +127,7 @@ namespace DLLAD
                 }
                 label1.Content = "A new array is created!";
             }
+            
         }
 
         private void RadioButton_Checked(object sender, RoutedEventArgs e)

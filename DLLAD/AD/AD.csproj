@@ -44,8 +44,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryPerfCounter.cs" />
     <Compile Include="Search\BinarySearch.cs" />
+    <Compile Include="Search\Max.cs" />
+    <Compile Include="Search\Min.cs" />
     <Compile Include="Search\SequentialSearch.cs" />
     <Compile Include="Sort\bubblesort.cs" />
+    <Compile Include="Sort\Max.cs" />
+    <Compile Include="Sort\Min.cs" />
     <Compile Include="swapclass.cs" />
   </ItemGroup>
   <ItemGroup />
