@@ -7,22 +7,23 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Label x:Name="label1" Content="" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Width="120"/>
-        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="197" Margin="21,87,0,0" VerticalAlignment="Top" Width="120">
+        <Label x:Name="label1" HorizontalAlignment="Left" Margin="150,10,0,0" VerticalAlignment="Top" Width="120" Height="26"/>
+        <ListBox Height="63" Width="110" Margin="21,4,387.4,253.8">
+                <RadioButton x:Name="ArrayButton" Content="Array"/>
+                <RadioButton Content="RadioButton"/>
+                <RadioButton Content="RadioButton"/>
+            </ListBox>
+        
+        <ListBox x:Name="listBox" HorizontalAlignment="Left" Height="101" Margin="21,123,0,0" VerticalAlignment="Top" Width="120">
             <RadioButton x:Name="radioBubble" Content="BubbleSort"/>
             <RadioButton x:Name="radioInsert" Content="InsertSort"/>
             <RadioButton x:Name="RadioBinary" Content="BinarySearch"/>
             <RadioButton x:Name="radioButton3" Content="RadioButton"/>
             <RadioButton x:Name="radioButton4" Content="RadioButton"/>
-            <RadioButton x:Name="radioButton" Content="RadioButton"/>
-            <RadioButton x:Name="radioButton1" Content="RadioButton"/>
-            <RadioButton x:Name="radioButton5" Content="RadioButton"/>
-            <RadioButton x:Name="radioButton6" Content="RadioButton"/>
-            <RadioButton x:Name="radioButton7" Content="RadioButton"/>
         </ListBox>
-        <Button x:Name="sort" Content="Sort" HorizontalAlignment="Left" Margin="21,289,0,0" VerticalAlignment="Top" Width="75" Click="sort_Click"/>
+        <Button x:Name="Sort" Content="Sort" HorizontalAlignment="Left" Margin="21,229,0,0" VerticalAlignment="Top" Width="120" Click="Sort_Click"/>
         <TextBox x:Name="ArrayTextbox" HorizontalAlignment="Left" Height="272" Margin="323,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="184" VerticalScrollBarVisibility="Auto" IsReadOnly="True"/>
-        <Button x:Name="ResetButton" Content="Reset" HorizontalAlignment="Left" Margin="21,41,0,0" VerticalAlignment="Top" Width="75" Height="26" Click="ResetButton_Click"/>
+        <Button x:Name="CreateButton" Content="Create Collection" HorizontalAlignment="Left" Margin="21,84,0,0" VerticalAlignment="Top" Width="120" Height="26" Click="CreateButton_Click"/>
         <Label x:Name="Counter" Content="" HorizontalAlignment="Left" Margin="323,10,0,0" VerticalAlignment="Top" Width="184"/>
 
     </Grid>

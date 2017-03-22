@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Text.RegularExpressions;
 using AD;
+using AD.Collections;
 
 namespace DLLAD
 {
@@ -24,26 +25,10 @@ namespace DLLAD
 
     public partial class MainWindow : Window
     {
-        int[] RandomArray = new int[1000];
         QueryPerfCounter QueryCounter = new QueryPerfCounter();
         public MainWindow()
         {
             InitializeComponent();
-            
-            int maxRand = RandomArray.Length * 2;
-            int min = 0;
-            Random randomNo = new Random();
-            int count = 0;
-
-            // De foreach zorgt dat de array gevuld wordt en dat de textbox gevuld wordt.
-            foreach (int value in RandomArray)
-            {
-                RandomArray[count] = randomNo.Next(min, maxRand);
-                ArrayTextbox.Text += RandomArray[count].ToString();
-                ArrayTextbox.Text += Environment.NewLine;
-                count++;
-            }
-            label1.Content = "An array is created!";
         }
 
         // Hiermee wordt gecheckt of het ingevoerde nummer wel een nummer is.
@@ -56,8 +41,9 @@ namespace DLLAD
         // De sort button zorgt ervoor dat de geinitieerde array wordt gesorteerd volgens de bedoelde 
         // methode. Ondertussen zorgt de querycounter ervoor dat de tijdsduur wordt bijgehouden.
 
-        private void sort_Click(object sender, RoutedEventArgs e)
+        private void Sort_Click(object sender, RoutedEventArgs e)
         {
+            int[] RandomArray = AD.Collections.RandArray.RandomArray;
             label1.Content = "Busy... ";          
             if (radioBubble.IsChecked == true)
             {
@@ -98,23 +84,27 @@ namespace DLLAD
         }
 
         // Maakt een nieuwe random Array om te gebruiken voor het sorteren.
-        private void ResetButton_Click(object sender, RoutedEventArgs e)
+        private void CreateButton_Click(object sender, RoutedEventArgs e)
         {
-            Array.Clear(RandomArray, 0, RandomArray.Length);
-            ArrayTextbox.Clear();
-            int maxRand = RandomArray.Length * 2;
-            int min = 0;
-            Random randomNo = new Random();
-            int count = 0;
-
-            foreach (int value in RandomArray)
+            if (ArrayButton.IsChecked == true)
             {
-                RandomArray[count] = randomNo.Next(min, maxRand);
-                ArrayTextbox.Text += RandomArray[count].ToString();
-                ArrayTextbox.Text += Environment.NewLine;
-                count++;
+                AD.Collections.RandArray.InitiateArray();
+                int count = 0;
+                int[] RandomArray = AD.Collections.RandArray._RandomArray;
+                foreach (int value in RandomArray) 
+                {
+
+                    ArrayTextbox.Text += RandomArray[count].ToString();
+                    ArrayTextbox.Text += Environment.NewLine;
+                    count++;
+                }
+                label1.Content = "A new array is created!";
             }
-            label1.Content = "A new array is created!";
+        }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
