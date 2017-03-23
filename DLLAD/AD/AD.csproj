@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Collections\RandArray.cs" />
     <Compile Include="Collections\RandQueue.cs" />
+    <Compile Include="Collections\RandStack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QueryPerfCounter.cs" />
     <Compile Include="Search\BinarySearch.cs" />

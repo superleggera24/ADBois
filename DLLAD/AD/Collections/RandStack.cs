@@ -6,53 +6,42 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
-    public static class RandQueue
+    public static class RandStack
     {
-        public static Queue<int> _RandomQueue;
+        public static Stack<int> _RandomStack;
+
+        public static Stack<int> RandomStack
+        {
+            get { return _RandomStack; }
+        }
+
         private static int highest;
         public static int Highest
         {
-            get
-            {
-                return highest;
-            }
-            set
-            {
-                highest = value;
-            }
+            get { return highest; }
+            set { highest = value; }
         }
         private static int lowest;
         public static int Lowest
         {
-            get
-            {
-                return lowest;
-            }
-            set
-            {
-                lowest = value;
-            }
+            get { return lowest; }
+            set { lowest = value; }
         }
 
-        public static Queue<int> RandomQueue
+        public static void InitiateRandStack()
         {
-            get { return _RandomQueue; }
-        }
-
-        public static void InitiateRandQueue()
-        {
-            _RandomQueue = new Queue<int>();
+            _RandomStack = new Stack<int>();
             Random RandomNo = new Random();
-            for(int index = 0; index <= 1000; index++)
+            for (int index = 0; index <= 1000; index++)
             {
                 int No = RandomNo.Next(0, 2000);
-                _RandomQueue.Enqueue(No);
+                _RandomStack.Push(No);
                 if (index == 0)
                 {
                     Highest = 0;
                     Lowest = 1000;
                 }
-                if(No > Highest)
+                if (No > Highest)
                 {
                     Highest = No;
                 }
@@ -62,9 +51,10 @@ namespace AD.Collections
                 }
             }
         }
-        public static int PeekRandom()
+        
+        public static int PeekStack()
         {
-            return _RandomQueue.Peek();
+            return _RandomStack.Peek();
         }
     }
 }

@@ -43,7 +43,11 @@ namespace DLLAD
 
         private void Sort_Click(object sender, RoutedEventArgs e)
         {
-            int[] RandomArray = AD.Collections.RandArray.RandomArray;
+            
+            
+                int[] RandomArray = AD.Collections.RandArray<int>.RandomArray;
+            
+            
             Counter.Content = String.Empty;
             label1.Content = "Busy... ";          
             if (radioBubble.IsChecked == true)
@@ -86,9 +90,9 @@ namespace DLLAD
             ArrayTextbox.Text = String.Empty;
             if (ArrayButton.IsChecked == true)
             {
-                AD.Collections.RandArray.InitiateArray();
+                AD.Collections.RandArray<int>.InitiateArray();
                 
-                int[] RandomArray = AD.Collections.RandArray._RandomArray;
+                int[] RandomArray = AD.Collections.RandArray<int>._RandomArray;
                 MinValue.Content = AD.Search.Min.MinNumber(RandomArray);
                 MaxValue.Content = AD.Search.Max.MaxNumber(RandomArray);
                 for (int count = 0; count <= 10; count++)
@@ -108,6 +112,15 @@ namespace DLLAD
                 MaxValue.Content = AD.Collections.RandQueue.Highest;
                 ArrayTextbox.Text = AD.Collections.RandQueue.PeekRandom().ToString();
             }
+            else if (StackButton.IsChecked == true)
+            {
+                AD.Collections.RandStack.InitiateRandStack();
+
+                Stack<int> RandomStack = AD.Collections.RandStack._RandomStack;
+                MinValue.Content = RandStack.Lowest;
+                MaxValue.Content = RandStack.Highest;
+                ArrayTextbox.Text = RandStack.PeekStack().ToString();
+            }
             
         }
 
@@ -119,7 +132,7 @@ namespace DLLAD
         private void SearchButton_Click(object sender, RoutedEventArgs e)
         {
             int inputNumber = Convert.ToInt16(NumberTextBox.Text);
-            int[] RandomArray = AD.Collections.RandArray._RandomArray;
+            int[] RandomArray = AD.Collections.RandArray<int>._RandomArray;
             if(SeqSearchRadio.IsChecked == true)
             {
                 ArrayTextbox.Text = String.Empty;

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
-    public static class RandArray
+    public static class RandArray<T> where T : IComparable
     {
         public static int[] _RandomArray;
         public static int[] RandomArray
