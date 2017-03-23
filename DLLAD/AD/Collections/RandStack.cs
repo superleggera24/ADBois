@@ -32,7 +32,7 @@ namespace AD.Collections
         {
             _RandomStack = new Stack<int>();
             Random RandomNo = new Random();
-            for (int index = 0; index <= 1000; index++)
+            for (int index = 0; index < 1000; index++)
             {
                 int No = Numbers[index];
                 _RandomStack.Push(No);
