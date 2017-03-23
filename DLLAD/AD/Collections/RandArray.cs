@@ -13,18 +13,15 @@ namespace AD.Collections
         {
             get { return _RandomArray; }
         }
-        public static void InitiateArray()
+        public static void InitiateArray(int[] Numbers)
         {
             _RandomArray = new int[1000];
-            int maxRand = _RandomArray.Length * 2;
-            int min = 0;
-            Random randomNo = new Random();
             int count = 0;
 
             // De foreach zorgt dat de array gevuld wordt en dat de textbox gevuld wordt.
-            foreach (int number in _RandomArray)
+            foreach (int number in Numbers)
             {
-                _RandomArray[count] = randomNo.Next(min, maxRand);
+                _RandomArray[count] = Numbers[count];
                 count++;
             }
         }

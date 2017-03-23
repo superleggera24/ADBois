@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Collections\RandArray.cs" />
+    <Compile Include="Collections\RandLinkedList.cs" />
     <Compile Include="Collections\RandQueue.cs" />
     <Compile Include="Collections\RandStack.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

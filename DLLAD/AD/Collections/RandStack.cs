@@ -28,13 +28,13 @@ namespace AD.Collections
             set { lowest = value; }
         }
 
-        public static void InitiateRandStack()
+        public static void InitiateRandStack(int[] Numbers)
         {
             _RandomStack = new Stack<int>();
             Random RandomNo = new Random();
             for (int index = 0; index <= 1000; index++)
             {
-                int No = RandomNo.Next(0, 2000);
+                int No = Numbers[index];
                 _RandomStack.Push(No);
                 if (index == 0)
                 {
