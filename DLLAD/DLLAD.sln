@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLLAD", "DLLAD\DLLAD.csproj", "{9A5A049D-DA45-444C-A55F-708C8183B798}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FormAD", "FormAD\FormAD.csproj", "{9A5A049D-DA45-444C-A55F-708C8183B798}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AD", "AD\AD.csproj", "{1679941B-EF9E-4694-AF2D-05AFC305A203}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DLL", "DLL\DLL.csproj", "{1679941B-EF9E-4694-AF2D-05AFC305A203}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WindowsFormsApplication1", "WindowsFormsApplication1\WindowsFormsApplication1.csproj", "{25DAFE91-AC9D-4F9B-B9EC-074F0AEE62EA}"
 EndProject
