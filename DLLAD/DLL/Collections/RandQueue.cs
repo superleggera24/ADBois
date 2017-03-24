@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
-    public class RandQueue<T> where T : IEnumerable
+    public class RandQueue<T> where T : IEnumerable<T>
     {
 
         public static Queue<T> _RandomQueue = new Queue<T>();
@@ -41,33 +41,16 @@ namespace AD.Collections
             get { return RandomQueue; }
         }
 
-        public static void InitiateRandQueue(int[] Numbers)
+        public static void InitiateRandQueue(List<T> Numbers)
         {
             
             Random RandomNo = new Random();
             for(int index = 0; index < 1000; index++)
             {
-                int No = Numbers[index];
                 
-                _RandomQueue.Enqueue(No);
-                if (index == 0)
-                {
-                    Highest = 0;
-                    Lowest = 1000;
-                }
-                if(No > Highest)
-                {
-                    Highest = No;
-                }
-                else if (Lowest > No)
-                {
-                    Lowest = No;
-                }
+                
             }
         }
-        public static int PeekRandom()
-        {
-            return _RandomQueue.Peek();
-        }
+        
     }
 }

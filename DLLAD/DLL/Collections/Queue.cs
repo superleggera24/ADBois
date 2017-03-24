@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
-    public class Queue<T> where T : IEnumerable<int>
+    public class Queue<T> where T : IEnumerable<T>
     {
-        public static Queue<T> RandomQueue = new Queue<T>();
+        public static Queue<T> ListQueue = new Queue<T>();
 
         public void Enqueue(T item)
         {
-            RandomQueue.Enqueue(item);
+            ListQueue.Enqueue(item);
         }
 
     }

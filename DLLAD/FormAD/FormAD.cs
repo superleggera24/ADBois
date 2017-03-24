@@ -12,9 +12,26 @@ namespace DLLAD
 {
     public partial class FormAD : Form
     {
+        
         public FormAD()
         {
             InitializeComponent();
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Max_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void CreateList_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }
