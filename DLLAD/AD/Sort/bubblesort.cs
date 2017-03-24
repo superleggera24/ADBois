@@ -9,7 +9,7 @@ namespace AD.Sort
     public static class BubbleSort
     {
         // maak generic arraylist 
-        public static T[] Sort<T>(T[] array) where T : IComparable<T>
+        public static T[] Sort<T>(T[] array) where T : IComparable
         {
             //loop door array, i
             for (var i = 0; i < 1000; i++)

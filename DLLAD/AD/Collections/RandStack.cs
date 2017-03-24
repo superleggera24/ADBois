@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
-    public static class RandStack
+    public class RandStack<T> 
     {
         public static Stack<int> _RandomStack;
 
