@@ -45,7 +45,7 @@
     <Compile Include="Collections\RandLinkedList.cs" />
     <Compile Include="Collections\RandQueue.cs" />
     <Compile Include="Collections\RandStack.cs" />
-    <Compile Include="Collections\StartList.cs" />
+    <Compile Include="Collections\PlayerList.cs" />
     <Compile Include="GenericArray.cs" />
     <Compile Include="Players.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
