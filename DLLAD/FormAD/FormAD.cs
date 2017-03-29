@@ -14,7 +14,7 @@ namespace DLLAD
     
     public partial class FormAD : Form
     {
-        AD.Players Player = new AD.Players(0, "name", 0);
+        AD.Players Player = new AD.Players(0, 0);
         AD.Collections.PlayerList RandList = new AD.Collections.PlayerList();
 
 

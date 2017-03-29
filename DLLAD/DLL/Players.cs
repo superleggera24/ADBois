@@ -9,13 +9,12 @@ namespace AD
     public class Players : IComparable
     {
         public int ID { get; set; }
-        public string Name { get; set; }
         public int Highscore { get; set; }
 
-        public Players(int id, string name, int highscore)
+        public Players(int id, int highscore)
         {
             ID = id;
-            Name = name;
+            
             Highscore = highscore;
         }
 
@@ -26,23 +25,14 @@ namespace AD
             return ID;
         }
 
-        public string GetName(Players Player)
-        {
-            return this.Name;
-        }
+        
 
         public int GetScore(Players Player)
         {
             return this.Highscore;
         }
 
-        public string GetStats(Players Player)
-        {
-            string ThisName = GetName(Player);
-            int ThisScore = GetScore(Player);
-            string CreateString = $"Name {ThisName}, Score {ThisScore}.";
-            return CreateString;
-        }
+       
 
         public int CompareTo(object obj)
         {

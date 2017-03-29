@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
-    public class PlayerList
+    public static class PlayerList
     {
         public static List<Players> _PlayerBase;
 
@@ -14,37 +14,44 @@ namespace AD.Collections
         {
             get { return _PlayerBase; }
         }
-
         
-
-        public void CreateList()
+        public static void CreateList()
         {
             _PlayerBase = new List<Players>();
             int ID = 0;
-            string Name = null;
             int HScore = 0;
-            int size = 10;
+            int size = 1000;
 
             for (int i = 0; i < size; i++)
             {
-                var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-                var stringChars = new char[8];
-                var random = new Random();
-
-                for (int j = 0; j < stringChars.Length; j++)
-                {
-                    stringChars[j] = chars[random.Next(chars.Length)];
-                }
-
-                Random rnd = new Random();
-
                 ID = i;
-                HScore = rnd.Next(size * 2);
-                Name = new String(stringChars);
-
+                HScore = RandomNo(size);
                 
-                PlayerBase.Add(new Players(ID, Name, HScore));
+                
+                PlayerBase.Add(new Players(ID, HScore));
             }
+        }
+
+        public static string Shuffle(this string str)
+        {
+            char[] array = str.ToCharArray();
+            Random rng = new Random();
+            int n = array.Length;
+            while (n > 1)
+            {
+                n--;
+                int k = rng.Next(n + 1);
+                var value = array[k];
+                array[k] = array[n];
+                array[n] = value;
+            }
+            return new string(array);
+        }
+
+        public static int RandomNo(int size)
+        {
+            Random rnd = new Random();
+            return rnd.Next(size * 2);
         }
         public static List<Players> GetList()
         {
@@ -53,12 +60,16 @@ namespace AD.Collections
 
         public static string GetPlayerStats(List<Players> PlayerBase)
         {
-            StringBuilder builder = new StringBuilder();
+            string stats = null;
             foreach (AD.Players player in PlayerBase)
             {
-                builder.Append(player).Append(" ");
+                stats += "ID";
+                stats += player.GetId(player).ToString();
+                stats += ", Highscore: ";
+                stats += player.GetScore(player).ToString();
+                stats += Environment.NewLine;
+                
             }
-            string stats = builder.ToString();
             return stats;
         }
     }

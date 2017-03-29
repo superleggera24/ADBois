@@ -30,6 +30,14 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.SeqSearch = new System.Windows.Forms.Button();
+            this.Max = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.BinarySearch = new System.Windows.Forms.Button();
+            this.SearchBox = new System.Windows.Forms.TextBox();
+            this.InsertButton = new System.Windows.Forms.Button();
+            this.SmartButton = new System.Windows.Forms.Button();
+            this.BubbleButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -39,14 +47,6 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.ResultBox = new System.Windows.Forms.TextBox();
-            this.BubbleButton = new System.Windows.Forms.Button();
-            this.SmartButton = new System.Windows.Forms.Button();
-            this.InsertButton = new System.Windows.Forms.Button();
-            this.SearchBox = new System.Windows.Forms.TextBox();
-            this.BinarySearch = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.Max = new System.Windows.Forms.Button();
-            this.SeqSearch = new System.Windows.Forms.Button();
             this.CreateList = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -87,6 +87,77 @@
             this.tabPage1.Size = new System.Drawing.Size(374, 342);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ArrayList";
+            // 
+            // SeqSearch
+            // 
+            this.SeqSearch.Location = new System.Drawing.Point(251, 91);
+            this.SeqSearch.Name = "SeqSearch";
+            this.SeqSearch.Size = new System.Drawing.Size(113, 50);
+            this.SeqSearch.TabIndex = 8;
+            this.SeqSearch.Text = "Sequential Search";
+            this.SeqSearch.UseVisualStyleBackColor = true;
+            // 
+            // Max
+            // 
+            this.Max.Location = new System.Drawing.Point(307, 183);
+            this.Max.Name = "Max";
+            this.Max.Size = new System.Drawing.Size(57, 50);
+            this.Max.TabIndex = 7;
+            this.Max.Text = "Max";
+            this.Max.UseVisualStyleBackColor = true;
+            this.Max.Click += new System.EventHandler(this.Max_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(251, 183);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(58, 50);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Min";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // BinarySearch
+            // 
+            this.BinarySearch.Location = new System.Drawing.Point(251, 35);
+            this.BinarySearch.Name = "BinarySearch";
+            this.BinarySearch.Size = new System.Drawing.Size(113, 50);
+            this.BinarySearch.TabIndex = 5;
+            this.BinarySearch.Text = "BinarySearch";
+            this.BinarySearch.UseVisualStyleBackColor = true;
+            // 
+            // SearchBox
+            // 
+            this.SearchBox.Location = new System.Drawing.Point(251, 7);
+            this.SearchBox.Name = "SearchBox";
+            this.SearchBox.Size = new System.Drawing.Size(100, 22);
+            this.SearchBox.TabIndex = 4;
+            // 
+            // InsertButton
+            // 
+            this.InsertButton.Location = new System.Drawing.Point(6, 183);
+            this.InsertButton.Name = "InsertButton";
+            this.InsertButton.Size = new System.Drawing.Size(95, 50);
+            this.InsertButton.TabIndex = 3;
+            this.InsertButton.Text = "Insertion Sort";
+            this.InsertButton.UseVisualStyleBackColor = true;
+            // 
+            // SmartButton
+            // 
+            this.SmartButton.Location = new System.Drawing.Point(6, 127);
+            this.SmartButton.Name = "SmartButton";
+            this.SmartButton.Size = new System.Drawing.Size(95, 50);
+            this.SmartButton.TabIndex = 2;
+            this.SmartButton.Text = "Smart BubbleSort";
+            this.SmartButton.UseVisualStyleBackColor = true;
+            // 
+            // BubbleButton
+            // 
+            this.BubbleButton.Location = new System.Drawing.Point(6, 71);
+            this.BubbleButton.Name = "BubbleButton";
+            this.BubbleButton.Size = new System.Drawing.Size(95, 50);
+            this.BubbleButton.TabIndex = 1;
+            this.BubbleButton.Text = "BubbleSort";
+            this.BubbleButton.UseVisualStyleBackColor = true;
             // 
             // button1
             // 
@@ -163,83 +234,13 @@
             // 
             // ResultBox
             // 
-            this.ResultBox.Location = new System.Drawing.Point(631, 13);
+            this.ResultBox.Location = new System.Drawing.Point(567, 13);
             this.ResultBox.Multiline = true;
             this.ResultBox.Name = "ResultBox";
             this.ResultBox.ReadOnly = true;
-            this.ResultBox.Size = new System.Drawing.Size(256, 366);
+            this.ResultBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ResultBox.Size = new System.Drawing.Size(320, 366);
             this.ResultBox.TabIndex = 1;
-            // 
-            // BubbleButton
-            // 
-            this.BubbleButton.Location = new System.Drawing.Point(6, 71);
-            this.BubbleButton.Name = "BubbleButton";
-            this.BubbleButton.Size = new System.Drawing.Size(95, 50);
-            this.BubbleButton.TabIndex = 1;
-            this.BubbleButton.Text = "BubbleSort";
-            this.BubbleButton.UseVisualStyleBackColor = true;
-            // 
-            // SmartButton
-            // 
-            this.SmartButton.Location = new System.Drawing.Point(6, 127);
-            this.SmartButton.Name = "SmartButton";
-            this.SmartButton.Size = new System.Drawing.Size(95, 50);
-            this.SmartButton.TabIndex = 2;
-            this.SmartButton.Text = "Smart BubbleSort";
-            this.SmartButton.UseVisualStyleBackColor = true;
-            // 
-            // InsertButton
-            // 
-            this.InsertButton.Location = new System.Drawing.Point(6, 183);
-            this.InsertButton.Name = "InsertButton";
-            this.InsertButton.Size = new System.Drawing.Size(95, 50);
-            this.InsertButton.TabIndex = 3;
-            this.InsertButton.Text = "Insertion Sort";
-            this.InsertButton.UseVisualStyleBackColor = true;
-            // 
-            // SearchBox
-            // 
-            this.SearchBox.Location = new System.Drawing.Point(251, 7);
-            this.SearchBox.Name = "SearchBox";
-            this.SearchBox.Size = new System.Drawing.Size(100, 22);
-            this.SearchBox.TabIndex = 4;
-            // 
-            // BinarySearch
-            // 
-            this.BinarySearch.Location = new System.Drawing.Point(251, 35);
-            this.BinarySearch.Name = "BinarySearch";
-            this.BinarySearch.Size = new System.Drawing.Size(113, 50);
-            this.BinarySearch.TabIndex = 5;
-            this.BinarySearch.Text = "BinarySearch";
-            this.BinarySearch.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(251, 183);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(58, 50);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Min";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // Max
-            // 
-            this.Max.Location = new System.Drawing.Point(307, 183);
-            this.Max.Name = "Max";
-            this.Max.Size = new System.Drawing.Size(57, 50);
-            this.Max.TabIndex = 7;
-            this.Max.Text = "Max";
-            this.Max.UseVisualStyleBackColor = true;
-            this.Max.Click += new System.EventHandler(this.Max_Click);
-            // 
-            // SeqSearch
-            // 
-            this.SeqSearch.Location = new System.Drawing.Point(251, 91);
-            this.SeqSearch.Name = "SeqSearch";
-            this.SeqSearch.Size = new System.Drawing.Size(113, 50);
-            this.SeqSearch.TabIndex = 8;
-            this.SeqSearch.Text = "Sequential Search";
-            this.SeqSearch.UseVisualStyleBackColor = true;
             // 
             // CreateList
             // 
