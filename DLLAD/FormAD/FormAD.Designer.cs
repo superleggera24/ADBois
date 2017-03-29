@@ -47,7 +47,7 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.ResultBox = new System.Windows.Forms.TextBox();
-            this.CreateList = new System.Windows.Forms.Button();
+            this.CreateListButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.SuspendLayout();
@@ -244,20 +244,20 @@
             // 
             // CreateList
             // 
-            this.CreateList.Location = new System.Drawing.Point(431, 329);
-            this.CreateList.Name = "CreateList";
-            this.CreateList.Size = new System.Drawing.Size(95, 50);
-            this.CreateList.TabIndex = 9;
-            this.CreateList.Text = "ListCreation";
-            this.CreateList.UseVisualStyleBackColor = true;
-            this.CreateList.Click += new System.EventHandler(this.CreateList_Click);
+            this.CreateListButton.Location = new System.Drawing.Point(431, 329);
+            this.CreateListButton.Name = "CreateList";
+            this.CreateListButton.Size = new System.Drawing.Size(95, 50);
+            this.CreateListButton.TabIndex = 9;
+            this.CreateListButton.Text = "ListCreation";
+            this.CreateListButton.UseVisualStyleBackColor = true;
+            this.CreateListButton.Click += new System.EventHandler(this.CreateList_Click);
             // 
             // FormAD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(899, 395);
-            this.Controls.Add(this.CreateList);
+            this.Controls.Add(this.CreateListButton);
             this.Controls.Add(this.ResultBox);
             this.Controls.Add(this.tabControl1);
             this.Name = "FormAD";
@@ -291,6 +291,6 @@
         private System.Windows.Forms.Button SmartButton;
         private System.Windows.Forms.Button BubbleButton;
         private System.Windows.Forms.Button SeqSearch;
-        private System.Windows.Forms.Button CreateList;
+        private System.Windows.Forms.Button CreateListButton;
     }
 }

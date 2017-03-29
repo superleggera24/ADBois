@@ -9,25 +9,30 @@ namespace AD
     public class Players : IComparable
     {
         public int ID { get; set; }
+
+        public string Name { get; set; }
         public int Highscore { get; set; }
 
-        public Players(int id, int highscore)
+        public Players(int id, string name, int highscore)
         {
             ID = id;
-            
+            Name = name;
             Highscore = highscore;
         }
 
         
 
-        public int GetId(Players Player)
+        public int GetId()
         {
             return ID;
         }
 
-        
+        public string GetName()
+        {
+            return Name;
+        }
 
-        public int GetScore(Players Player)
+        public int GetScore()
         {
             return this.Highscore;
         }

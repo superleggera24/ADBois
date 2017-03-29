@@ -14,9 +14,47 @@ namespace DLLAD
     
     public partial class FormAD : Form
     {
-        AD.Players Player = new AD.Players(0, 0);
-        AD.Collections.PlayerList RandList = new AD.Collections.PlayerList();
 
+        static List<AD.Players> PlayerBase = PlayerList.PlayerBase;
+        static void CreateList()
+        {
+            
+            int ID = 0;
+            string Name = "";
+            int HScore = 0;
+            int size = 3;
+
+            for (int i = 0; i < size; i++)
+            {
+                ID = i;
+                Name = RandomString();
+                HScore = RandomNo(size);
+
+                PlayerBase.Add(new AD.Players(ID, Name, HScore));
+                
+            }
+        }
+
+        public static int RandomNo(int size)
+        {
+            Random rnd = new Random();
+            return rnd.Next(size * 2);
+        }
+        
+        public static string RandomString()
+        {
+            var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            var stringChars = new char[8];
+            var random = new Random();
+
+            for (int i = 0; i < stringChars.Length; i++)
+            {
+                stringChars[i] = chars[random.Next(chars.Length)];
+            }
+
+            string finalString = new String(stringChars);
+            return finalString;
+        }
 
         public FormAD()
         {
@@ -35,9 +73,26 @@ namespace DLLAD
 
         private void CreateList_Click(object sender, EventArgs e)
         {
-            RandList.CreateList();
+            CreateList();
             List<AD.Players> PlayerBase = PlayerList.GetList();
-            ResultBox.Text = PlayerList.GetPlayerStats(PlayerBase);
+            ResultBox.Text = GetPlayerStats(PlayerBase);
+        }
+
+        public static string GetPlayerStats(List<AD.Players> PlayerBase)
+        {
+            string stats = null;
+            foreach (AD.Players player in PlayerBase)
+            {
+                stats += "ID";
+                stats += player.GetId().ToString();
+                stats += "Name: ";
+                stats += player.GetName();
+                stats += ", Highscore: ";
+                stats += player.GetScore().ToString();
+                stats += Environment.NewLine;
+
+            }
+            return stats;
         }
     }
 }
