@@ -6,14 +6,26 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
-    public class Queue<T> where T : IEnumerable<T>
+    public class Queue
     {
-        public static Queue<T> ListQueue = new Queue<T>();
+        public static Queue<AD.Players> ListQueue = new Queue<AD.Players>();
 
-        public void Enqueue(T item)
+        public void Enqueue(AD.Players item)
         {
             ListQueue.Enqueue(item);
         }
 
+        public Queue<AD.Players> GetListQueue()
+        {
+            return ListQueue;
+        }
+
+        public static void CreateQueue(List<AD.Players> List)
+        {
+            foreach (AD.Players player in List)
+            {
+                ListQueue.Enqueue(player);
+            }
+        }
     }
 }

@@ -48,8 +48,10 @@
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.ResultBox = new System.Windows.Forms.TextBox();
             this.CreateListButton = new System.Windows.Forms.Button();
+            this.CreateQueue = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -171,6 +173,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.CreateQueue);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -242,15 +245,25 @@
             this.ResultBox.Size = new System.Drawing.Size(320, 366);
             this.ResultBox.TabIndex = 1;
             // 
-            // CreateList
+            // CreateListButton
             // 
             this.CreateListButton.Location = new System.Drawing.Point(431, 329);
-            this.CreateListButton.Name = "CreateList";
+            this.CreateListButton.Name = "CreateListButton";
             this.CreateListButton.Size = new System.Drawing.Size(95, 50);
             this.CreateListButton.TabIndex = 9;
             this.CreateListButton.Text = "ListCreation";
             this.CreateListButton.UseVisualStyleBackColor = true;
             this.CreateListButton.Click += new System.EventHandler(this.CreateList_Click);
+            // 
+            // CreateQueue
+            // 
+            this.CreateQueue.Location = new System.Drawing.Point(6, 6);
+            this.CreateQueue.Name = "CreateQueue";
+            this.CreateQueue.Size = new System.Drawing.Size(95, 50);
+            this.CreateQueue.TabIndex = 1;
+            this.CreateQueue.Text = "Create";
+            this.CreateQueue.UseVisualStyleBackColor = true;
+            this.CreateQueue.Click += new System.EventHandler(this.CreateQueue_Click);
             // 
             // FormAD
             // 
@@ -265,6 +278,7 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -292,5 +306,6 @@
         private System.Windows.Forms.Button BubbleButton;
         private System.Windows.Forms.Button SeqSearch;
         private System.Windows.Forms.Button CreateListButton;
+        private System.Windows.Forms.Button CreateQueue;
     }
 }

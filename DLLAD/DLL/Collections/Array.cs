@@ -6,22 +6,22 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
-    public static class RandArray<T> where T : IComparable
+    public static class RandArray
     {
-        public static int[] _RandomArray;
-        public static int[] RandomArray
+        public static Array[] _RandomArray;
+        public static Array[] RandomArray
         {
             get { return _RandomArray; }
         }
-        public static void InitiateArray(int[] Numbers)
+        public static void InitiateArray(List<AD.Players> list, int size)
         {
-            _RandomArray = new int[1000];
+            _RandomArray = new Array[1000];
             int count = 0;
 
             // De foreach zorgt dat de array gevuld wordt en dat de textbox gevuld wordt.
-            foreach (int number in Numbers)
+            foreach (AD.Players player in list)
             {
-                _RandomArray[count] = Numbers[count];
+                _RandomArray[player];
                 count++;
             }
         }

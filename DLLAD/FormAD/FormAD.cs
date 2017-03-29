@@ -65,7 +65,10 @@ namespace DLLAD
 
         private void button1_Click(object sender, EventArgs e)
         {
+            foreach (AD.Players player in PlayerBase)
+            {
 
+            }
         }
 
         private void Max_Click(object sender, EventArgs e)
@@ -95,6 +98,12 @@ namespace DLLAD
 
             }
             return stats;
+        }
+
+        private void CreateQueue_Click(object sender, EventArgs e)
+        {
+            Queue.CreateQueue(PlayerBase);
+
         }
     }
 }
