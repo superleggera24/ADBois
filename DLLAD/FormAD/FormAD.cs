@@ -16,13 +16,15 @@ namespace DLLAD
     {
 
         static List<AD.Players> PlayerBase = PlayerList.PlayerBase;
+        static Random random = new Random();
+        static Random rnd = new Random();
         static void CreateList()
         {
             
             int ID = 0;
             string Name = "";
             int HScore = 0;
-            int size = 3;
+            int size = 300;
 
             for (int i = 0; i < size; i++)
             {
@@ -37,7 +39,7 @@ namespace DLLAD
 
         public static int RandomNo(int size)
         {
-            Random rnd = new Random();
+            
             return rnd.Next(size * 2);
         }
         
@@ -45,7 +47,7 @@ namespace DLLAD
         {
             var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
             var stringChars = new char[8];
-            var random = new Random();
+            
 
             for (int i = 0; i < stringChars.Length; i++)
             {
