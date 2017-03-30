@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
-    public class RandStack<T> 
+    public class RandStack
     {
-        public static Stack<int> _RandomStack;
+        public static Stack<AD.Players> _RandomStack;
 
-        public static Stack<int> RandomStack
+        public static Stack<AD.Players> RandomStack
         {
             get { return _RandomStack; }
         }
@@ -28,31 +28,19 @@ namespace AD.Collections
             set { lowest = value; }
         }
 
-        public static void InitiateRandStack(int[] Numbers)
+        public static void InitiateRandStack(List<AD.Players> List)
         {
-            _RandomStack = new Stack<int>();
+            _RandomStack = new Stack<AD.Players>();
             Random RandomNo = new Random();
-            for (int index = 0; index < 1000; index++)
+            foreach (AD.Players player in List)
             {
-                int No = Numbers[index];
-                _RandomStack.Push(No);
-                if (index == 0)
-                {
-                    Highest = 0;
-                    Lowest = 1000;
-                }
-                if (No > Highest)
-                {
-                    Highest = No;
-                }
-                else if (Lowest > No)
-                {
-                    Lowest = No;
-                }
+                
+                _RandomStack.Push(player);
+                
             }
         }
         
-        public static int PeekStack()
+        public static AD.Players PeekStack()
         {
             return _RandomStack.Peek();
         }

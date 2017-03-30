@@ -104,6 +104,15 @@ namespace DLLAD
         {
             Queue.CreateQueue(PlayerBase);
 
+
+
+        }
+
+        private void CreateStack_Click(object sender, EventArgs e)
+        {
+            RandStack.InitiateRandStack(PlayerBase);
+            AD.Players player = RandStack.PeekStack();
+            ResultBox.Text = player.GetName();
         }
     }
 }

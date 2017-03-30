@@ -21,7 +21,7 @@ namespace AD.Collections
             // De foreach zorgt dat de array gevuld wordt en dat de textbox gevuld wordt.
             foreach (AD.Players player in list)
             {
-                _RandomArray[player];
+                //_RandomArray[player];
                 count++;
             }
         }

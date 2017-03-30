@@ -40,6 +40,7 @@
             this.BubbleButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.CreateQueue = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -48,10 +49,11 @@
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.ResultBox = new System.Windows.Forms.TextBox();
             this.CreateListButton = new System.Windows.Forms.Button();
-            this.CreateQueue = new System.Windows.Forms.Button();
+            this.CreateStack = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -181,8 +183,19 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Queue";
             // 
+            // CreateQueue
+            // 
+            this.CreateQueue.Location = new System.Drawing.Point(6, 6);
+            this.CreateQueue.Name = "CreateQueue";
+            this.CreateQueue.Size = new System.Drawing.Size(95, 50);
+            this.CreateQueue.TabIndex = 1;
+            this.CreateQueue.Text = "Create";
+            this.CreateQueue.UseVisualStyleBackColor = true;
+            this.CreateQueue.Click += new System.EventHandler(this.CreateQueue_Click);
+            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.CreateStack);
             this.tabPage3.Location = new System.Drawing.Point(4, 25);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(374, 342);
@@ -255,15 +268,15 @@
             this.CreateListButton.UseVisualStyleBackColor = true;
             this.CreateListButton.Click += new System.EventHandler(this.CreateList_Click);
             // 
-            // CreateQueue
+            // CreateStack
             // 
-            this.CreateQueue.Location = new System.Drawing.Point(6, 6);
-            this.CreateQueue.Name = "CreateQueue";
-            this.CreateQueue.Size = new System.Drawing.Size(95, 50);
-            this.CreateQueue.TabIndex = 1;
-            this.CreateQueue.Text = "Create";
-            this.CreateQueue.UseVisualStyleBackColor = true;
-            this.CreateQueue.Click += new System.EventHandler(this.CreateQueue_Click);
+            this.CreateStack.Location = new System.Drawing.Point(4, 4);
+            this.CreateStack.Name = "CreateStack";
+            this.CreateStack.Size = new System.Drawing.Size(94, 51);
+            this.CreateStack.TabIndex = 0;
+            this.CreateStack.Text = "Create";
+            this.CreateStack.UseVisualStyleBackColor = true;
+            this.CreateStack.Click += new System.EventHandler(this.CreateStack_Click);
             // 
             // FormAD
             // 
@@ -279,6 +292,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,5 +321,6 @@
         private System.Windows.Forms.Button SeqSearch;
         private System.Windows.Forms.Button CreateListButton;
         private System.Windows.Forms.Button CreateQueue;
+        private System.Windows.Forms.Button CreateStack;
     }
 }
