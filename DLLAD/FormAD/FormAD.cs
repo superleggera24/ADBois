@@ -190,5 +190,15 @@ namespace DLLAD
             ResultBox.Text += QPCounter.Duration(Answer).ToString();
             ResultBox.Text += Environment.NewLine;
         }
+
+        private void InsertButton_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            AD.Sort.InsertSort<AD.Players>.InsertSortArrayList(_RandomArray);
+            QPCounter.Stop();
+            ResultBox.Text += "InsertSorted in: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
+            ResultBox.Text += Environment.NewLine;
+        }
     }
 }

@@ -145,6 +145,7 @@
             this.InsertButton.TabIndex = 3;
             this.InsertButton.Text = "Insertion Sort";
             this.InsertButton.UseVisualStyleBackColor = true;
+            this.InsertButton.Click += new System.EventHandler(this.InsertButton_Click);
             // 
             // SmartButton
             // 

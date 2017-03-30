@@ -6,21 +6,22 @@ using System.Threading.Tasks;
 
 namespace AD.Sort
 {
-    public static class InsertSort
+    public static class InsertSort<T> where T : IComparable
     {
-        public static void InsertSortArrayList(this int[] arr)
+        public static T[] InsertSortArrayList(T[] arr)
         {
-            int z;
+            T z;
             for (var i = 1; i < arr.Length; i++)
             {
                 z = arr[i];
-                while ((i - 1 >= 0) && (z < arr[i - 1]))
+                while ((i - 1 >= 0) && (z.CompareTo(arr[i - 1]) < 0))
                 {
                     arr[i] = arr[i - 1];
                     i--;
                 }
                 arr[i] = z;
             }
+            return arr;
         }
     }
 }
