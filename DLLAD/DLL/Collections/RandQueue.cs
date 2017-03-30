@@ -6,51 +6,26 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
-    public class RandQueue<T> where T : IEnumerable<T>
+    public class RandQueue<T>
     {
+        public static Queue<T> ListQueue = new Queue<T>();
 
-        public static Queue<T> _RandomQueue = new Queue<T>();
-        
-        private static int highest;
-        public static int Highest
+        public void Enqueue(T item)
         {
-            get
-            {
-                return highest;
-            }
-            set
-            {
-                highest = value;
-            }
-        }
-        private static int lowest;
-        public static int Lowest
-        {
-            get
-            {
-                return lowest;
-            }
-            set
-            {
-                lowest = value;
-            }
+            ListQueue.Enqueue(item);
         }
 
-        public static Queue<T> RandomQueue
+        public Queue<T> GetListQueue()
         {
-            get { return RandomQueue; }
+            return ListQueue;
         }
 
-        public static void InitiateRandQueue(List<T> Numbers)
+        public static void CreateQueue(List<T> List)
         {
-            
-            Random RandomNo = new Random();
-            for(int index = 0; index < 1000; index++)
+            foreach (T item in List)
             {
-                
-                
+                ListQueue.Enqueue(item);
             }
         }
-        
     }
 }

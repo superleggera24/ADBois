@@ -40,10 +40,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Collections\Queue.cs" />
+    <Compile Include="Collections\RandQueue.cs" />
     <Compile Include="Collections\Array.cs" />
     <Compile Include="Collections\RandLinkedList.cs" />
-    <Compile Include="Collections\RandQueue.cs" />
     <Compile Include="Collections\RandStack.cs" />
     <Compile Include="Collections\PlayerList.cs" />
     <Compile Include="GenericArray.cs" />
