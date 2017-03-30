@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace AD.Sort
 {
-    public static class BubbleSort
+    public static class BubbleSort<T> where T : IComparable
     {
         // maak generic arraylist 
-        public static T[] Sort<T>(T[] array) where T : IComparable
+        public static T[] Sort(T[] array)
         {
             //loop door array, i
             for (var i = 0; i < 1000; i++)

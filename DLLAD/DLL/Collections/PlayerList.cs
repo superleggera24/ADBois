@@ -6,32 +6,27 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
-    public class PlayerList
+    public class PlayerList<T>
     {
-        public static List<Players> PlayerBase = new List<Players>();
+        public static List<T> PlayerBase = new List<T>();
 
         public PlayerList()
         {
-            PlayerBase = new List<Players>();
+            PlayerBase = new List<T>();
             ReturnBase();
         }
 
-        public List<Players> ReturnBase()
+        public List<T> ReturnBase()
         {
             return PlayerBase;
         }
-
-        public void NewPlayer(int Id, string Name, int Score)
-        {
-            PlayerBase.Add(new Players(Id, Name, Score));
-        }
-
+        
         public static int RandomNo(int size)
         {
             Random rnd = new Random();
             return rnd.Next(size * 2);
         }
-        public static List<Players> GetList()
+        public static List<T> GetList()
         {
             return PlayerBase;
         }

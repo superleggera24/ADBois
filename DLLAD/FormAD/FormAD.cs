@@ -15,16 +15,18 @@ namespace DLLAD
     public partial class FormAD : Form
     {
 
-        static List<AD.Players> PlayerBase = PlayerList.PlayerBase;
+        static List<AD.Players> PlayerBase = PlayerList<AD.Players>.PlayerBase;
+        public static AD.Players[] _RandomArray = new AD.Players[300];
         static Random random = new Random();
         static Random rnd = new Random();
-        static void CreateList()
+        public static int size = 10;
+        public void CreateList()
         {
-            
+            ResultBox.Text = "";
             int ID = 0;
             string Name = "";
             int HScore = 0;
-            int size = 300;
+            
 
             for (int i = 0; i < size; i++)
             {
@@ -37,6 +39,10 @@ namespace DLLAD
             }
         }
 
+        public void NewPlayer(int Id, string Name, int Score)
+        {
+            PlayerBase.Add(new AD.Players(Id, Name, Score));
+        }
         public static int RandomNo(int size)
         {
             
@@ -65,9 +71,20 @@ namespace DLLAD
 
         private void button1_Click(object sender, EventArgs e)
         {
+            ResultBox.Text = "";
+            string Text = "";
+            int count = 0;
+            // De foreach zorgt dat de array gevuld wordt en dat de textbox gevuld wordt.
             foreach (AD.Players player in PlayerBase)
             {
-
+                _RandomArray[count] = player;
+                string Id = player.GetId().ToString();
+                string Name = player.GetName();
+                string Score = player.GetScore().ToString();
+                Text = string.Format("ID: {0}, Name {1}, Score {2}", Id, Name, Score);
+                Text += Environment.NewLine;
+                ResultBox.Text += Text;
+                count++;
             }
         }
 
@@ -78,8 +95,9 @@ namespace DLLAD
 
         private void CreateList_Click(object sender, EventArgs e)
         {
+            ResultBox.Text = "";
             CreateList();
-            List<AD.Players> PlayerBase = PlayerList.GetList();
+            
             ResultBox.Text = GetPlayerStats(PlayerBase);
         }
 

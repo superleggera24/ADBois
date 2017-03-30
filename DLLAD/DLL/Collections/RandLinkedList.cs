@@ -8,17 +8,19 @@ namespace AD.Collections
 {
     public static class RandLinkedList<T> where T : IComparable
     {
-        public static LinkedList<int> _RandomLinkedList;
+        public static LinkedList<T> _RandomLinkedList = new LinkedList<T>();
 
-        public static LinkedList<int> RandomLinkedList
+        public static LinkedList<T> RandomLinkedList
         {
             get { return _RandomLinkedList; }
         }
 
-        public static void InitiateLinkedList()
+        public static void InitiateLinkedList(List<T> List)
         {
-            //RandArray<>.InitiateArray
-            //RandomLinkedList<int> RandLinkedList = new LinkedList<int>;
+            foreach (T player in List)
+            {
+
+            }
         }
     }
 }
