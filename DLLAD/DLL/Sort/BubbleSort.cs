@@ -12,10 +12,10 @@ namespace AD.Sort
         public static T[] Sort(T[] array)
         {
             //loop door array, i
-            for (var i = 0; i < 1000; i++)
+            for (var i = 0; i < array.Length; i++)
             {
                 //loop door array -1, j
-                for (var j = 0; j < 1000 - 1; j++)
+                for (var j = 0; j < array.Length - 1; j++)
                 {
                     //wanneer de waarde groter is dan de volgende waarde word hieronder dmv swapclass.cs de waardes omgedraaid
                     if (array[j].CompareTo(array[j + 1]) > 0)

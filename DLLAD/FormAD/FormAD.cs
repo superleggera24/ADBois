@@ -15,7 +15,7 @@ namespace DLLAD
     public partial class FormAD : Form
     {
 
-        static List<AD.Players> PlayerBase = PlayerList<AD.Players>.PlayerBase;
+        public static List<AD.Players> PlayerBase = PlayerList<AD.Players>.PlayerBase;
         public static AD.Players[] _RandomArray = new AD.Players[300];
         public static RandStack<AD.Players> PlayerStack = new RandStack<AD.Players>();
         public static RandQueue<AD.Players> PlayerQueue = new AD.Collections.RandQueue<AD.Players>();
@@ -24,24 +24,8 @@ namespace DLLAD
         static Random rnd = new Random();
         public static int size = 300;
         private AD.QueryPerfCounter QPCounter = new AD.QueryPerfCounter();
-        public void CreateList()
-        {
-            ResultBox.Text = "";
-            int ID = 0;
-            string Name = "";
-            int HScore = 0;
-            
 
-            for (int i = 0; i < size; i++)
-            {
-                ID = i;
-                Name = RandomString();
-                HScore = RandomNo(size);
-
-                PlayerBase.Add(new AD.Players(ID, Name, HScore));
-                
-            }
-        }
+        
 
         public void NewPlayer(int Id, string Name, int Score)
         {
@@ -74,14 +58,12 @@ namespace DLLAD
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-            ResultBox.Text = "";
-            
-            
+        {            
             // De foreach zorgt dat de array gevuld wordt en dat de textbox gevuld wordt.
             QPCounter.Start();
             CreateArray(PlayerBase);
             QPCounter.Stop();
+            ResultBox.Text += "ArrayCreation: ";
             ResultBox.Text += QPCounter.Duration(size).ToString();
             ResultBox.Text += Environment.NewLine;
         }
@@ -94,9 +76,11 @@ namespace DLLAD
         private void CreateList_Click(object sender, EventArgs e)
         {
             QPCounter.Start();
-            CreateList();
+            ListCreation();
             QPCounter.Stop();
-            ResultBox.Text = GetPlayerStats(PlayerBase);
+            ResultBox.Text += "ListCreation: ";
+            ResultBox.Text += QPCounter.Duration(size);
+            ResultBox.Text += Environment.NewLine;
         }
 
         public static string GetPlayerStats(List<AD.Players> PlayerBase)
@@ -116,21 +100,47 @@ namespace DLLAD
             return stats;
         }
 
+        public void ListCreation()
+        {
+            ResultBox.Text = "";
+            int ID = 0;
+            string Name = "";
+            int HScore = 0;
+
+
+            for (int i = 0; i < size; i++)
+            {
+                ID = i;
+                Name = RandomString();
+                HScore = RandomNo(size);
+
+                PlayerBase.Add(new AD.Players(ID, Name, HScore));
+
+            }
+        }
+
         private void CreateQueue_Click(object sender, EventArgs e)
         {
-            CreateQueue(PlayerBase);
+            QPCounter.Start();
+            QueueCreation(PlayerBase);
+            QPCounter.Stop();
+            ResultBox.Text += "QueueCreation: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
+            ResultBox.Text += Environment.NewLine;
         }
 
         private void CreateStack_Click(object sender, EventArgs e)
         {
             QPCounter.Start();
-            CreateStack(PlayerBase);
+            StackCreation(PlayerBase);
             QPCounter.Stop();
-            ResultBox.Text = QPCounter.Duration(size).ToString();
+            ResultBox.Text += "StackCreation: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
+            ResultBox.Text += Environment.NewLine;
         }
 
         // Here all the creation methods are together. They are being called by button presses.
-        private void CreateStack(List<AD.Players> List)
+        private void StackCreation(List<AD.Players> List)
         {
             foreach (AD.Players player in List)
             {
@@ -140,7 +150,7 @@ namespace DLLAD
             }
         }
 
-        private void CreateQueue(List<AD.Players> List)
+        private void QueueCreation(List<AD.Players> List)
         {
             foreach (AD.Players player in List)
             {
@@ -156,6 +166,29 @@ namespace DLLAD
                 _RandomArray[count] = player;
                 count++;
             }
+        }
+
+        private void BubbleButton_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            AD.Sort.BubbleSort<AD.Players>.Sort(_RandomArray);
+            QPCounter.Stop();
+            ResultBox.Text += "Bubblesorted in: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
+            ResultBox.Text += Environment.NewLine;
+        }
+
+        private void SeqSearch_Click(object sender, EventArgs e)
+        {
+            int number = Convert.ToInt32(SearchBox.Text);
+            
+            int Answer = AD.Search.SequentialSearch<AD.Players>.SeqSearch(_RandomArray, number);
+
+            ResultBox.Text += "SeqSearch place: ";
+            ResultBox.Text += Answer.ToString();
+            ResultBox.Text += "Took: ";
+            ResultBox.Text += QPCounter.Duration(Answer).ToString();
+            ResultBox.Text += Environment.NewLine;
         }
     }
 }

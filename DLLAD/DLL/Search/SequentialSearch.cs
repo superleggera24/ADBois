@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace AD.Search
 {
-    public static class SequentialSearch
+    public static class SequentialSearch<T> where T : IComparable
     {
-        public static int SeqSearch(int[] random, int number)
+        public static int SeqSearch(T[] random, int number)
         {
             int place = 0;
             int count = 0;
-            foreach(int no in random)
+            foreach(T no in random)
             {
-                if(no == number)
+                if(random[count].CompareTo(number) < 0)
                 {
                     place = count;
                 }

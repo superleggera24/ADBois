@@ -8,7 +8,7 @@ namespace AD.Collections
 {
     public class RandStack<T>
     {
-        public static Stack<T> _RandomStack;
+        public static Stack<T> _RandomStack = new Stack<T>();
 
         public static Stack<T> RandomStack
         {

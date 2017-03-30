@@ -42,6 +42,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.CreateQueue = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.CreateStack = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage6 = new System.Windows.Forms.TabPage();
@@ -49,7 +50,6 @@
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.ResultBox = new System.Windows.Forms.TextBox();
             this.CreateListButton = new System.Windows.Forms.Button();
-            this.CreateStack = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -100,6 +100,7 @@
             this.SeqSearch.TabIndex = 8;
             this.SeqSearch.Text = "Sequential Search";
             this.SeqSearch.UseVisualStyleBackColor = true;
+            this.SeqSearch.Click += new System.EventHandler(this.SeqSearch_Click);
             // 
             // Max
             // 
@@ -162,6 +163,7 @@
             this.BubbleButton.TabIndex = 1;
             this.BubbleButton.Text = "BubbleSort";
             this.BubbleButton.UseVisualStyleBackColor = true;
+            this.BubbleButton.Click += new System.EventHandler(this.BubbleButton_Click);
             // 
             // button1
             // 
@@ -201,6 +203,16 @@
             this.tabPage3.Size = new System.Drawing.Size(374, 342);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Stack";
+            // 
+            // CreateStack
+            // 
+            this.CreateStack.Location = new System.Drawing.Point(4, 4);
+            this.CreateStack.Name = "CreateStack";
+            this.CreateStack.Size = new System.Drawing.Size(94, 51);
+            this.CreateStack.TabIndex = 0;
+            this.CreateStack.Text = "Create";
+            this.CreateStack.UseVisualStyleBackColor = true;
+            this.CreateStack.Click += new System.EventHandler(this.CreateStack_Click);
             // 
             // tabPage4
             // 
@@ -267,16 +279,6 @@
             this.CreateListButton.Text = "ListCreation";
             this.CreateListButton.UseVisualStyleBackColor = true;
             this.CreateListButton.Click += new System.EventHandler(this.CreateList_Click);
-            // 
-            // CreateStack
-            // 
-            this.CreateStack.Location = new System.Drawing.Point(4, 4);
-            this.CreateStack.Name = "CreateStack";
-            this.CreateStack.Size = new System.Drawing.Size(94, 51);
-            this.CreateStack.TabIndex = 0;
-            this.CreateStack.Text = "Create";
-            this.CreateStack.UseVisualStyleBackColor = true;
-            this.CreateStack.Click += new System.EventHandler(this.CreateStack_Click);
             // 
             // FormAD
             // 
