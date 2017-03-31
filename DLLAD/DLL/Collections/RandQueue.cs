@@ -15,6 +15,11 @@ namespace AD.Collections
             ListQueue.Enqueue(item);
         }
 
+        public virtual void Dequeue()
+        {
+            ListQueue.Dequeue();
+        }
+
         public Queue<T> GetListQueue()
         {
             return ListQueue;

@@ -14,11 +14,12 @@ namespace DLLAD
     
     public partial class FormAD : Form
     {
-
+        // Here the different collections are initiated for future use in the code
         public static List<AD.Players> PlayerBase = PlayerList<AD.Players>.PlayerBase;
         public static AD.Players[] _RandomArray = new AD.Players[300];
         public static RandStack<AD.Players> PlayerStack = new RandStack<AD.Players>();
-        public static RandQueue<AD.Players> PlayerQueue = new AD.Collections.RandQueue<AD.Players>();
+        public static RandQueue<AD.Players> PlayerQueue = new RandQueue<AD.Players>();
+        public static RandPriorityQueue<int, AD.Players> PlayerPriorityQueue = new RandPriorityQueue<int, AD.Players>();
 
         static Random random = new Random();
         static Random rnd = new Random();
@@ -110,6 +111,39 @@ namespace DLLAD
             }
             return stats;
         }
+        
+        private void CreateQueue_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            QueueCreation(PlayerBase);
+            QPCounter.Stop();
+            ResultBox.Text += "QueueCreation: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
+            ResultBox.Text += Environment.NewLine;
+        }
+
+        private void CreatePriorityQueue_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            CreatePQueue(PlayerBase);
+            QPCounter.Stop();
+            ResultBox.Text += "PriorityQueueCreation: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
+            ResultBox.Text += Environment.NewLine;
+            //ResultBox.Text += PlayerPriorityQueue.Count.ToString();
+        }
+
+        private void CreateStack_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            StackCreation(PlayerBase);
+            QPCounter.Stop();
+            ResultBox.Text += "StackCreation: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
+            ResultBox.Text += Environment.NewLine;
+        }
+
+        // Here all the creation methods are together. They are being called by button presses.
 
         public void ListCreation()
         {
@@ -129,35 +163,11 @@ namespace DLLAD
 
             }
         }
-
-        private void CreateQueue_Click(object sender, EventArgs e)
-        {
-            QPCounter.Start();
-            QueueCreation(PlayerBase);
-            QPCounter.Stop();
-            ResultBox.Text += "QueueCreation: ";
-            ResultBox.Text += QPCounter.Duration(size).ToString();
-            ResultBox.Text += Environment.NewLine;
-        }
-
-        private void CreateStack_Click(object sender, EventArgs e)
-        {
-            QPCounter.Start();
-            StackCreation(PlayerBase);
-            QPCounter.Stop();
-            ResultBox.Text += "StackCreation: ";
-            ResultBox.Text += QPCounter.Duration(size).ToString();
-            ResultBox.Text += Environment.NewLine;
-        }
-
-        // Here all the creation methods are together. They are being called by button presses.
         private void StackCreation(List<AD.Players> List)
         {
             foreach (AD.Players player in List)
             {
-
                 PlayerStack.Push(player);
-
             }
         }
 
@@ -177,6 +187,17 @@ namespace DLLAD
                 _RandomArray[count] = player;
                 count++;
             }
+        }
+
+        private void CreatePQueue(List<AD.Players> List)
+        {
+            int priority = 0;
+            foreach (AD.Players player in PlayerBase)
+            {
+                priority = RandomNo(2);
+                PlayerPriorityQueue.Enqueue(priority, player);
+            }
+
         }
 
         private void BubbleButton_Click(object sender, EventArgs e)
@@ -212,11 +233,6 @@ namespace DLLAD
             ResultBox.Text += Environment.NewLine;
         }
 
-        private void CreatePriorityQueue_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private string ShowArray()
         {
             string ShowResult = "";
@@ -232,6 +248,7 @@ namespace DLLAD
             return ShowResult;
         }
 
+        // For testing purposes only
         private void Show_Click(object sender, EventArgs e)
         {
             ResultBox.Text += Environment.NewLine;
