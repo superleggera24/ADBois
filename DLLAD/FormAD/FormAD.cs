@@ -54,7 +54,8 @@ namespace DLLAD
 
         public FormAD()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            ProgramStart();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -71,6 +72,16 @@ namespace DLLAD
         private void Max_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ProgramStart()
+        {
+            QPCounter.Start();
+            ListCreation();
+            QPCounter.Stop();
+            ResultBox.Text += "ListCreation: ";
+            ResultBox.Text += QPCounter.Duration(size);
+            ResultBox.Text += Environment.NewLine;
         }
 
         private void CreateList_Click(object sender, EventArgs e)
@@ -199,6 +210,11 @@ namespace DLLAD
             ResultBox.Text += "InsertSorted in: ";
             ResultBox.Text += QPCounter.Duration(size).ToString();
             ResultBox.Text += Environment.NewLine;
+        }
+
+        private void CreatePriorityQueue_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -49,11 +49,12 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.ResultBox = new System.Windows.Forms.TextBox();
-            this.CreateListButton = new System.Windows.Forms.Button();
+            this.CreatePriorityQueue = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -217,6 +218,7 @@
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.CreatePriorityQueue);
             this.tabPage4.Location = new System.Drawing.Point(4, 25);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
@@ -271,22 +273,21 @@
             this.ResultBox.Size = new System.Drawing.Size(320, 366);
             this.ResultBox.TabIndex = 1;
             // 
-            // CreateListButton
+            // CreatePriorityQueue
             // 
-            this.CreateListButton.Location = new System.Drawing.Point(431, 329);
-            this.CreateListButton.Name = "CreateListButton";
-            this.CreateListButton.Size = new System.Drawing.Size(95, 50);
-            this.CreateListButton.TabIndex = 9;
-            this.CreateListButton.Text = "ListCreation";
-            this.CreateListButton.UseVisualStyleBackColor = true;
-            this.CreateListButton.Click += new System.EventHandler(this.CreateList_Click);
+            this.CreatePriorityQueue.Location = new System.Drawing.Point(7, 7);
+            this.CreatePriorityQueue.Name = "CreatePriorityQueue";
+            this.CreatePriorityQueue.Size = new System.Drawing.Size(101, 51);
+            this.CreatePriorityQueue.TabIndex = 0;
+            this.CreatePriorityQueue.Text = "Create";
+            this.CreatePriorityQueue.UseVisualStyleBackColor = true;
+            this.CreatePriorityQueue.Click += new System.EventHandler(this.CreatePriorityQueue_Click);
             // 
             // FormAD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(899, 395);
-            this.Controls.Add(this.CreateListButton);
             this.Controls.Add(this.ResultBox);
             this.Controls.Add(this.tabControl1);
             this.Name = "FormAD";
@@ -296,6 +297,7 @@
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,8 +324,8 @@
         private System.Windows.Forms.Button SmartButton;
         private System.Windows.Forms.Button BubbleButton;
         private System.Windows.Forms.Button SeqSearch;
-        private System.Windows.Forms.Button CreateListButton;
         private System.Windows.Forms.Button CreateQueue;
         private System.Windows.Forms.Button CreateStack;
+        private System.Windows.Forms.Button CreatePriorityQueue;
     }
 }
