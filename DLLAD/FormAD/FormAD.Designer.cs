@@ -34,7 +34,7 @@
             this.Show = new System.Windows.Forms.Button();
             this.SeqSearch = new System.Windows.Forms.Button();
             this.Max = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.Min_Button = new System.Windows.Forms.Button();
             this.BinarySearch = new System.Windows.Forms.Button();
             this.SearchBox = new System.Windows.Forms.TextBox();
             this.InsertButton = new System.Windows.Forms.Button();
@@ -84,7 +84,7 @@
             this.tabPage1.Controls.Add(this.Show);
             this.tabPage1.Controls.Add(this.SeqSearch);
             this.tabPage1.Controls.Add(this.Max);
-            this.tabPage1.Controls.Add(this.button2);
+            this.tabPage1.Controls.Add(this.Min_Button);
             this.tabPage1.Controls.Add(this.BinarySearch);
             this.tabPage1.Controls.Add(this.SearchBox);
             this.tabPage1.Controls.Add(this.InsertButton);
@@ -139,15 +139,16 @@
             this.Max.UseVisualStyleBackColor = true;
             this.Max.Click += new System.EventHandler(this.Max_Click);
             // 
-            // button2
+            // Min_Button
             // 
-            this.button2.Location = new System.Drawing.Point(282, 229);
-            this.button2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(65, 62);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Min";
-            this.button2.UseVisualStyleBackColor = true;
+            this.Min_Button.Location = new System.Drawing.Point(282, 229);
+            this.Min_Button.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Min_Button.Name = "Min_Button";
+            this.Min_Button.Size = new System.Drawing.Size(65, 62);
+            this.Min_Button.TabIndex = 6;
+            this.Min_Button.Text = "Min";
+            this.Min_Button.UseVisualStyleBackColor = true;
+            this.Min_Button.Click += new System.EventHandler(this.Min_Button_Click);
             // 
             // BinarySearch
             // 
@@ -363,7 +364,7 @@
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.TextBox ResultBox;
         private System.Windows.Forms.Button Max;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button Min_Button;
         private System.Windows.Forms.Button BinarySearch;
         private System.Windows.Forms.TextBox SearchBox;
         private System.Windows.Forms.Button InsertButton;

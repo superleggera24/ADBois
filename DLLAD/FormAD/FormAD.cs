@@ -264,5 +264,15 @@ namespace DLLAD
             ResultBox.Text += QPCounter.Duration(size).ToString();
             ResultBox.Text += Environment.NewLine;
         }
+
+        private void Min_Button_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            AD.Players Min = AD.Search.Min<AD.Players>.Search(_RandomArray);
+            QPCounter.Stop();
+            ResultBox.Text += "Min in: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
+            ResultBox.Text += Environment.NewLine;
+        }
     }
 }
