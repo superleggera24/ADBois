@@ -216,5 +216,26 @@ namespace DLLAD
         {
 
         }
+
+        private string ShowArray()
+        {
+            string ShowResult = "";
+            foreach (AD.Players player in _RandomArray)
+            {
+                ShowResult += player.GetId().ToString();
+                ShowResult += " ";
+                ShowResult += player.GetName();
+                ShowResult += " ";
+                ShowResult += player.GetScore().ToString();
+                ShowResult += Environment.NewLine;
+            }
+            return ShowResult;
+        }
+
+        private void Show_Click(object sender, EventArgs e)
+        {
+            ResultBox.Text += Environment.NewLine;
+            ResultBox.Text += ShowArray();
+        }
     }
 }

@@ -50,6 +50,7 @@
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.ResultBox = new System.Windows.Forms.TextBox();
             this.CreatePriorityQueue = new System.Windows.Forms.Button();
+            this.Show = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -77,6 +78,7 @@
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.Show);
             this.tabPage1.Controls.Add(this.SeqSearch);
             this.tabPage1.Controls.Add(this.Max);
             this.tabPage1.Controls.Add(this.button2);
@@ -283,6 +285,16 @@
             this.CreatePriorityQueue.UseVisualStyleBackColor = true;
             this.CreatePriorityQueue.Click += new System.EventHandler(this.CreatePriorityQueue_Click);
             // 
+            // Show
+            // 
+            this.Show.Location = new System.Drawing.Point(120, 288);
+            this.Show.Name = "Show";
+            this.Show.Size = new System.Drawing.Size(75, 23);
+            this.Show.TabIndex = 9;
+            this.Show.Text = "Show";
+            this.Show.UseVisualStyleBackColor = true;
+            this.Show.Click += new System.EventHandler(this.Show_Click);
+            // 
             // FormAD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -327,5 +339,6 @@
         private System.Windows.Forms.Button CreateQueue;
         private System.Windows.Forms.Button CreateStack;
         private System.Windows.Forms.Button CreatePriorityQueue;
+        private System.Windows.Forms.Button Show;
     }
 }
