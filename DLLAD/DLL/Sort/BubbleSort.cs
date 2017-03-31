@@ -25,7 +25,7 @@ namespace AD.Sort
                         temp = array[j];
                         array[j] = array[j+1];
                         array[j+1] = temp;
-                        swapclass.Swap<T>(ref array[j], ref array[j + 1]);
+                        //swapclass.Swap<T>(ref array[j], ref array[j + 1]);
                     }
                 }
             }
