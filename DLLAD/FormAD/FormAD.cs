@@ -255,5 +255,14 @@ namespace DLLAD
             ResultBox.Text += ShowArray();
         }
 
+        private void SmartButton_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            _RandomArray = AD.Sort.SmartBubbleSort<AD.Players>.Sort(_RandomArray);
+            QPCounter.Stop();
+            ResultBox.Text += "SmartBubblesorted in: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
+            ResultBox.Text += Environment.NewLine;
+        }
     }
 }

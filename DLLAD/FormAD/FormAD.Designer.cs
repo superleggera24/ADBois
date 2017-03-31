@@ -30,6 +30,7 @@
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
             this.Show = new System.Windows.Forms.Button();
             this.SeqSearch = new System.Windows.Forms.Button();
             this.Max = new System.Windows.Forms.Button();
@@ -51,7 +52,6 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.ResultBox = new System.Windows.Forms.TextBox();
-            this.button3 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -98,6 +98,13 @@
             this.tabPage1.Size = new System.Drawing.Size(422, 431);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ArrayList";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(0, 0);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 0;
             // 
             // Show
             // 
@@ -180,6 +187,7 @@
             this.SmartButton.TabIndex = 2;
             this.SmartButton.Text = "Smart BubbleSort";
             this.SmartButton.UseVisualStyleBackColor = true;
+            this.SmartButton.Click += new System.EventHandler(this.SmartButton_Click);
             // 
             // BubbleButton
             // 
