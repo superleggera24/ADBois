@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace AD.Sort
 {
     public static class BubbleSort<T> where T : IComparable
@@ -24,7 +25,7 @@ namespace AD.Sort
                         temp = array[j];
                         array[j] = array[j+1];
                         array[j+1] = temp;
-                        //swapclass.Swap<T>(ref Random[j], ref Random[j + 1]);
+                        swapclass.Swap<T>(ref array[j], ref array[j + 1]);
                     }
                 }
             }

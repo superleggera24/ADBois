@@ -20,8 +20,6 @@ namespace AD
             Highscore = highscore;
         }
 
-        
-
         public int GetId()
         {
             return ID;
@@ -37,12 +35,32 @@ namespace AD
             return this.Highscore;
         }
 
-       
-
         public int CompareTo(object obj)
         {
-            return 1;
-            // Hier moet nog een functie in!
+            Players other = obj as Players;
+            if (other == null) return 1;
+            return Highscore.CompareTo(other.Highscore);
+         }
+
+        public static bool operator > (Players operand1, Players operand2 )
+        {
+            return operand1.CompareTo(operand2) == 1;
+        }
+
+        public static bool operator <(Players operand1, Players operand2)
+        {
+            return operand1.CompareTo(operand2) == -1;
+        }
+
+        public static bool operator >= (Players operand1, Players operand2)
+        {
+            return operand1.CompareTo(operand2) >= 0;
+        }
+
+        public static bool operator <= (Players operand1, Players operand2)
+        {
+            return operand1.CompareTo(operand2) <= 0;
         }
     }
 }
+

@@ -254,5 +254,6 @@ namespace DLLAD
             ResultBox.Text += Environment.NewLine;
             ResultBox.Text += ShowArray();
         }
+
     }
 }
