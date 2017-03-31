@@ -203,7 +203,7 @@ namespace DLLAD
         private void BubbleButton_Click(object sender, EventArgs e)
         {
             QPCounter.Start();
-            AD.Sort.BubbleSort<AD.Players>.Sort(_RandomArray);
+            _RandomArray = AD.Sort.BubbleSort<AD.Players>.Sort(_RandomArray);
             QPCounter.Stop();
             ResultBox.Text += "Bubblesorted in: ";
             ResultBox.Text += QPCounter.Duration(size).ToString();
