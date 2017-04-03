@@ -14,9 +14,12 @@ namespace AD.Search
             for (int i = 0; i < array.Length - 1; i++)
             {
                 if (array[i].CompareTo (min) < 0)
-                    min = array[i];
+                min = array[i];
+
             }
             return min;
         }
+
+
     }
 }

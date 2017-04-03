@@ -72,7 +72,12 @@ namespace DLLAD
 
         private void Max_Click(object sender, EventArgs e)
         {
-
+            QPCounter.Start();
+            AD.Players Max = AD.Search.Max<AD.Players>.Search(_RandomArray);
+            QPCounter.Stop();
+            ResultBox.Text += "Max in: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
+            ResultBox.Text += Environment.NewLine;
         }
 
         private void ProgramStart()
@@ -271,6 +276,16 @@ namespace DLLAD
             AD.Players Min = AD.Search.Min<AD.Players>.Search(_RandomArray);
             QPCounter.Stop();
             ResultBox.Text += "Min in: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
+            ResultBox.Text += Environment.NewLine;
+        }
+
+        private void Queue_button_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            AD.Queue_s.Queue<AD.Players>.Queue_s(_RandomArray);
+            QPCounter.Stop();
+            ResultBox.Text += "Queue in: ";
             ResultBox.Text += QPCounter.Duration(size).ToString();
             ResultBox.Text += Environment.NewLine;
         }

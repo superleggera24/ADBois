@@ -52,6 +52,7 @@
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.ResultBox = new System.Windows.Forms.TextBox();
+            this.Queue_button = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -214,6 +215,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.Queue_button);
             this.tabPage2.Controls.Add(this.CreateQueue);
             this.tabPage2.Location = new System.Drawing.Point(4, 29);
             this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -329,6 +331,17 @@
             this.ResultBox.Size = new System.Drawing.Size(360, 456);
             this.ResultBox.TabIndex = 1;
             // 
+            // Queue_button
+            // 
+            this.Queue_button.Location = new System.Drawing.Point(7, 78);
+            this.Queue_button.Name = "Queue_button";
+            this.Queue_button.Size = new System.Drawing.Size(107, 56);
+            this.Queue_button.TabIndex = 2;
+            this.Queue_button.Text = "Queue";
+            this.Queue_button.UseMnemonic = false;
+            this.Queue_button.UseVisualStyleBackColor = true;
+            this.Queue_button.Click += new System.EventHandler(this.Queue_button_Click);
+            // 
             // FormAD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -376,5 +389,6 @@
         private System.Windows.Forms.Button CreatePriorityQueue;
         private System.Windows.Forms.Button Show;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button Queue_button;
     }
 }
