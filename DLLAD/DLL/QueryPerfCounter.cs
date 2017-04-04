@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.ComponentModel;
 //make calls to native Win32 functions
 using System.Runtime.InteropServices;
+using System.Diagnostics;
 
 namespace AD
 {
@@ -35,6 +36,9 @@ namespace AD
                 // Frequency not supported
                 throw new Win32Exception();
             }
+            //zet het proces vast aan processor 2
+            Process.GetCurrentProcess().PriorityClass = ProcessPriorityClass.High;
+            Process.GetCurrentProcess().ProcessorAffinity = (IntPtr)0x00002;
         }
 
         //Start methode om current value van QueryPerformanceCounter te krijgen
