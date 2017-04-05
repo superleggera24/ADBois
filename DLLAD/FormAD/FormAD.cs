@@ -19,11 +19,12 @@ namespace DLLAD
         public static AD.Players[] _RandomArray = new AD.Players[300];
         public static RandStack<AD.Players> PlayerStack = new RandStack<AD.Players>();
         public static RandQueue<AD.Players> PlayerQueue = new RandQueue<AD.Players>();
-        public static RandPriorityQueue<int, AD.Players> PlayerPriorityQueue = new RandPriorityQueue<int, AD.Players>();
+        public static RandLinkedList<AD.Players> PlayerLinkedList = new RandLinkedList<AD.Players>();
 
         static Random random = new Random();
         static Random rnd = new Random();
         public static int size = 300;
+        int count = 0;
         private AD.QueryPerfCounter QPCounter = new AD.QueryPerfCounter();
 
         
@@ -167,7 +168,7 @@ namespace DLLAD
         {
             foreach (AD.Players player in List)
             {
-                PlayerStack.Push(player);
+                PlayerStack.push(player);
             }
         }
 
@@ -192,12 +193,29 @@ namespace DLLAD
         private void CreatePQueue(List<AD.Players> List)
         {
             int priority = 0;
-            foreach (AD.Players player in PlayerBase)
+            foreach (AD.Players player in List)
             {
                 priority = RandomNo(2);
-                PlayerPriorityQueue.Enqueue(priority, player);
+                //PlayerPriorityQueue.Enqueue(priority, player);
             }
+        }
 
+        private void LinkedListCreation(List<AD.Players> List)
+        {
+            
+            foreach (AD.Players player in List)
+            {
+                if(count == 0)
+                {
+                    //PlayerLinkedList.AddFirst(player);
+                    count++;
+                }
+                else if (count > 0)
+                {
+                    //PlayerLinkedList.AddFirst(player);
+                }
+                
+            }
         }
 
         private void BubbleButton_Click(object sender, EventArgs e)
@@ -263,6 +281,21 @@ namespace DLLAD
             ResultBox.Text += "SmartBubblesorted in: ";
             ResultBox.Text += QPCounter.Duration(size).ToString();
             ResultBox.Text += Environment.NewLine;
+        }
+
+        private void CreateLinkedList_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            LinkedListCreation(PlayerBase);
+            QPCounter.Stop();
+            ResultBox.Text += "LinkedList created in: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
+            ResultBox.Text += Environment.NewLine;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

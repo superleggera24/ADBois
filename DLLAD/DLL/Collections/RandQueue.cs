@@ -8,29 +8,36 @@ namespace AD.Collections
 {
     public class RandQueue<T>
     {
-        public static Queue<T> ListQueue = new Queue<T>();
+        private List<T> Queue;
+
+        public RandQueue()
+        {
+            Queue = new List<T>();
+        }
 
         public void Enqueue(T item)
         {
-            ListQueue.Enqueue(item);
+            Queue.Add(item);
         }
 
         public virtual void Dequeue()
         {
-            ListQueue.Dequeue();
+            Queue.RemoveAt(0);
         }
 
-        public Queue<T> GetListQueue()
+        public object Peek()
         {
-            return ListQueue;
+            return Queue[0];
         }
 
-        public static void CreateQueue(List<T> List)
+        public void ClearQueue()
         {
-            foreach (T item in List)
-            {
-                ListQueue.Enqueue(item);
-            }
+            Queue.Clear();
+        }
+
+        public int Count()
+        {
+            return Queue.Count;
         }
     }
 }

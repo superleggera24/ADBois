@@ -8,45 +8,43 @@ namespace AD.Collections
 {
     public class RandStack<T>
     {
-        public static Stack<T> _RandomStack = new Stack<T>();
-
-        public static Stack<T> RandomStack
+        private int p_index;
+        private List<T> list;
+        
+        public RandStack()
         {
-            get { return _RandomStack; }
+            list = new List<T>();
+            p_index = -1;
         }
 
-        private static int highest;
-        public static int Highest
+        public int count
         {
-            get { return highest; }
-            set { highest = value; }
-        }
-        private static int lowest;
-        public static int Lowest
-        {
-            get { return lowest; }
-            set { lowest = value; }
+            get { return list.Count; }
         }
 
-        public static void InitiateRandStack(List<T> List)
+        public void push(T item)
         {
-            _RandomStack = new Stack<T>();
-            Random RandomNo = new Random();
-            foreach (T player in List)
-            {
-
-                _RandomStack.Push(player);
-
-            }
-        }
-        public void Push(T item)
-        {
-            _RandomStack.Push(item);
+            list.Add(item);
+            p_index++;
         }
 
-        public static T PeekStack()
+        public T pop()
         {
-            return _RandomStack.Peek();
+            T obj = list[p_index];
+            list.RemoveAt(p_index);
+            p_index--;
+            return obj;
+        }
+
+        public void clear()
+        {
+            list.Clear();
+            p_index = -1;
+        }
+
+        public T peek()
+        {
+            return list[p_index];
         }
     }
 }
