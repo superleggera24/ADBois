@@ -6,14 +6,16 @@ using System.Threading.Tasks;
 
 namespace AD.Search
 {
-    public static class Max
+    public static class Max<T> where T : IComparable
     {
-        public static int MaxNumber(this int[] arr)
+        public static T Search(T[] array)
         {
-            int max = arr[0];
-            for (int i = 0; i < arr.Length - 1; i++)
-                if (arr[i] > max)
-                    max = arr[i];
+            T max = array[0];
+            for (int i = 0; i < array.Length - 1; i++)
+            {
+                if (array[i].CompareTo(max) > 0)
+                    max = array[i];
+            }
             return max;
         }
     }

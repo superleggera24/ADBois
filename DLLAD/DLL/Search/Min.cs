@@ -6,17 +6,20 @@ using System.Threading.Tasks;
 
 namespace AD.Search
 {
-    public static class Min
+    public static class Min<T> where T : IComparable
     {
-        public static int MinNumber(this int[] arr)
+        public static T Search(T[] array)
         {
-            int min = arr[0];
-            for (int i = 0; i < arr.Length - 1; i++)
+            T min = array[0];
+            for (int i = 0; i < array.Length - 1; i++)
             {
-                if (arr[i] < min)
-                    min = arr[i];
+                if (array[i].CompareTo (min) < 0)
+                min = array[i];
+
             }
             return min;
         }
+
+
     }
 }

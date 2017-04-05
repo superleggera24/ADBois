@@ -9,13 +9,8 @@ namespace AD.Collections
     public class BinarySearchTree<Tkey, Tvalue> where Tkey : IComparable<Tkey>
     {
 
-        //public BinaryNode<T> parent { get; set; }
-        //public BinaryNode<T> left { get; set; }
-        //public BinaryNode<T> right { get; set; }
-
-
         //protected class, alleen zichtbaar voor classes binnen top level class BinarySearchTree
-        protected class BinaryKeyValueNode<Tkey, Tvalue> where Tkey : IComparable<Tkey> //maak de nodes comparable met elk andere type dat IComparable implementeerd
+        protected class BinaryKeyValueNode<Tkey, Tvalue> where Tkey : IComparable<Tkey> //maak de key comparable met elk andere type dat IComparable implementeerd
         {
             public Tkey Key { get; set; } // key value van de node
             public Tvalue Value { get; set; } // value bijbehorende de node
