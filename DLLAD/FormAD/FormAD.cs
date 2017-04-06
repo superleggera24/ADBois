@@ -20,6 +20,9 @@ namespace DLLAD
         public static RandStack<AD.Players> PlayerStack = new RandStack<AD.Players>();
         public static RandQueue<AD.Players> PlayerQueue = new RandQueue<AD.Players>();
         public static RandLinkedList<AD.Players> PlayerLinkedList = new RandLinkedList<AD.Players>();
+        public static DoublyLinkedList<AD.Players> PlayerDoublyLinkedList = new DoublyLinkedList<AD.Players>();
+        public static BinarySearchTree<AD.Players> PlayerBinarySearchTree = new BinarySearchTree<AD.Players>();
+        public static BinaryNode<AD.Players> PlayerBinaryNode = new BinaryNode<AD.Players>();
 
         static Random random = new Random();
         static Random rnd = new Random();
@@ -220,6 +223,24 @@ namespace DLLAD
             }
         }
 
+        private void DoublyListCreation(List<AD.Players> List)
+        {
+            foreach (AD.Players player in List)
+            {
+                PlayerDoublyLinkedList.Add(player);
+            }
+        }
+
+        private void CreateBinarySearchTree(List<AD.Players> List)
+        {
+            int key = 0;
+            foreach (AD.Players player in List)
+            {
+                key = player.GetScore();
+                PlayerBinarySearchTree.Insert(player);
+            }
+        }
+
         private void BubbleButton_Click(object sender, EventArgs e)
         {
             QPCounter.Start();
@@ -268,6 +289,27 @@ namespace DLLAD
             return ShowResult;
         }
 
+        public string FormBinarySearch(int key)
+        {
+            string answer = "";
+            //PlayerBinaryNode = BinarySearchTree<int, AD.Players>.FindNode(key);
+            AD.Players player = PlayerBinaryNode.Data;
+            answer = player.GetId().ToString();
+            return answer;
+        }
+
+        public AD.Players MaxBinSearch()
+        {
+            AD.Players player = BinarySearchTree<AD.Players>.FindMax();
+            return player;
+        }
+
+        public AD.Players MinBinSearch()
+        {
+            AD.Players player = BinarySearchTree<AD.Players>.FindMin();
+            return player;
+        }
+
         // For testing purposes only
         private void Show_Click(object sender, EventArgs e)
         {
@@ -295,6 +337,8 @@ namespace DLLAD
             ResultBox.Text += Environment.NewLine;
         }
 
+        
+
         private void button3_Click(object sender, EventArgs e)
         {
 
@@ -313,6 +357,75 @@ namespace DLLAD
             ResultBox.Text += player.GetName();
             ResultBox.Text += " ";
             ResultBox.Text += player.GetScore().ToString();
+            ResultBox.Text += Environment.NewLine;
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            DoublyListCreation(PlayerBase);
+            QPCounter.Stop();
+            ResultBox.Text += "DoublyLinkedList created in: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
+            ResultBox.Text += Environment.NewLine;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            ResultBox.Text = "";
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            CreateBinarySearchTree(PlayerBase);
+            QPCounter.Stop();
+            ResultBox.Text += "BinarySearchTree created in: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
+            ResultBox.Text += Environment.NewLine;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            string answer = "";// = FormBinarySearch(Convert.ToInt32(numericUpDown1.Text));
+            QPCounter.Stop();
+            ResultBox.Text += "Searched for: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
+            ResultBox.Text += Environment.NewLine;
+            ResultBox.Text += answer;
+            ResultBox.Text += Environment.NewLine;
+        }
+
+        private void BinaryMin_Click(object sender, EventArgs e)
+        {
+            AD.Players player;
+            QPCounter.Start();
+            player = MinBinSearch();
+            QPCounter.Stop();
+            ResultBox.Text += "Min in Binarytree is: ";
+            ResultBox.Text += player.GetName();
+            ResultBox.Text += " ";
+            ResultBox.Text += player.GetScore().ToString();
+            ResultBox.Text += Environment.NewLine;
+            ResultBox.Text += "Searched for: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
+            ResultBox.Text += Environment.NewLine;
+        }
+
+        private void BinaryMax_Click(object sender, EventArgs e)
+        {
+            AD.Players player;
+            QPCounter.Start();
+            player = MaxBinSearch();
+            QPCounter.Stop();
+            ResultBox.Text += "Min in Binarytree is: ";
+            ResultBox.Text += player.GetName();
+            ResultBox.Text += " ";
+            ResultBox.Text += player.GetScore().ToString();
+            ResultBox.Text += Environment.NewLine;
+            ResultBox.Text += "Searched for: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
             ResultBox.Text += Environment.NewLine;
         }
     }

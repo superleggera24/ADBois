@@ -9,6 +9,12 @@ namespace AD.Collections
     public class Node<T>// where T : IComparable
     {
         public Node<T> next;
-        public T data;
+        public Node<T> prev;
+        public T data { get; set; }
+
+        public Node(T Data)
+            {
+            data = Data;
+            }
     }
 }

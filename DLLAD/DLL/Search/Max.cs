@@ -11,7 +11,7 @@ namespace AD.Search
         public static T Search(T[] array)
         {
             T max = array[0];
-            for (int i = 0; i < array.Length - 1; i++)
+            for (int i = 0; i < array.Length; i++)
             {
                 if (array[i].CompareTo(max) > 0)
                     max = array[i];

@@ -15,14 +15,14 @@ namespace AD.Collections
             Node<T> current = head;
             while (current != null)
             {
-                Console.WriteLine(current.data);
+                //Console.WriteLine(current.data);
                 current = current.next;
             }
         }
 
         public void AddFirst(T data)
         {
-            Node<T> toAdd = new Node<T>();
+            Node<T> toAdd = new Node<T>(data);
 
             toAdd.data = data;
             toAdd.next = head;
@@ -34,14 +34,14 @@ namespace AD.Collections
         {
             if (head == null)
             {
-                head = new Node<T>();
+                head = new Node<T>(data);
 
                 head.data = data;
                 head.next = null;
             }
             else
             {
-                Node<T> toAdd = new Node<T>();
+                Node<T> toAdd = new Node<T>(data);
                 toAdd.data = data;
 
                 Node<T> current = head;
