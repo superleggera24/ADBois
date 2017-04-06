@@ -82,8 +82,6 @@
             // 
             this.tabPage1.Controls.Add(this.Show);
             this.tabPage1.Controls.Add(this.SeqSearch);
-            this.tabPage1.Controls.Add(this.Max);
-            this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.BinarySearch);
             this.tabPage1.Controls.Add(this.SearchBox);
             this.tabPage1.Controls.Add(this.InsertButton);
@@ -119,9 +117,9 @@
             // 
             // Max
             // 
-            this.Max.Location = new System.Drawing.Point(307, 183);
+            this.Max.Location = new System.Drawing.Point(437, 164);
             this.Max.Name = "Max";
-            this.Max.Size = new System.Drawing.Size(57, 50);
+            this.Max.Size = new System.Drawing.Size(58, 50);
             this.Max.TabIndex = 7;
             this.Max.Text = "Max";
             this.Max.UseVisualStyleBackColor = true;
@@ -129,12 +127,13 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(251, 183);
+            this.button2.Location = new System.Drawing.Point(437, 117);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(58, 50);
             this.button2.TabIndex = 6;
             this.button2.Text = "Min";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // BinarySearch
             // 
@@ -316,6 +315,8 @@
             this.ClientSize = new System.Drawing.Size(899, 395);
             this.Controls.Add(this.ResultBox);
             this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.Max);
+            this.Controls.Add(this.button2);
             this.Name = "FormAD";
             this.Text = "FormAD";
             this.tabControl1.ResumeLayout(false);

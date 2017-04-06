@@ -6,9 +6,7 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
-    public class Node<T>// where T : IComparable
+    class DoublyLinkedList
     {
-        public Node<T> next;
-        public T data;
     }
 }

@@ -73,7 +73,18 @@ namespace DLLAD
 
         private void Max_Click(object sender, EventArgs e)
         {
-
+            QPCounter.Start();
+            AD.Players player = AD.Search.Max<AD.Players>.Search(_RandomArray);
+            QPCounter.Stop();
+            ResultBox.Text += "Max found in: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
+            ResultBox.Text += Environment.NewLine;
+            ResultBox.Text += player.GetId().ToString();
+            ResultBox.Text += " ";
+            ResultBox.Text += player.GetName();
+            ResultBox.Text += " ";
+            ResultBox.Text += player.GetScore().ToString();
+            ResultBox.Text += Environment.NewLine;
         }
 
         private void ProgramStart()
@@ -202,18 +213,9 @@ namespace DLLAD
 
         private void LinkedListCreation(List<AD.Players> List)
         {
-            
             foreach (AD.Players player in List)
             {
-                if(count == 0)
-                {
-                    //PlayerLinkedList.AddFirst(player);
-                    count++;
-                }
-                else if (count > 0)
-                {
-                    //PlayerLinkedList.AddFirst(player);
-                }
+                PlayerLinkedList.AddLast(player);
                 
             }
         }
@@ -296,6 +298,22 @@ namespace DLLAD
         private void button3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            AD.Players player = AD.Search.Min<AD.Players>.Search(_RandomArray);
+            QPCounter.Stop();
+            ResultBox.Text += "Min found in: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
+            ResultBox.Text += Environment.NewLine;
+            ResultBox.Text += player.GetId().ToString();
+            ResultBox.Text += " ";
+            ResultBox.Text += player.GetName();
+            ResultBox.Text += " ";
+            ResultBox.Text += player.GetScore().ToString();
+            ResultBox.Text += Environment.NewLine;
         }
     }
 }

@@ -8,60 +8,49 @@ namespace AD.Collections
 {
     public class RandLinkedList<T> where T : IComparable
     {
-        protected Node<T> header;
+        private Node<T> head;        
 
-        public RandLinkedList()
+        public void printAllNodes()
         {
-            header = new Node<T>();
-        }
-
-        private Node<T> Find(Node<T> item)
-        {
-            Node<T> current = new Node<T>();
-            current = header;
-            while(header != item) // header != item)
+            Node<T> current = head;
+            while (current != null)
             {
-                current = current.Link;
-            }
-            return current;
-        }
-
-        public void Insert(T newItem, Node<T> after)
-        {
-            Node<T> current = new Node<T>();
-            Node<T> newNode = new Node<T>(newItem);
-            current = Find(after);
-            newNode.Link = current.Link;
-            current.Link = newNode;
-        }
-
-        private Node<T> FindPrevious(Node<T> item)
-        {
-            Node<T> current = header;
-            while(!(current.Link == null) && (current.Link != item))
-            {
-                current = current.Link;
-            }
-            return current;
-        }
-
-        public void Remove(Node<T> n)
-        {
-            Node<T> p = FindPrevious(n);
-            if (!(p.Link == null))
-            {
-                p.Link = p.Link.Link;
+                Console.WriteLine(current.data);
+                current = current.next;
             }
         }
 
-        public void PrintList()
+        public void AddFirst(T data)
         {
-            Node<T> current = new Node<T>();
-            current = header;
-            while (!(current.Link == null))
+            Node<T> toAdd = new Node<T>();
+
+            toAdd.data = data;
+            toAdd.next = head;
+
+            head = toAdd;
+        }
+
+        public void AddLast(T data)
+        {
+            if (head == null)
             {
-                // Console.WriteLine(current.Link.Element);
-                current = current.Link;
+                head = new Node<T>();
+
+                head.data = data;
+                head.next = null;
+            }
+            else
+            {
+                Node<T> toAdd = new Node<T>();
+                toAdd.data = data;
+
+                Node<T> current = head;
+                while (current.next != null)
+                {
+                    current = current.next;
+                }
+
+                current.next = toAdd;
             }
         }
     }
