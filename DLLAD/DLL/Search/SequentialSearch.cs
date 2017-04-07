@@ -14,7 +14,7 @@ namespace AD.Search
             int count = 0;
             foreach(T no in random)
             {
-                if(random[count].CompareTo(number) < 0)
+                if(random[count].CompareTo(number) == 0)
                 {
                     place = count;
                 }
