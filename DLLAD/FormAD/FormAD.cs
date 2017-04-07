@@ -30,7 +30,21 @@ namespace DLLAD
         int count = 0;
         private AD.QueryPerfCounter QPCounter = new AD.QueryPerfCounter();
 
-        
+        public string Logger(string method, double duration, AD.Players player, string output, int action)
+        {
+            StringBuilder build = new StringBuilder();
+            string time = duration.ToString();
+            if (action == 1)
+            {
+                build.AppendFormat("{0} in: {1}. {2}", method, time, Environment.NewLine);
+            } 
+            else if (action == 2)
+            {
+                build.AppendFormat("{0} found in: {1}. {2}Found at: {3}. {2}", method, time, Environment.NewLine, output);
+            }
+            string result = build.ToString();
+            return result;
+        } 
 
         public void NewPlayer(int Id, string Name, int Score)
         {
@@ -69,9 +83,7 @@ namespace DLLAD
             QPCounter.Start();
             CreateArray(PlayerBase);
             QPCounter.Stop();
-            ResultBox.Text += "ArrayCreation: ";
-            ResultBox.Text += QPCounter.Duration(size).ToString();
-            ResultBox.Text += Environment.NewLine;
+            ResultBox.Text += Logger("ArrayCreation", QPCounter.Duration(size), null, null, 1);
         }
 
         private void Max_Click(object sender, EventArgs e)
@@ -95,9 +107,7 @@ namespace DLLAD
             QPCounter.Start();
             ListCreation();
             QPCounter.Stop();
-            ResultBox.Text += "ListCreation: ";
-            ResultBox.Text += QPCounter.Duration(size);
-            ResultBox.Text += Environment.NewLine;
+            ResultBox.Text += Logger("ListCreation", QPCounter.Duration(size), null, null, 1);
         }
 
         private void CreateList_Click(object sender, EventArgs e)
@@ -132,9 +142,7 @@ namespace DLLAD
             QPCounter.Start();
             QueueCreation(PlayerBase);
             QPCounter.Stop();
-            ResultBox.Text += "QueueCreation: ";
-            ResultBox.Text += QPCounter.Duration(size).ToString();
-            ResultBox.Text += Environment.NewLine;
+            ResultBox.Text += Logger("QueueCreation", QPCounter.Duration(size), null, null, 1);
         }
 
         private void CreatePriorityQueue_Click(object sender, EventArgs e)
@@ -142,9 +150,7 @@ namespace DLLAD
             QPCounter.Start();
             CreatePQueue(PlayerBase);
             QPCounter.Stop();
-            ResultBox.Text += "PriorityQueueCreation: ";
-            ResultBox.Text += QPCounter.Duration(size).ToString();
-            ResultBox.Text += Environment.NewLine;
+            ResultBox.Text += Logger("PriorityQueueCreation", QPCounter.Duration(size), null, null, 1);
             //ResultBox.Text += PlayerPriorityQueue.Count.ToString();
         }
 
@@ -153,9 +159,9 @@ namespace DLLAD
             QPCounter.Start();
             StackCreation(PlayerBase);
             QPCounter.Stop();
-            ResultBox.Text += "StackCreation: ";
-            ResultBox.Text += QPCounter.Duration(size).ToString();
-            ResultBox.Text += Environment.NewLine;
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("StackCreation", duration, null, null, 1);
+            
         }
 
         // Here all the creation methods are together. They are being called by button presses.
@@ -246,9 +252,8 @@ namespace DLLAD
             QPCounter.Start();
             _RandomArray = AD.Sort.BubbleSort<AD.Players>.Sort(_RandomArray);
             QPCounter.Stop();
-            ResultBox.Text += "Bubblesorted in: ";
-            ResultBox.Text += QPCounter.Duration(size).ToString();
-            ResultBox.Text += Environment.NewLine;
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("Bubblesorted", duration, null, null, 1);
         }
 
         private void SeqSearch_Click(object sender, EventArgs e)
@@ -256,12 +261,8 @@ namespace DLLAD
             int number = Convert.ToInt32(SearchBox.Text);
             
             int Answer = AD.Search.SequentialSearch<AD.Players>.SeqSearch(_RandomArray, number);
-
-            ResultBox.Text += "SeqSearch place: ";
-            ResultBox.Text += Answer.ToString();
-            ResultBox.Text += "Took: ";
-            ResultBox.Text += QPCounter.Duration(Answer).ToString();
-            ResultBox.Text += Environment.NewLine;
+            double duration = QPCounter.Duration(Answer);
+            ResultBox.Text += Logger(number.ToString(), duration, null, Answer.ToString(), 2);
         }
 
         private void InsertButton_Click(object sender, EventArgs e)
@@ -269,9 +270,8 @@ namespace DLLAD
             QPCounter.Start();
             AD.Sort.InsertSort<AD.Players>.InsertSortArrayList(_RandomArray);
             QPCounter.Stop();
-            ResultBox.Text += "InsertSorted in: ";
-            ResultBox.Text += QPCounter.Duration(size).ToString();
-            ResultBox.Text += Environment.NewLine;
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("InsertSorted", duration, null, null, 1);
         }
 
         private string ShowArray()
