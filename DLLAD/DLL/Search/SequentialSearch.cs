@@ -11,14 +11,12 @@ namespace AD.Search
         public static int SeqSearch(T[] random, int number)
         {
             int place = 0;
-            int count = 0;
-            foreach(T no in random)
+            for(int count = 0; count < random.Length-1; count++)
             {
                 if(random[count].CompareTo(number) == 0)
                 {
                     place = count;
                 }
-                count++;
             }
             return place;
         }
