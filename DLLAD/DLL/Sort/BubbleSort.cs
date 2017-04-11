@@ -18,7 +18,7 @@ namespace AD.Sort
                 //loop door array -1, j
                 for (var j = 0; j < array.Length - 1; j++)
                 {
-                    //wanneer de waarde groter is dan de volgende waarde word hieronder dmv swapclass.cs de waardes omgedraaid
+                    //wanneer de waarde groter is dan de volgende waarde word deze hieronder omgedraaid
                     if (array[j].CompareTo(array[j + 1]) > 0)
                     {
                         T temp;
