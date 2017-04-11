@@ -9,7 +9,7 @@ namespace AD.Collections
 {
     public class BucketHash<T> where T : IComparable
     {
-        private const int SIZE = 131;
+        private const int SIZE = 101;
 
         ArrayList[] data;
 
@@ -40,7 +40,7 @@ namespace AD.Collections
             return (int)tot;
         }
 
-        public void Insert(string item)
+        public void Insert(T item)
         {
             int hash_value;
             hash_value = Hash("value");
@@ -50,7 +50,7 @@ namespace AD.Collections
             }
         }
 
-        public void Remove(string item)
+        public void Remove(T item)
         {
             int hash_value;
             hash_value = Hash(item);
