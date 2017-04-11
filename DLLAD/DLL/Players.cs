@@ -35,11 +35,22 @@ namespace AD
             return this.Highscore;
         }
 
-        public int CompareTo(object obj)
+        public int CompareTo(Players player2)
         {
-            Players other = obj as Players;
-            if (other == null) return 1;
-            return Highscore.CompareTo(other.Highscore);
+            if (player2 == null) return 2;
+            return Highscore.CompareTo(player2.Highscore);
+            if (Highscore > player2.Highscore)
+            {
+                return 1;
+            }
+            else if (Highscore < player2.Highscore)
+            {
+                return -1;
+            }
+            else if (Highscore == player2.Highscore)
+            {
+                return 0;
+            }
          }
 
         public static bool operator > (Players operand1, Players operand2 )
