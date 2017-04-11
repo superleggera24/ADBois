@@ -13,7 +13,7 @@ namespace AD.Search
             T min = array[0];
             for (int i = 0; i < array.Length - 1; i++)
             {
-                if (array[i].CompareTo (min) < 0)
+                if (array[i].CompareTo(min) < 0)
                 min = array[i];
 
             }

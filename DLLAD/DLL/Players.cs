@@ -35,42 +35,39 @@ namespace AD
             return this.Highscore;
         }
 
-        public int CompareTo(Players player2)
+        public int CompareTo(object obj)
         {
-            if (player2 == null) return 2;
-            return Highscore.CompareTo(player2.Highscore);
-            if (Highscore > player2.Highscore)
+            int value = 0;
+            Players player2 = obj as AD.Players;
+
+            if (player2 == null)
             {
-                return 1;
+                value = 2;
             }
             else if (Highscore < player2.Highscore)
             {
-                return -1;
+                value = -1;
             }
             else if (Highscore == player2.Highscore)
             {
-                return 0;
+                value = 0;
             }
-         }
-
-        public static bool operator > (Players operand1, Players operand2 )
-        {
-            return operand1.CompareTo(operand2) == 1;
+            else if (Highscore > player2.Highscore)
+            {
+                value = 1;
+            }
+            return value;
         }
 
-        public static bool operator <(Players operand1, Players operand2)
+        public override bool Equals(object player2)
         {
-            return operand1.CompareTo(operand2) == -1;
-        }
-
-        public static bool operator >= (Players operand1, Players operand2)
-        {
-            return operand1.CompareTo(operand2) >= 0;
-        }
-
-        public static bool operator <= (Players operand1, Players operand2)
-        {
-            return operand1.CompareTo(operand2) <= 0;
+            int score = Convert.ToInt32(player2);
+            bool value = false;
+            if (Highscore == score)
+            {
+                value = true;
+            }
+            return value;
         }
     }
 }

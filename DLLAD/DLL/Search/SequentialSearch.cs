@@ -13,7 +13,7 @@ namespace AD.Search
             int place = 0;
             for(int count = 0; count < random.Length-1; count++)
             {
-                if(random[count].CompareTo(number) == 0)
+                if(random[count].Equals(number))
                 {
                     place = count;
                 }

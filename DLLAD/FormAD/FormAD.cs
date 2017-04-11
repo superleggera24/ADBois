@@ -27,7 +27,6 @@ namespace DLLAD
         static Random random = new Random();
         static Random rnd = new Random();
         public static int size = 300;
-        int count = 0;
         private AD.QueryPerfCounter QPCounter = new AD.QueryPerfCounter();
 
         public string Logger(string method, double duration, AD.Players player, string output, int action)
@@ -292,7 +291,7 @@ namespace DLLAD
         public string FormBinarySearch(int key)
         {
             string answer = "";
-            //PlayerBinaryNode = BinarySearchTree<int, AD.Players>.FindNode(key);
+            PlayerBinaryNode = BinarySearchTree<AD.Players>.Find(key);
             AD.Players player = PlayerBinaryNode.Data;
             answer = player.GetId().ToString();
             return answer;
@@ -388,7 +387,7 @@ namespace DLLAD
         private void button6_Click(object sender, EventArgs e)
         {
             QPCounter.Start();
-            string answer = "";// = FormBinarySearch(Convert.ToInt32(numericUpDown1.Text));
+            string answer = FormBinarySearch(Convert.ToInt32(textBox1.Text));
             QPCounter.Stop();
             ResultBox.Text += "Searched for: ";
             ResultBox.Text += QPCounter.Duration(size).ToString();
@@ -419,7 +418,7 @@ namespace DLLAD
             QPCounter.Start();
             player = MaxBinSearch();
             QPCounter.Stop();
-            ResultBox.Text += "Min in Binarytree is: ";
+            ResultBox.Text += "Max in Binarytree is: ";
             ResultBox.Text += player.GetName();
             ResultBox.Text += " ";
             ResultBox.Text += player.GetScore().ToString();

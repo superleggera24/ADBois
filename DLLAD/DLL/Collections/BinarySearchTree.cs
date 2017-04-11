@@ -18,7 +18,7 @@ namespace AD.Collections
             return display;
         }
     }
-    public class BinarySearchTree<T> //maak binary search tree aan
+    public class BinarySearchTree<T> where T : IComparable //maak binary search tree aan
     {
         public static BinaryNode<T> root; //de rootnode, bovenste node in de tree
 
@@ -89,13 +89,12 @@ namespace AD.Collections
             return current.Data; //zodra rechternode null is is de laatstgevonden current de grootste waarde
         }
 
-        public static BinaryNode<T> Find(T key) //zoekfunctie op key
+        public static BinaryNode<T> Find(int key) //zoekfunctie op key
         {
-            var comparer = Comparer<T>.Default; 
             BinaryNode<T> current = root; //begin bij de root
-            while (current.Data.Equals(key)) //zodra de key gelijk is aan de data
+            while (!(current.Data.Equals(key))) //zodra de key gelijk is aan de data
             {
-                if (comparer.Compare(key, current.Data) < 0)
+                if (current.Data.CompareTo(key) < 0)
                 {
                     current = current.Left;
                 }

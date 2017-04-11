@@ -33,7 +33,9 @@
             this.Show = new System.Windows.Forms.Button();
             this.SeqSearch = new System.Windows.Forms.Button();
             this.BinarySearch = new System.Windows.Forms.Button();
+            this.Max = new System.Windows.Forms.Button();
             this.SearchBox = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.InsertButton = new System.Windows.Forms.Button();
             this.SmartButton = new System.Windows.Forms.Button();
             this.BubbleButton = new System.Windows.Forms.Button();
@@ -50,15 +52,13 @@
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.Max = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.ResultBox = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.BinaryMax = new System.Windows.Forms.Button();
             this.BinaryMin = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.ResultBox = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -67,7 +67,6 @@
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -136,12 +135,32 @@
             this.BinarySearch.Text = "BinarySearch";
             this.BinarySearch.UseVisualStyleBackColor = true;
             // 
+            // Max
+            // 
+            this.Max.Location = new System.Drawing.Point(306, 165);
+            this.Max.Name = "Max";
+            this.Max.Size = new System.Drawing.Size(58, 50);
+            this.Max.TabIndex = 7;
+            this.Max.Text = "Max";
+            this.Max.UseVisualStyleBackColor = true;
+            this.Max.Click += new System.EventHandler(this.Max_Click);
+            // 
             // SearchBox
             // 
             this.SearchBox.Location = new System.Drawing.Point(251, 7);
             this.SearchBox.Name = "SearchBox";
             this.SearchBox.Size = new System.Drawing.Size(100, 22);
             this.SearchBox.TabIndex = 4;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(251, 165);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(58, 50);
+            this.button2.TabIndex = 6;
+            this.button2.Text = "Min";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // InsertButton
             // 
@@ -294,9 +313,9 @@
             // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.textBox1);
             this.tabPage8.Controls.Add(this.BinaryMax);
             this.tabPage8.Controls.Add(this.BinaryMin);
-            this.tabPage8.Controls.Add(this.numericUpDown1);
             this.tabPage8.Controls.Add(this.button6);
             this.tabPage8.Controls.Add(this.button5);
             this.tabPage8.Location = new System.Drawing.Point(4, 25);
@@ -305,73 +324,6 @@
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "BinarySearchTree";
             this.tabPage8.UseVisualStyleBackColor = true;
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(229, 52);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 22);
-            this.numericUpDown1.TabIndex = 0;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(229, 80);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "button6";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(24, 25);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(102, 66);
-            this.button5.TabIndex = 2;
-            this.button5.Text = "Create BinarySearchTree";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // Max
-            // 
-            this.Max.Location = new System.Drawing.Point(306, 165);
-            this.Max.Name = "Max";
-            this.Max.Size = new System.Drawing.Size(58, 50);
-            this.Max.TabIndex = 7;
-            this.Max.Text = "Max";
-            this.Max.UseVisualStyleBackColor = true;
-            this.Max.Click += new System.EventHandler(this.Max_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(251, 165);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(58, 50);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Min";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // ResultBox
-            // 
-            this.ResultBox.Location = new System.Drawing.Point(567, 13);
-            this.ResultBox.Multiline = true;
-            this.ResultBox.Name = "ResultBox";
-            this.ResultBox.ReadOnly = true;
-            this.ResultBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ResultBox.Size = new System.Drawing.Size(320, 323);
-            this.ResultBox.TabIndex = 1;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(567, 342);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(320, 36);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Empty output";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // BinaryMax
             // 
@@ -393,6 +345,53 @@
             this.BinaryMin.UseVisualStyleBackColor = true;
             this.BinaryMin.Click += new System.EventHandler(this.BinaryMin_Click);
             // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(229, 80);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.TabIndex = 3;
+            this.button6.Text = "button6";
+            this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(24, 25);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(102, 66);
+            this.button5.TabIndex = 2;
+            this.button5.Text = "Create BinarySearchTree";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // ResultBox
+            // 
+            this.ResultBox.Location = new System.Drawing.Point(567, 13);
+            this.ResultBox.Multiline = true;
+            this.ResultBox.Name = "ResultBox";
+            this.ResultBox.ReadOnly = true;
+            this.ResultBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ResultBox.Size = new System.Drawing.Size(320, 323);
+            this.ResultBox.TabIndex = 1;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(567, 342);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(320, 36);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "Empty output";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(229, 25);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 10;
+            // 
             // FormAD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -412,7 +411,7 @@
             this.tabPage5.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            this.tabPage8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -448,8 +447,8 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Button BinaryMax;
         private System.Windows.Forms.Button BinaryMin;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
