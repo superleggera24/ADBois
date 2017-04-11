@@ -8,11 +8,11 @@ namespace AD.Collections
 {
     public class Node<T>// where T : IComparable
     {
-        public Node<T> next;
-        public Node<T> prev;
-        public T data { get; set; }
+        public Node<T> next; //opvolgende node
+        public Node<T> prev; //previous node
+        public T data { get; set; } //get en set de data
 
-        public Node(T Data)
+        public Node(T Data) //zet data weg in een Node
             {
             data = Data;
             }
