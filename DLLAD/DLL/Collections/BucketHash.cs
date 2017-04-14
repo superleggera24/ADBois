@@ -7,6 +7,19 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
+    // Het genereren van een aparte klasse zodat er een string wordt geleverd voor het creëren van de buckethash
+    public class HashNode<T>
+    {
+        public T item { get; set; }
+        public string value { get; set; }
+
+        public HashNode(T Item, string Value)
+        {
+            item = Item;
+            value = Value;
+        }
+    }
+
     public class BucketHash<T> where T : IComparable
     {
         private const int SIZE = 101;
@@ -40,23 +53,29 @@ namespace AD.Collections
             return (int)tot;
         }
 
-        public void Insert(T item)
+        public void AddItem(T item, string value)
+        {
+            HashNode<T> Node = new HashNode<T>(item, value);
+            Insert(Node);
+        }
+
+        public void Insert(HashNode<T> item)
         {
             int hash_value;
-            hash_value = Hash("value");
-            if (data[hash_value].Contains(item))
+            hash_value = Hash(item.value);
+            if (data[hash_value].Contains(item.value))
             {
                 data[hash_value].Add(item);
             }
         }
 
-        public void Remove(T item)
+        public void Remove(string value)
         {
             int hash_value;
-            hash_value = Hash(item);
-            if (data[hash_value].Contains(item))
+            hash_value = Hash(value);
+            if (data[hash_value].Contains(value))
             {
-                data[hash_value].Remove(item);
+                data[hash_value].Remove(value);
             }
         }
     }

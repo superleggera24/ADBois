@@ -22,6 +22,7 @@ namespace DLLAD
         public static RandLinkedList<AD.Players> PlayerLinkedList = new RandLinkedList<AD.Players>();
         public static DoublyLinkedList<AD.Players> PlayerDoublyLinkedList = new DoublyLinkedList<AD.Players>();
         public static BinarySearchTree<AD.Players> PlayerBinarySearchTree = new BinarySearchTree<AD.Players>();
+        public static BucketHash<AD.Players> PlayerBucketHash = new BucketHash<AD.Players>();
         public static BinaryNode<AD.Players> PlayerBinaryNode = new BinaryNode<AD.Players>();
 
         static Random random = new Random();
@@ -163,6 +164,15 @@ namespace DLLAD
             
         }
 
+        private void CreateBucketHash_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            BucketHashCreation(PlayerBase);
+            QPCounter.Stop();
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("BucketHash Creation", duration, null, null, 1);
+        }
+
         // Here all the creation methods are together. They are being called by button presses.
 
         public void ListCreation()
@@ -243,6 +253,16 @@ namespace DLLAD
             {
                 key = player.GetScore();
                 PlayerBinarySearchTree.Insert(player);
+            }
+        }
+
+        private void BucketHashCreation(List<AD.Players> List)
+        {
+            string value = "";
+            foreach (AD.Players player in List)
+            {
+                value = player.GetName();
+                PlayerBucketHash.AddItem(player, value);
             }
         }
 

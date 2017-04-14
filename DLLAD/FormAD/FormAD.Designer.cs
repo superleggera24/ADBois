@@ -52,13 +52,15 @@
             this.button3 = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.BinaryMax = new System.Windows.Forms.Button();
             this.BinaryMin = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.ResultBox = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.CreateBucketHash = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -67,6 +69,7 @@
             this.tabPage5.SuspendLayout();
             this.tabPage6.SuspendLayout();
             this.tabPage8.SuspendLayout();
+            this.tabPage9.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -79,6 +82,7 @@
             this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage8);
+            this.tabControl1.Controls.Add(this.tabPage9);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -325,6 +329,13 @@
             this.tabPage8.Text = "BinarySearchTree";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(229, 25);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.TabIndex = 10;
+            // 
             // BinaryMax
             // 
             this.BinaryMax.Location = new System.Drawing.Point(79, 153);
@@ -385,12 +396,25 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // textBox1
+            // tabPage9
             // 
-            this.textBox1.Location = new System.Drawing.Point(229, 25);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 10;
+            this.tabPage9.Controls.Add(this.CreateBucketHash);
+            this.tabPage9.Location = new System.Drawing.Point(4, 25);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(374, 342);
+            this.tabPage9.TabIndex = 8;
+            this.tabPage9.Text = "BucketHash";
+            this.tabPage9.UseVisualStyleBackColor = true;
+            // 
+            // CreateBucketHash
+            // 
+            this.CreateBucketHash.Location = new System.Drawing.Point(69, 42);
+            this.CreateBucketHash.Name = "CreateBucketHash";
+            this.CreateBucketHash.Size = new System.Drawing.Size(116, 71);
+            this.CreateBucketHash.TabIndex = 0;
+            this.CreateBucketHash.Text = "Create BucketHash";
+            this.CreateBucketHash.UseVisualStyleBackColor = true;
+            this.CreateBucketHash.Click += new System.EventHandler(this.CreateBucketHash_Click);
             // 
             // FormAD
             // 
@@ -412,6 +436,7 @@
             this.tabPage6.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
+            this.tabPage9.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -450,5 +475,7 @@
         private System.Windows.Forms.Button BinaryMax;
         private System.Windows.Forms.Button BinaryMin;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TabPage tabPage9;
+        private System.Windows.Forms.Button CreateBucketHash;
     }
 }
