@@ -404,8 +404,21 @@ namespace DLLAD
         private void SeqSearch_Click(object sender, EventArgs e)
         {
             int number = Convert.ToInt32(SearchBox.Text);
-
+            QPCounter.Start();
             int Answer = AD.Search.SequentialSearch<AD.Players>.SeqSearch(_RandomArray, number);
+            QPCounter.Stop();
+            double duration = QPCounter.Duration(Answer);
+            ResultBox.Text += Logger(number.ToString(), duration, null, Answer.ToString(), 2);
+        }
+
+
+
+        private void BinarySearch_Click(object sender, EventArgs e)
+        {
+            int number = Convert.ToInt32(SearchBox.Text);
+            QPCounter.Start();
+            int Answer = AD.Search.BinarySearch<AD.Players>.binSearch(_RandomArray, number);
+            QPCounter.Stop();
             double duration = QPCounter.Duration(Answer);
             ResultBox.Text += Logger(number.ToString(), duration, null, Answer.ToString(), 2);
         }

@@ -138,6 +138,7 @@
             this.BinarySearch.TabIndex = 5;
             this.BinarySearch.Text = "BinarySearch";
             this.BinarySearch.UseVisualStyleBackColor = true;
+            this.BinarySearch.Click += new System.EventHandler(this.BinarySearch_Click);
             // 
             // Max
             // 
