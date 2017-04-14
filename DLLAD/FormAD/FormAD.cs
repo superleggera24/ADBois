@@ -30,7 +30,7 @@ namespace DLLAD
         public static int size = 300;
         private AD.QueryPerfCounter QPCounter = new AD.QueryPerfCounter();
 
-        //Methode waarmee makkelijker gelogd kan worden. Dit zorgt ervoor dat er minder code per event-handler geschreven hoeft te worden.
+        // Methode waarmee makkelijker gelogd kan worden. Dit zorgt ervoor dat er minder code per event-handler geschreven hoeft te worden.
         // De verschillende vormen zijn: 
         // 1: creaties
         // 2: zoeken
@@ -49,7 +49,7 @@ namespace DLLAD
             }
             else if (action == 3)
             {
-                build.AppendFormat("{0} sorted in: {1}.{2}", method, duration, Environment.NewLine);
+                build.AppendFormat("{0} in: {1}.{2}", method, duration, Environment.NewLine);
             }
             string result = build.ToString();
             return result;
@@ -288,8 +288,7 @@ namespace DLLAD
             }
         }
 
-        // Dit zijn de event-handlers voor de sorteer- en zoekmethoden.
-
+        // Methoden van de verschillende zoekmethoden.
         public string FormBinarySearch(int key)
         {
             string answer = "";
@@ -317,9 +316,8 @@ namespace DLLAD
             QPCounter.Start();
             _RandomArray = AD.Sort.SmartBubbleSort<AD.Players>.Sort(_RandomArray);
             QPCounter.Stop();
-            ResultBox.Text += "SmartBubblesorted in: ";
-            ResultBox.Text += QPCounter.Duration(size).ToString();
-            ResultBox.Text += Environment.NewLine;
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("SmartBubbleSorted", duration, null, null, 3);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -327,15 +325,8 @@ namespace DLLAD
             QPCounter.Start();
             AD.Players player = AD.Search.Min<AD.Players>.Search(_RandomArray);
             QPCounter.Stop();
-            ResultBox.Text += "Min found in: ";
-            ResultBox.Text += QPCounter.Duration(size).ToString();
-            ResultBox.Text += Environment.NewLine;
-            ResultBox.Text += player.GetId().ToString();
-            ResultBox.Text += " ";
-            ResultBox.Text += player.GetName();
-            ResultBox.Text += " ";
-            ResultBox.Text += player.GetScore().ToString();
-            ResultBox.Text += Environment.NewLine;
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("Min", duration, player, player.GetId().ToString(), 2);
         }
 
         private void Max_Click(object sender, EventArgs e)
@@ -343,15 +334,8 @@ namespace DLLAD
             QPCounter.Start();
             AD.Players player = AD.Search.Max<AD.Players>.Search(_RandomArray);
             QPCounter.Stop();
-            ResultBox.Text += "Max found in: ";
-            ResultBox.Text += QPCounter.Duration(size).ToString();
-            ResultBox.Text += Environment.NewLine;
-            ResultBox.Text += player.GetId().ToString();
-            ResultBox.Text += " ";
-            ResultBox.Text += player.GetName();
-            ResultBox.Text += " ";
-            ResultBox.Text += player.GetScore().ToString();
-            ResultBox.Text += Environment.NewLine;
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("Max", duration, player, player.GetId().ToString(), 2);
         }
 
         private void button3_Click_1(object sender, EventArgs e)
@@ -359,9 +343,8 @@ namespace DLLAD
             QPCounter.Start();
             DoublyListCreation(PlayerBase);
             QPCounter.Stop();
-            ResultBox.Text += "DoublyLinkedList created in: ";
-            ResultBox.Text += QPCounter.Duration(size).ToString();
-            ResultBox.Text += Environment.NewLine;
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("DoublyLinkedList", duration, null, null, 1);
         }
 
         //onderstaande event handler zorgt dat het veld van de resultaten leeg is, zodat op dat moment overbodige informatie weg gaat.
@@ -375,9 +358,8 @@ namespace DLLAD
             QPCounter.Start();
             CreateBinarySearchTree(PlayerBase);
             QPCounter.Stop();
-            ResultBox.Text += "BinarySearchTree created in: ";
-            ResultBox.Text += QPCounter.Duration(size).ToString();
-            ResultBox.Text += Environment.NewLine;
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("BinarySearchTree", duration, null, null, 1);
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -385,11 +367,9 @@ namespace DLLAD
             QPCounter.Start();
             string answer = FormBinarySearch(Convert.ToInt32(textBox1.Text));
             QPCounter.Stop();
-            ResultBox.Text += "Searched for: ";
-            ResultBox.Text += QPCounter.Duration(size).ToString();
-            ResultBox.Text += Environment.NewLine;
-            ResultBox.Text += answer;
-            ResultBox.Text += Environment.NewLine;
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("BinarySearch", duration, null, answer, 2);
+
         }
 
         private void BinaryMin_Click(object sender, EventArgs e)
@@ -398,14 +378,8 @@ namespace DLLAD
             QPCounter.Start();
             player = MinBinSearch();
             QPCounter.Stop();
-            ResultBox.Text += "Min in Binarytree is: ";
-            ResultBox.Text += player.GetName();
-            ResultBox.Text += " ";
-            ResultBox.Text += player.GetScore().ToString();
-            ResultBox.Text += Environment.NewLine;
-            ResultBox.Text += "Searched for: ";
-            ResultBox.Text += QPCounter.Duration(size).ToString();
-            ResultBox.Text += Environment.NewLine;
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("Min in Binary", duration, player, player.GetId().ToString(), 2);
         }
 
         private void BinaryMax_Click(object sender, EventArgs e)
@@ -414,14 +388,8 @@ namespace DLLAD
             QPCounter.Start();
             player = MaxBinSearch();
             QPCounter.Stop();
-            ResultBox.Text += "Max in Binarytree is: ";
-            ResultBox.Text += player.GetName();
-            ResultBox.Text += " ";
-            ResultBox.Text += player.GetScore().ToString();
-            ResultBox.Text += Environment.NewLine;
-            ResultBox.Text += "Searched for: ";
-            ResultBox.Text += QPCounter.Duration(size).ToString();
-            ResultBox.Text += Environment.NewLine;
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("Max in Binary", duration, player, player.GetId().ToString(), 2);
         }
 
         private void BubbleButton_Click(object sender, EventArgs e)
