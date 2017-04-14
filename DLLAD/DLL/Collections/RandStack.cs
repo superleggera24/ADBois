@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
+    // Klasse voor het creëeren van een eigen Stack
     public class RandStack<T>
     {
         private int p_index;

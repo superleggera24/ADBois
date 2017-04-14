@@ -8,19 +8,9 @@ namespace AD.Collections
 {
     public class RandLinkedList<T> where T : IComparable
     {
-        private Node<T> head;        
+        private Node<T> head; // Deze lijst heeft maar een node nodig om geinitieerd te worden. De eerste node.
 
-        public void printAllNodes()
-        {
-            Node<T> current = head;
-            while (current != null)
-            {
-                //Console.WriteLine(current.data);
-                current = current.next;
-            }
-        }
-
-        public void AddFirst(T data)
+        public void AddFirst(T data) // Deze methode voegt een node toe aan het begin van de lijst.
         {
             Node<T> toAdd = new Node<T>(data);
 
@@ -30,9 +20,9 @@ namespace AD.Collections
             head = toAdd;
         }
 
-        public void AddLast(T data)
+        public void AddLast(T data) // Deze methode voegt een node toe aan het einde van de lijst.
         {
-            if (head == null)
+            if (head == null) // Als er nog geen inhoud in de eerste node zit, vult hij deze eerst in.
             {
                 head = new Node<T>(data);
 
