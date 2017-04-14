@@ -49,7 +49,7 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.CreateLinkedList = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.button3 = new System.Windows.Forms.Button();
+            this.CreateDoubly = new System.Windows.Forms.Button();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -57,10 +57,10 @@
             this.BinaryMin = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.ResultBox = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.CreateBucketHash = new System.Windows.Forms.Button();
+            this.ResultBox = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -288,7 +288,7 @@
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.button3);
+            this.tabPage6.Controls.Add(this.CreateDoubly);
             this.tabPage6.Location = new System.Drawing.Point(4, 25);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Size = new System.Drawing.Size(374, 342);
@@ -296,15 +296,15 @@
             this.tabPage6.Text = "DoublyLinkedList";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // CreateDoubly
             // 
-            this.button3.Location = new System.Drawing.Point(17, 20);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(102, 66);
-            this.button3.TabIndex = 1;
-            this.button3.Text = "Create DoublyLinkedList";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click_1);
+            this.CreateDoubly.Location = new System.Drawing.Point(17, 20);
+            this.CreateDoubly.Name = "CreateDoubly";
+            this.CreateDoubly.Size = new System.Drawing.Size(102, 66);
+            this.CreateDoubly.TabIndex = 1;
+            this.CreateDoubly.Text = "Create DoublyLinkedList";
+            this.CreateDoubly.UseVisualStyleBackColor = true;
+            this.CreateDoubly.Click += new System.EventHandler(this.button3_Click_1);
             // 
             // tabPage7
             // 
@@ -376,26 +376,6 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // ResultBox
-            // 
-            this.ResultBox.Location = new System.Drawing.Point(567, 13);
-            this.ResultBox.Multiline = true;
-            this.ResultBox.Name = "ResultBox";
-            this.ResultBox.ReadOnly = true;
-            this.ResultBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ResultBox.Size = new System.Drawing.Size(320, 323);
-            this.ResultBox.TabIndex = 1;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(567, 342);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(320, 36);
-            this.button4.TabIndex = 8;
-            this.button4.Text = "Empty output";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
             // tabPage9
             // 
             this.tabPage9.Controls.Add(this.CreateBucketHash);
@@ -415,6 +395,26 @@
             this.CreateBucketHash.Text = "Create BucketHash";
             this.CreateBucketHash.UseVisualStyleBackColor = true;
             this.CreateBucketHash.Click += new System.EventHandler(this.CreateBucketHash_Click);
+            // 
+            // ResultBox
+            // 
+            this.ResultBox.Location = new System.Drawing.Point(567, 13);
+            this.ResultBox.Multiline = true;
+            this.ResultBox.Name = "ResultBox";
+            this.ResultBox.ReadOnly = true;
+            this.ResultBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.ResultBox.Size = new System.Drawing.Size(320, 323);
+            this.ResultBox.TabIndex = 1;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(567, 342);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(320, 36);
+            this.button4.TabIndex = 8;
+            this.button4.Text = "Empty output";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // FormAD
             // 
@@ -468,7 +468,7 @@
         private System.Windows.Forms.Button CreatePriorityQueue;
         private new System.Windows.Forms.Button Show;
         private System.Windows.Forms.Button CreateLinkedList;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button CreateDoubly;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;

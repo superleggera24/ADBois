@@ -14,7 +14,7 @@ namespace DLLAD
     
     public partial class FormAD : Form
     {
-        // Here the different collections are initiated for future use in the code
+        // Hier worden de verschillende collecties aangemaakt zodat zij later kunnen worden aangeroepen in code.
         public static List<AD.Players> PlayerBase = PlayerList<AD.Players>.PlayerBase;
         public static AD.Players[] _RandomArray = new AD.Players[300];
         public static RandStack<AD.Players> PlayerStack = new RandStack<AD.Players>();
@@ -30,6 +30,11 @@ namespace DLLAD
         public static int size = 300;
         private AD.QueryPerfCounter QPCounter = new AD.QueryPerfCounter();
 
+        //Methode waarmee makkelijker gelogd kan worden. Dit zorgt ervoor dat er minder code per event-handler geschreven hoeft te worden.
+        // De verschillende vormen zijn: 
+        // 1: creaties
+        // 2: zoeken
+        // 3: sorteren
         public string Logger(string method, double duration, AD.Players player, string output, int action)
         {
             StringBuilder build = new StringBuilder();
@@ -42,20 +47,28 @@ namespace DLLAD
             {
                 build.AppendFormat("{0} found in: {1}. {2}Found at: {3}. {2}", method, time, Environment.NewLine, output);
             }
+            else if (action == 3)
+            {
+                build.AppendFormat("{0} sorted in: {1}.{2}", method, duration, Environment.NewLine);
+            }
             string result = build.ToString();
             return result;
         } 
 
+        // Methode voor het creëeren van een nieuwe speler.
         public void NewPlayer(int Id, string Name, int Score)
         {
             PlayerBase.Add(new AD.Players(Id, Name, Score));
         }
+
+        // Methode voor het creëeren van random nummers.
         public static int RandomNo(int size)
         {
             
             return rnd.Next(size * 2);
         }
         
+        // Methode voor het creëeren van random namen.
         public static string RandomString()
         {
             var chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -77,6 +90,7 @@ namespace DLLAD
             ProgramStart();
         }
 
+        // alle eventhandlers voor het creëeren van de verschillende collecties.
         private void button1_Click(object sender, EventArgs e)
         {            
             // De foreach zorgt dat de array gevuld wordt en dat de textbox gevuld wordt.
@@ -86,22 +100,8 @@ namespace DLLAD
             ResultBox.Text += Logger("ArrayCreation", QPCounter.Duration(size), null, null, 1);
         }
 
-        private void Max_Click(object sender, EventArgs e)
-        {
-            QPCounter.Start();
-            AD.Players player = AD.Search.Max<AD.Players>.Search(_RandomArray);
-            QPCounter.Stop();
-            ResultBox.Text += "Max found in: ";
-            ResultBox.Text += QPCounter.Duration(size).ToString();
-            ResultBox.Text += Environment.NewLine;
-            ResultBox.Text += player.GetId().ToString();
-            ResultBox.Text += " ";
-            ResultBox.Text += player.GetName();
-            ResultBox.Text += " ";
-            ResultBox.Text += player.GetScore().ToString();
-            ResultBox.Text += Environment.NewLine;
-        }
-
+        // Methode voor het maken van de basiscollectie, waaruit alle collecties voort komen. Dit om te zorgen dat de data hetzelfde blijft
+        // en dus de uitkomsten zo accuraat mogelijk zijn.
         private void ProgramStart()
         {
             QPCounter.Start();
@@ -117,6 +117,16 @@ namespace DLLAD
             QPCounter.Stop();
             ResultBox.Text += "ListCreation: ";
             ResultBox.Text += QPCounter.Duration(size);
+            ResultBox.Text += Environment.NewLine;
+        }
+
+        private void CreateLinkedList_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            LinkedListCreation(PlayerBase);
+            QPCounter.Stop();
+            ResultBox.Text += "LinkedList created in: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
             ResultBox.Text += Environment.NewLine;
         }
 
@@ -173,9 +183,10 @@ namespace DLLAD
             ResultBox.Text += Logger("BucketHash Creation", duration, null, null, 1);
         }
 
-        // Here all the creation methods are together. They are being called by button presses.
+        // Hier zijn alle creatie methoden bij elkaar. Ze worden aangeroepen wanneer er op de betreffende knop wordt gedrukt.
+        // Op deze manier zijn de methoden beter gescheiden van de eventhandlers en wordt de code een stuk overzichtelijker
 
-        public void ListCreation()
+        public void ListCreation() //Dit is de basislijst welke wordt gestart met het programma. Op deze manier blijven de gegevens gelijk.
         {
             ResultBox.Text = "";
             int ID = 0;
@@ -193,7 +204,9 @@ namespace DLLAD
 
             }
         }
-        private void StackCreation(List<AD.Players> List)
+
+        //creatie van onze stack.
+        private void StackCreation(List<AD.Players> List) 
         {
             foreach (AD.Players player in List)
             {
@@ -201,6 +214,7 @@ namespace DLLAD
             }
         }
 
+        //creatie van onze Queue.
         private void QueueCreation(List<AD.Players> List)
         {
             foreach (AD.Players player in List)
@@ -209,6 +223,7 @@ namespace DLLAD
             }
         }
 
+        //creatie van onze Array.
         private void CreateArray(List<AD.Players> List)
         {
             int count = 0;
@@ -218,7 +233,8 @@ namespace DLLAD
                 count++;
             }
         }
-
+        
+        //creatie van een priorityqueue. Er wordt met random nummers een prioriteit gesimuleerd.
         private void CreatePQueue(List<AD.Players> List)
         {
             int priority = 0;
@@ -228,7 +244,8 @@ namespace DLLAD
                 //PlayerPriorityQueue.Enqueue(priority, player);
             }
         }
-
+        
+        //creatie van een linkedlist.
         private void LinkedListCreation(List<AD.Players> List)
         {
             foreach (AD.Players player in List)
@@ -238,6 +255,7 @@ namespace DLLAD
             }
         }
 
+        //creatie van een doublylinkedlist.
         private void DoublyListCreation(List<AD.Players> List)
         {
             foreach (AD.Players player in List)
@@ -246,6 +264,8 @@ namespace DLLAD
             }
         }
 
+        //creatie van een BinarySearchTree. Hier moet een key waarde bij om te weten waar de (in dit geval) player komt te staan. 
+        //we hebben daar onze highscore voor gebruikt.
         private void CreateBinarySearchTree(List<AD.Players> List)
         {
             int key = 0;
@@ -256,6 +276,8 @@ namespace DLLAD
             }
         }
 
+        // creatie van een BucketHash. Om een hashbare string te krijgen hebben we gebruik gemaakt van een nieuwe klasse.
+        // deze klasse is te vinden in Collections.BucketHash.cs. Daar staat ook verdere uitleg.
         private void BucketHashCreation(List<AD.Players> List)
         {
             string value = "";
@@ -266,47 +288,7 @@ namespace DLLAD
             }
         }
 
-        private void BubbleButton_Click(object sender, EventArgs e)
-        {
-            QPCounter.Start();
-            _RandomArray = AD.Sort.BubbleSort<AD.Players>.Sort(_RandomArray);
-            QPCounter.Stop();
-            double duration = QPCounter.Duration(size);
-            ResultBox.Text += Logger("Bubblesorted", duration, null, null, 1);
-        }
-
-        private void SeqSearch_Click(object sender, EventArgs e)
-        {
-            int number = Convert.ToInt32(SearchBox.Text);
-            
-            int Answer = AD.Search.SequentialSearch<AD.Players>.SeqSearch(_RandomArray, number);
-            double duration = QPCounter.Duration(Answer);
-            ResultBox.Text += Logger(number.ToString(), duration, null, Answer.ToString(), 2);
-        }
-
-        private void InsertButton_Click(object sender, EventArgs e)
-        {
-            QPCounter.Start();
-            AD.Sort.InsertSort<AD.Players>.InsertSortArrayList(_RandomArray);
-            QPCounter.Stop();
-            double duration = QPCounter.Duration(size);
-            ResultBox.Text += Logger("InsertSorted", duration, null, null, 1);
-        }
-
-        private string ShowArray()
-        {
-            string ShowResult = "";
-            foreach (AD.Players player in _RandomArray)
-            {
-                ShowResult += player.GetId().ToString();
-                ShowResult += " ";
-                ShowResult += player.GetName();
-                ShowResult += " ";
-                ShowResult += player.GetScore().ToString();
-                ShowResult += Environment.NewLine;
-            }
-            return ShowResult;
-        }
+        // Dit zijn de event-handlers voor de sorteer- en zoekmethoden.
 
         public string FormBinarySearch(int key)
         {
@@ -329,13 +311,7 @@ namespace DLLAD
             return player;
         }
 
-        // For testing purposes only
-        private void Show_Click(object sender, EventArgs e)
-        {
-            ResultBox.Text += Environment.NewLine;
-            ResultBox.Text += ShowArray();
-        }
-
+        // Hier dan alle eventhandlers voor de sorteer- en zoekmethoden.
         private void SmartButton_Click(object sender, EventArgs e)
         {
             QPCounter.Start();
@@ -346,29 +322,28 @@ namespace DLLAD
             ResultBox.Text += Environment.NewLine;
         }
 
-        private void CreateLinkedList_Click(object sender, EventArgs e)
-        {
-            QPCounter.Start();
-            LinkedListCreation(PlayerBase);
-            QPCounter.Stop();
-            ResultBox.Text += "LinkedList created in: ";
-            ResultBox.Text += QPCounter.Duration(size).ToString();
-            ResultBox.Text += Environment.NewLine;
-        }
-
-        
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button2_Click(object sender, EventArgs e)
         {
             QPCounter.Start();
             AD.Players player = AD.Search.Min<AD.Players>.Search(_RandomArray);
             QPCounter.Stop();
             ResultBox.Text += "Min found in: ";
+            ResultBox.Text += QPCounter.Duration(size).ToString();
+            ResultBox.Text += Environment.NewLine;
+            ResultBox.Text += player.GetId().ToString();
+            ResultBox.Text += " ";
+            ResultBox.Text += player.GetName();
+            ResultBox.Text += " ";
+            ResultBox.Text += player.GetScore().ToString();
+            ResultBox.Text += Environment.NewLine;
+        }
+
+        private void Max_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            AD.Players player = AD.Search.Max<AD.Players>.Search(_RandomArray);
+            QPCounter.Stop();
+            ResultBox.Text += "Max found in: ";
             ResultBox.Text += QPCounter.Duration(size).ToString();
             ResultBox.Text += Environment.NewLine;
             ResultBox.Text += player.GetId().ToString();
@@ -389,6 +364,7 @@ namespace DLLAD
             ResultBox.Text += Environment.NewLine;
         }
 
+        //onderstaande event handler zorgt dat het veld van de resultaten leeg is, zodat op dat moment overbodige informatie weg gaat.
         private void button4_Click(object sender, EventArgs e)
         {
             ResultBox.Text = "";
@@ -446,6 +422,57 @@ namespace DLLAD
             ResultBox.Text += "Searched for: ";
             ResultBox.Text += QPCounter.Duration(size).ToString();
             ResultBox.Text += Environment.NewLine;
+        }
+
+        private void BubbleButton_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            _RandomArray = AD.Sort.BubbleSort<AD.Players>.Sort(_RandomArray);
+            QPCounter.Stop();
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("Bubblesorted", duration, null, null, 1);
+        }
+
+        private void SeqSearch_Click(object sender, EventArgs e)
+        {
+            int number = Convert.ToInt32(SearchBox.Text);
+
+            int Answer = AD.Search.SequentialSearch<AD.Players>.SeqSearch(_RandomArray, number);
+            double duration = QPCounter.Duration(Answer);
+            ResultBox.Text += Logger(number.ToString(), duration, null, Answer.ToString(), 2);
+        }
+
+        private void InsertButton_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            AD.Sort.InsertSort<AD.Players>.InsertSortArrayList(_RandomArray);
+            QPCounter.Stop();
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("InsertSorted", duration, null, null, 1);
+        }
+
+        // oorspronkelijk bedoeld om te testen, maar we hebben onderstaande methode erin gelaten omdat hij achteraf ook voor toekomstige gebruikers
+        // wel handig leek. Het laat de array, waar zoekmethoden en sorteermethoden op kunnen worden losgelaten, zien in zijn huidige staat. 
+        // Op deze manier valt te zien of de methoden werken.
+        private string ShowArray()
+        {
+            string ShowResult = "";
+            foreach (AD.Players player in _RandomArray)
+            {
+                ShowResult += player.GetId().ToString();
+                ShowResult += " ";
+                ShowResult += player.GetName();
+                ShowResult += " ";
+                ShowResult += player.GetScore().ToString();
+                ShowResult += Environment.NewLine;
+            }
+            return ShowResult;
+        }
+
+        private void Show_Click(object sender, EventArgs e)
+        {
+            ResultBox.Text += Environment.NewLine;
+            ResultBox.Text += ShowArray();
         }
     }
 }
