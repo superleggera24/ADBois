@@ -11,7 +11,6 @@ using AD.Collections;
 
 namespace DLLAD
 {
-    
     public partial class FormAD : Form
     {
         // Hier worden de verschillende collecties aangemaakt zodat zij later kunnen worden aangeroepen in code.
@@ -21,8 +20,10 @@ namespace DLLAD
         public static RandQueue<AD.Players> PlayerQueue = new RandQueue<AD.Players>();
         public static RandLinkedList<AD.Players> PlayerLinkedList = new RandLinkedList<AD.Players>();
         public static DoublyLinkedList<AD.Players> PlayerDoublyLinkedList = new DoublyLinkedList<AD.Players>();
+        public static CircularLinkedList<AD.Players> PlayerCircularLinkedList = new CircularLinkedList<AD.Players>();
         public static BinarySearchTree<AD.Players> PlayerBinarySearchTree = new BinarySearchTree<AD.Players>();
         public static BucketHash<AD.Players> PlayerBucketHash = new BucketHash<AD.Players>();
+        public static LinearHash<AD.Players> PlayerLinearHash = new LinearHash<AD.Players>();
         public static BinaryNode<AD.Players> PlayerBinaryNode = new BinaryNode<AD.Players>();
 
         static Random random = new Random();
@@ -64,7 +65,6 @@ namespace DLLAD
         // Methode voor het creëeren van random nummers.
         public static int RandomNo(int size)
         {
-            
             return rnd.Next(size * 2);
         }
         
@@ -110,24 +110,22 @@ namespace DLLAD
             ResultBox.Text += Logger("ListCreation", QPCounter.Duration(size), null, null, 1);
         }
 
-        private void CreateList_Click(object sender, EventArgs e)
-        {
-            QPCounter.Start();
-            ListCreation();
-            QPCounter.Stop();
-            ResultBox.Text += "ListCreation: ";
-            ResultBox.Text += QPCounter.Duration(size);
-            ResultBox.Text += Environment.NewLine;
-        }
-
         private void CreateLinkedList_Click(object sender, EventArgs e)
         {
             QPCounter.Start();
             LinkedListCreation(PlayerBase);
             QPCounter.Stop();
-            ResultBox.Text += "LinkedList created in: ";
-            ResultBox.Text += QPCounter.Duration(size).ToString();
-            ResultBox.Text += Environment.NewLine;
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("LinkedList", duration, null, null, 1);
+        }
+
+        private void CreateCircularLinkedList_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            CircularLinkedListCreation(PlayerBase);
+            QPCounter.Stop();
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("CircularLinkedList", duration, null, null, 1);
         }
 
         public static string GetPlayerStats(List<AD.Players> PlayerBase)
@@ -171,7 +169,6 @@ namespace DLLAD
             QPCounter.Stop();
             double duration = QPCounter.Duration(size);
             ResultBox.Text += Logger("StackCreation", duration, null, null, 1);
-            
         }
 
         private void CreateBucketHash_Click(object sender, EventArgs e)
@@ -183,6 +180,16 @@ namespace DLLAD
             ResultBox.Text += Logger("BucketHash Creation", duration, null, null, 1);
         }
 
+        private void CreateLinearHash_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            LinearHashCreation(PlayerBase);
+            QPCounter.Stop();
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("LinearHash Creation", duration, null, null, 1);
+        }
+
+
         // Hier zijn alle creatie methoden bij elkaar. Ze worden aangeroepen wanneer er op de betreffende knop wordt gedrukt.
         // Op deze manier zijn de methoden beter gescheiden van de eventhandlers en wordt de code een stuk overzichtelijker
 
@@ -192,8 +199,7 @@ namespace DLLAD
             int ID = 0;
             string Name = "";
             int HScore = 0;
-
-
+            
             for (int i = 0; i < size; i++)
             {
                 ID = i;
@@ -201,7 +207,6 @@ namespace DLLAD
                 HScore = RandomNo(size);
 
                 PlayerBase.Add(new AD.Players(ID, Name, HScore));
-
             }
         }
 
@@ -251,7 +256,6 @@ namespace DLLAD
             foreach (AD.Players player in List)
             {
                 PlayerLinkedList.AddLast(player);
-                
             }
         }
 
@@ -261,6 +265,14 @@ namespace DLLAD
             foreach (AD.Players player in List)
             {
                 PlayerDoublyLinkedList.Add(player);
+            }
+        }
+
+        private void CircularLinkedListCreation(List<AD.Players> List)
+        {
+            foreach (AD.Players player in List)
+            {
+                PlayerCircularLinkedList.InsertFirst(player);
             }
         }
 
@@ -285,6 +297,16 @@ namespace DLLAD
             {
                 value = player.GetName();
                 PlayerBucketHash.AddItem(player, value);
+            }
+        }
+
+        private void LinearHashCreation(List<AD.Players> List)
+        {
+            string value = "";
+            foreach (AD.Players player in List)
+            {
+                value = player.GetName();
+                PlayerLinearHash.AddItem(player, value);
             }
         }
 
@@ -338,7 +360,7 @@ namespace DLLAD
             ResultBox.Text += Logger("Max", duration, player, player.GetId().ToString(), 2);
         }
 
-        private void button3_Click_1(object sender, EventArgs e)
+        private void CreateDoubly_Click(object sender, EventArgs e)
         {
             QPCounter.Start();
             DoublyListCreation(PlayerBase);
@@ -369,7 +391,6 @@ namespace DLLAD
             QPCounter.Stop();
             double duration = QPCounter.Duration(size);
             ResultBox.Text += Logger("BinarySearch", duration, null, answer, 2);
-
         }
 
         private void BinaryMin_Click(object sender, EventArgs e)
@@ -407,12 +428,9 @@ namespace DLLAD
             QPCounter.Start();
             int Answer = AD.Search.SequentialSearch<AD.Players>.SeqSearch(_RandomArray, number);
             QPCounter.Stop();
-            double duration = QPCounter.Duration(Answer);
-            ResultBox.Text += Logger(number.ToString(), duration, null, Answer.ToString(), 2);
+            ResultBox.Text += Logger(number.ToString(), QPCounter.Duration(Answer), null, Answer.ToString(), 2);
         }
-
-
-
+        
         private void BinarySearch_Click(object sender, EventArgs e)
         {
             int number = Convert.ToInt32(SearchBox.Text);

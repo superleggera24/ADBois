@@ -40,10 +40,24 @@ namespace AD
             int value = 0;
             Players player2 = obj as AD.Players;
 
-            // Eerst voor de zekerheid een errorafhandeling. Dat als het ingevoerde object geen player is, de boel stopt.
+            // Eerst kijken of het ingevoerde object (obj) een int is en dat vervolgens converteren.
             if (player2 == null)
             {
+                int i = Convert.ToInt32(obj);
                 value = 2;
+                if(Highscore < i)
+                {
+                    value = -1;
+                }
+                else if (Highscore == i)
+                {
+                    value = 0;
+                }
+                else if (Highscore > i)
+                {
+                    value = 1;
+                }
+
             }
             else
             {

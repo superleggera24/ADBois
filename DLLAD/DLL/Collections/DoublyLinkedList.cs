@@ -10,11 +10,8 @@ namespace AD.Collections
     {
         private Node<T> head; //de eerste node 
         private Node<T> tail; //de laatste node
-
-        public DoublyLinkedList()
-        {
-        }
-
+        public DoublyLinkedList() { }
+        
         private Node<T> GetAt(int index) //??
         {
             var current = head; //1e node is head

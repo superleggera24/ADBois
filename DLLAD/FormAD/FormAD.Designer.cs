@@ -48,9 +48,6 @@
             this.CreatePriorityQueue = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.CreateLinkedList = new System.Windows.Forms.Button();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.CreateDoubly = new System.Windows.Forms.Button();
-            this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.BinaryMax = new System.Windows.Forms.Button();
@@ -61,13 +58,16 @@
             this.CreateBucketHash = new System.Windows.Forms.Button();
             this.ResultBox = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.CreateLinearHash = new System.Windows.Forms.Button();
+            this.CreateQuadraticHash = new System.Windows.Forms.Button();
+            this.CreateDoubly = new System.Windows.Forms.Button();
+            this.CreateCircularLinkedList = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
-            this.tabPage6.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.tabPage9.SuspendLayout();
             this.SuspendLayout();
@@ -79,8 +79,6 @@
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Controls.Add(this.tabPage6);
-            this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage9);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
@@ -269,6 +267,8 @@
             // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.CreateCircularLinkedList);
+            this.tabPage5.Controls.Add(this.CreateDoubly);
             this.tabPage5.Controls.Add(this.CreateLinkedList);
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Name = "tabPage5";
@@ -286,35 +286,6 @@
             this.CreateLinkedList.Text = "Create LinkedList";
             this.CreateLinkedList.UseVisualStyleBackColor = true;
             this.CreateLinkedList.Click += new System.EventHandler(this.CreateLinkedList_Click);
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.CreateDoubly);
-            this.tabPage6.Location = new System.Drawing.Point(4, 25);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Size = new System.Drawing.Size(374, 342);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "DoublyLinkedList";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // CreateDoubly
-            // 
-            this.CreateDoubly.Location = new System.Drawing.Point(17, 20);
-            this.CreateDoubly.Name = "CreateDoubly";
-            this.CreateDoubly.Size = new System.Drawing.Size(102, 66);
-            this.CreateDoubly.TabIndex = 1;
-            this.CreateDoubly.Text = "Create DoublyLinkedList";
-            this.CreateDoubly.UseVisualStyleBackColor = true;
-            this.CreateDoubly.Click += new System.EventHandler(this.button3_Click_1);
-            // 
-            // tabPage7
-            // 
-            this.tabPage7.Location = new System.Drawing.Point(4, 25);
-            this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Size = new System.Drawing.Size(374, 342);
-            this.tabPage7.TabIndex = 6;
-            this.tabPage7.Text = "CircularList";
-            this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // tabPage8
             // 
@@ -379,17 +350,19 @@
             // 
             // tabPage9
             // 
+            this.tabPage9.Controls.Add(this.CreateQuadraticHash);
+            this.tabPage9.Controls.Add(this.CreateLinearHash);
             this.tabPage9.Controls.Add(this.CreateBucketHash);
             this.tabPage9.Location = new System.Drawing.Point(4, 25);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Size = new System.Drawing.Size(374, 342);
             this.tabPage9.TabIndex = 8;
-            this.tabPage9.Text = "BucketHash";
+            this.tabPage9.Text = "Hashes";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
             // CreateBucketHash
             // 
-            this.CreateBucketHash.Location = new System.Drawing.Point(69, 42);
+            this.CreateBucketHash.Location = new System.Drawing.Point(12, 14);
             this.CreateBucketHash.Name = "CreateBucketHash";
             this.CreateBucketHash.Size = new System.Drawing.Size(116, 71);
             this.CreateBucketHash.TabIndex = 0;
@@ -417,6 +390,45 @@
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // CreateLinearHash
+            // 
+            this.CreateLinearHash.Location = new System.Drawing.Point(12, 91);
+            this.CreateLinearHash.Name = "CreateLinearHash";
+            this.CreateLinearHash.Size = new System.Drawing.Size(116, 71);
+            this.CreateLinearHash.TabIndex = 1;
+            this.CreateLinearHash.Text = "Create LinearHash";
+            this.CreateLinearHash.UseVisualStyleBackColor = true;
+            this.CreateLinearHash.Click += new System.EventHandler(this.CreateLinearHash_Click);
+            // 
+            // CreateQuadraticHash
+            // 
+            this.CreateQuadraticHash.Location = new System.Drawing.Point(12, 168);
+            this.CreateQuadraticHash.Name = "CreateQuadraticHash";
+            this.CreateQuadraticHash.Size = new System.Drawing.Size(116, 71);
+            this.CreateQuadraticHash.TabIndex = 2;
+            this.CreateQuadraticHash.Text = "Create QuadraticHash";
+            this.CreateQuadraticHash.UseVisualStyleBackColor = true;
+            // 
+            // CreateDoubly
+            // 
+            this.CreateDoubly.Location = new System.Drawing.Point(17, 69);
+            this.CreateDoubly.Name = "CreateDoubly";
+            this.CreateDoubly.Size = new System.Drawing.Size(102, 66);
+            this.CreateDoubly.TabIndex = 2;
+            this.CreateDoubly.Text = "Create DoublyLinkedList";
+            this.CreateDoubly.UseVisualStyleBackColor = true;
+            this.CreateDoubly.Click += new System.EventHandler(this.CreateDoubly_Click);
+            // 
+            // CreateCircularLinkedList
+            // 
+            this.CreateCircularLinkedList.Location = new System.Drawing.Point(17, 141);
+            this.CreateCircularLinkedList.Name = "CreateCircularLinkedList";
+            this.CreateCircularLinkedList.Size = new System.Drawing.Size(102, 66);
+            this.CreateCircularLinkedList.TabIndex = 3;
+            this.CreateCircularLinkedList.Text = "Create CircularLinkedList";
+            this.CreateCircularLinkedList.UseVisualStyleBackColor = true;
+            this.CreateCircularLinkedList.Click += new System.EventHandler(this.CreateCircularLinkedList_Click);
+            // 
             // FormAD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -434,7 +446,6 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
-            this.tabPage6.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
             this.tabPage9.ResumeLayout(false);
@@ -452,8 +463,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.TabPage tabPage6;
-        private System.Windows.Forms.TabPage tabPage7;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.TextBox ResultBox;
         private System.Windows.Forms.Button Max;
@@ -469,7 +478,6 @@
         private System.Windows.Forms.Button CreatePriorityQueue;
         private new System.Windows.Forms.Button Show;
         private System.Windows.Forms.Button CreateLinkedList;
-        private System.Windows.Forms.Button CreateDoubly;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
@@ -478,5 +486,9 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TabPage tabPage9;
         private System.Windows.Forms.Button CreateBucketHash;
+        private System.Windows.Forms.Button CreateQuadraticHash;
+        private System.Windows.Forms.Button CreateLinearHash;
+        private System.Windows.Forms.Button CreateDoubly;
+        private System.Windows.Forms.Button CreateCircularLinkedList;
     }
 }

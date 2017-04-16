@@ -13,6 +13,7 @@ namespace AD.Search
             int upperBound, lowerBound, mid;
             upperBound = arr.Length - 1;
             lowerBound = 0;
+            mid = -1;
             while(lowerBound <= upperBound)
             {
                 mid = (upperBound + lowerBound) / 2;
@@ -30,7 +31,7 @@ namespace AD.Search
                     lowerBound = mid + 1;
                 }
             }
-            return -1;
+            return mid;
         }
     }
 }

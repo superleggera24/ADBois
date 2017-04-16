@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
-    class CircularLinkedList<T> where T : IComparable 
+    public class CircularLinkedList<T> where T : IComparable 
     {
         protected Node<T> current;
         protected Node<T> header;
