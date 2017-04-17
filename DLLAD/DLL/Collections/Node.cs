@@ -11,7 +11,7 @@ namespace AD.Collections
         public Node<T> next; //opvolgende node
         public Node<T> prev; //previous node
         public T data { get; set; } //get en set de data
-
+        
         public Node(T Data) //zet data weg in een Node
             {
             data = Data;

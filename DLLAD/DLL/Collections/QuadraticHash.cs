@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
-    public class LinearHash<T> where T : IComparable
+    public class QuadraticHash<T> where T : IComparable
     {
         private const int SIZE = 101;
 
         ArrayList[] data;
 
-        public LinearHash()
+        public QuadraticHash()
         {
             data = new ArrayList[SIZE];
             for (int i = 0; i <= SIZE - 1; i++)
@@ -42,7 +42,7 @@ namespace AD.Collections
 
             if (count > 0)
             {
-                tot = (tot + count) % SIZE;
+                tot = (tot + count*1 + 1*count*count) % SIZE;
             }
             return (int)tot;
         }
@@ -63,16 +63,6 @@ namespace AD.Collections
                 hash_value = Hash(item.value, item.count);
             }
             data[hash_value].Add(item);
-        }
-
-        public void Remove(string value, int count)
-        {
-            int hash_value;
-            hash_value = Hash(value, count);
-            if (data[hash_value].Contains(value))
-            {
-                data[hash_value].Remove(value);
-            }
         }
     }
 }

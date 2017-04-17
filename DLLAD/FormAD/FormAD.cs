@@ -24,6 +24,7 @@ namespace DLLAD
         public static BinarySearchTree<AD.Players> PlayerBinarySearchTree = new BinarySearchTree<AD.Players>();
         public static BucketHash<AD.Players> PlayerBucketHash = new BucketHash<AD.Players>();
         public static LinearHash<AD.Players> PlayerLinearHash = new LinearHash<AD.Players>();
+        public static QuadraticHash<AD.Players> PlayerQuadraticHash = new QuadraticHash<AD.Players>();
         public static BinaryNode<AD.Players> PlayerBinaryNode = new BinaryNode<AD.Players>();
 
         static Random random = new Random();
@@ -189,6 +190,13 @@ namespace DLLAD
             ResultBox.Text += Logger("LinearHash Creation", duration, null, null, 1);
         }
 
+        private void CreateQuadraticHash_Click(object sender, EventArgs e)
+        {
+            QPCounter.Start();
+            QuadraticHashCreation(PlayerBase);
+            QPCounter.Stop();
+            ResultBox.Text += Logger("QuadraticHash Creation", QPCounter.Duration(size), null, null, 1);
+        }
 
         // Hier zijn alle creatie methoden bij elkaar. Ze worden aangeroepen wanneer er op de betreffende knop wordt gedrukt.
         // Op deze manier zijn de methoden beter gescheiden van de eventhandlers en wordt de code een stuk overzichtelijker
@@ -307,6 +315,16 @@ namespace DLLAD
             {
                 value = player.GetName();
                 PlayerLinearHash.AddItem(player, value);
+            }
+        }
+
+        private void QuadraticHashCreation(List<AD.Players> List)
+        {
+            string value = "";
+            foreach (AD.Players player in List)
+            {
+                value = player.GetName();
+                
             }
         }
 

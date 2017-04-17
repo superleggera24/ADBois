@@ -43,5 +43,10 @@ namespace AD.Collections
                 current.next = toAdd;
             }
         }
+
+        public Node<T> getFirst()
+        {
+            return head;
+        }
     }
 }

@@ -47,6 +47,8 @@
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.CreatePriorityQueue = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.CreateCircularLinkedList = new System.Windows.Forms.Button();
+            this.CreateDoubly = new System.Windows.Forms.Button();
             this.CreateLinkedList = new System.Windows.Forms.Button();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -55,13 +57,11 @@
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.CreateQuadraticHash = new System.Windows.Forms.Button();
+            this.CreateLinearHash = new System.Windows.Forms.Button();
             this.CreateBucketHash = new System.Windows.Forms.Button();
             this.ResultBox = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
-            this.CreateLinearHash = new System.Windows.Forms.Button();
-            this.CreateQuadraticHash = new System.Windows.Forms.Button();
-            this.CreateDoubly = new System.Windows.Forms.Button();
-            this.CreateCircularLinkedList = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -277,6 +277,26 @@
             this.tabPage5.Text = "LinkedList";
             this.tabPage5.UseVisualStyleBackColor = true;
             // 
+            // CreateCircularLinkedList
+            // 
+            this.CreateCircularLinkedList.Location = new System.Drawing.Point(17, 141);
+            this.CreateCircularLinkedList.Name = "CreateCircularLinkedList";
+            this.CreateCircularLinkedList.Size = new System.Drawing.Size(102, 66);
+            this.CreateCircularLinkedList.TabIndex = 3;
+            this.CreateCircularLinkedList.Text = "Create CircularLinkedList";
+            this.CreateCircularLinkedList.UseVisualStyleBackColor = true;
+            this.CreateCircularLinkedList.Click += new System.EventHandler(this.CreateCircularLinkedList_Click);
+            // 
+            // CreateDoubly
+            // 
+            this.CreateDoubly.Location = new System.Drawing.Point(17, 69);
+            this.CreateDoubly.Name = "CreateDoubly";
+            this.CreateDoubly.Size = new System.Drawing.Size(102, 66);
+            this.CreateDoubly.TabIndex = 2;
+            this.CreateDoubly.Text = "Create DoublyLinkedList";
+            this.CreateDoubly.UseVisualStyleBackColor = true;
+            this.CreateDoubly.Click += new System.EventHandler(this.CreateDoubly_Click);
+            // 
             // CreateLinkedList
             // 
             this.CreateLinkedList.Location = new System.Drawing.Point(17, 16);
@@ -360,6 +380,26 @@
             this.tabPage9.Text = "Hashes";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
+            // CreateQuadraticHash
+            // 
+            this.CreateQuadraticHash.Location = new System.Drawing.Point(12, 168);
+            this.CreateQuadraticHash.Name = "CreateQuadraticHash";
+            this.CreateQuadraticHash.Size = new System.Drawing.Size(116, 71);
+            this.CreateQuadraticHash.TabIndex = 2;
+            this.CreateQuadraticHash.Text = "Create QuadraticHash";
+            this.CreateQuadraticHash.UseVisualStyleBackColor = true;
+            this.CreateQuadraticHash.Click += new System.EventHandler(this.CreateQuadraticHash_Click);
+            // 
+            // CreateLinearHash
+            // 
+            this.CreateLinearHash.Location = new System.Drawing.Point(12, 91);
+            this.CreateLinearHash.Name = "CreateLinearHash";
+            this.CreateLinearHash.Size = new System.Drawing.Size(116, 71);
+            this.CreateLinearHash.TabIndex = 1;
+            this.CreateLinearHash.Text = "Create LinearHash";
+            this.CreateLinearHash.UseVisualStyleBackColor = true;
+            this.CreateLinearHash.Click += new System.EventHandler(this.CreateLinearHash_Click);
+            // 
             // CreateBucketHash
             // 
             this.CreateBucketHash.Location = new System.Drawing.Point(12, 14);
@@ -389,45 +429,6 @@
             this.button4.Text = "Empty output";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
-            // 
-            // CreateLinearHash
-            // 
-            this.CreateLinearHash.Location = new System.Drawing.Point(12, 91);
-            this.CreateLinearHash.Name = "CreateLinearHash";
-            this.CreateLinearHash.Size = new System.Drawing.Size(116, 71);
-            this.CreateLinearHash.TabIndex = 1;
-            this.CreateLinearHash.Text = "Create LinearHash";
-            this.CreateLinearHash.UseVisualStyleBackColor = true;
-            this.CreateLinearHash.Click += new System.EventHandler(this.CreateLinearHash_Click);
-            // 
-            // CreateQuadraticHash
-            // 
-            this.CreateQuadraticHash.Location = new System.Drawing.Point(12, 168);
-            this.CreateQuadraticHash.Name = "CreateQuadraticHash";
-            this.CreateQuadraticHash.Size = new System.Drawing.Size(116, 71);
-            this.CreateQuadraticHash.TabIndex = 2;
-            this.CreateQuadraticHash.Text = "Create QuadraticHash";
-            this.CreateQuadraticHash.UseVisualStyleBackColor = true;
-            // 
-            // CreateDoubly
-            // 
-            this.CreateDoubly.Location = new System.Drawing.Point(17, 69);
-            this.CreateDoubly.Name = "CreateDoubly";
-            this.CreateDoubly.Size = new System.Drawing.Size(102, 66);
-            this.CreateDoubly.TabIndex = 2;
-            this.CreateDoubly.Text = "Create DoublyLinkedList";
-            this.CreateDoubly.UseVisualStyleBackColor = true;
-            this.CreateDoubly.Click += new System.EventHandler(this.CreateDoubly_Click);
-            // 
-            // CreateCircularLinkedList
-            // 
-            this.CreateCircularLinkedList.Location = new System.Drawing.Point(17, 141);
-            this.CreateCircularLinkedList.Name = "CreateCircularLinkedList";
-            this.CreateCircularLinkedList.Size = new System.Drawing.Size(102, 66);
-            this.CreateCircularLinkedList.TabIndex = 3;
-            this.CreateCircularLinkedList.Text = "Create CircularLinkedList";
-            this.CreateCircularLinkedList.UseVisualStyleBackColor = true;
-            this.CreateCircularLinkedList.Click += new System.EventHandler(this.CreateCircularLinkedList_Click);
             // 
             // FormAD
             // 

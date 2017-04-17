@@ -12,11 +12,13 @@ namespace AD.Collections
     {
         public T item { get; set; }
         public string value { get; set; }
+        public int count { get; set; }
 
         public HashNode(T Item, string Value)
         {
             item = Item;
             value = Value;
+            count = 0;
         }
     }
 

@@ -44,8 +44,10 @@
     <Compile Include="Collections\BucketHash.cs" />
     <Compile Include="Collections\CircularLinkedList.cs" />
     <Compile Include="Collections\DoublyLinkedList.cs" />
+    <Compile Include="Collections\Iterator.cs" />
     <Compile Include="Collections\LinearHash.cs" />
     <Compile Include="Collections\Node.cs" />
+    <Compile Include="Collections\QuadraticHash.cs" />
     <Compile Include="Collections\RandPriorityQueue.cs" />
     <Compile Include="Collections\RandQueue.cs" />
     <Compile Include="Collections\Array.cs" />
