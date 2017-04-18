@@ -66,7 +66,6 @@
     <Compile Include="Sort\BubbleSort.cs" />
     <Compile Include="Sort\InsertSort.cs" />
     <Compile Include="Sort\SmartBubbleSort.cs" />
-    <Compile Include="swapclass.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

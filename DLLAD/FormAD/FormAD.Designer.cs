@@ -110,9 +110,9 @@
             // 
             // Show
             // 
-            this.Show.Location = new System.Drawing.Point(120, 288);
+            this.Show.Location = new System.Drawing.Point(120, 266);
             this.Show.Name = "Show";
-            this.Show.Size = new System.Drawing.Size(75, 23);
+            this.Show.Size = new System.Drawing.Size(75, 45);
             this.Show.TabIndex = 9;
             this.Show.Text = "Show";
             this.Show.UseVisualStyleBackColor = true;

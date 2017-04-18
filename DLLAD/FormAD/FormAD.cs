@@ -27,6 +27,7 @@ namespace DLLAD
         public static QuadraticHash<AD.Players> PlayerQuadraticHash = new QuadraticHash<AD.Players>();
         public static BinaryNode<AD.Players> PlayerBinaryNode = new BinaryNode<AD.Players>();
 
+        static bool ArrayCreated = false;
         static Random random = new Random();
         static Random rnd = new Random();
         public static int size = 300;
@@ -53,6 +54,7 @@ namespace DLLAD
             {
                 build.AppendFormat("{0} in: {1}.{2}", method, duration, Environment.NewLine);
             }
+            
             string result = build.ToString();
             return result;
         } 
@@ -334,7 +336,14 @@ namespace DLLAD
             string answer = "";
             PlayerBinaryNode = BinarySearchTree<AD.Players>.Find(key);
             AD.Players player = PlayerBinaryNode.Data;
-            answer = player.GetId().ToString();
+            if (answer != null)
+            {
+                answer = player.GetId().ToString();
+            }
+            else
+            {
+                answer = "Key could not be found";
+            }
             return answer;
         }
 
@@ -366,7 +375,12 @@ namespace DLLAD
             AD.Players player = AD.Search.Min<AD.Players>.Search(_RandomArray);
             QPCounter.Stop();
             double duration = QPCounter.Duration(size);
-            ResultBox.Text += Logger("Min", duration, player, player.GetId().ToString(), 2);
+            string playerId = player.GetId().ToString();
+            if (player == null)
+            {
+                playerId = "Create an Array First!";
+            }
+            ResultBox.Text += Logger("Min", duration, player, playerId, 2);
         }
 
         private void Max_Click(object sender, EventArgs e)
@@ -375,7 +389,12 @@ namespace DLLAD
             AD.Players player = AD.Search.Max<AD.Players>.Search(_RandomArray);
             QPCounter.Stop();
             double duration = QPCounter.Duration(size);
-            ResultBox.Text += Logger("Max", duration, player, player.GetId().ToString(), 2);
+            string playerId = player.GetId().ToString();
+            if (player == null)
+            {
+                playerId = "Create an Array First!";
+            }
+            ResultBox.Text += Logger("Max", duration, player, playerId, 2);
         }
 
         private void CreateDoubly_Click(object sender, EventArgs e)
@@ -408,6 +427,10 @@ namespace DLLAD
             string answer = FormBinarySearch(Convert.ToInt32(textBox1.Text));
             QPCounter.Stop();
             double duration = QPCounter.Duration(size);
+            if (answer == null)
+            {
+                answer = "Create an Array first!";
+            }
             ResultBox.Text += Logger("BinarySearch", duration, null, answer, 2);
         }
 
@@ -451,12 +474,22 @@ namespace DLLAD
         
         private void BinarySearch_Click(object sender, EventArgs e)
         {
+            int Answer = 0;
             int number = Convert.ToInt32(SearchBox.Text);
-            QPCounter.Start();
-            int Answer = AD.Search.BinarySearch<AD.Players>.binSearch(_RandomArray, number);
-            QPCounter.Stop();
+            string output = "";
+            if (ArrayCreated == true)
+            {
+                QPCounter.Start();
+                Answer = AD.Search.BinarySearch<AD.Players>.binSearch(_RandomArray, number);
+                QPCounter.Stop();
+                output = Answer.ToString();
+            }
+            else
+            {
+                output = "Create an Array first!";
+            }
             double duration = QPCounter.Duration(Answer);
-            ResultBox.Text += Logger(number.ToString(), duration, null, Answer.ToString(), 2);
+            ResultBox.Text += Logger(number.ToString(), duration, null, output, 2);
         }
 
         private void InsertButton_Click(object sender, EventArgs e)
@@ -473,22 +506,25 @@ namespace DLLAD
         // Op deze manier valt te zien of de methoden werken.
         private string ShowArray()
         {
-            string ShowResult = "";
-            foreach (AD.Players player in _RandomArray)
+            string ShowResult = ("Make an Array first!" + Environment.NewLine);
+            if (_RandomArray[0] != null)
             {
-                ShowResult += player.GetId().ToString();
-                ShowResult += " ";
-                ShowResult += player.GetName();
-                ShowResult += " ";
-                ShowResult += player.GetScore().ToString();
-                ShowResult += Environment.NewLine;
+                ShowResult = "";
+                foreach (AD.Players player in _RandomArray)
+                {
+                    ShowResult += player.GetId().ToString();
+                    ShowResult += " ";
+                    ShowResult += player.GetName();
+                    ShowResult += " ";
+                    ShowResult += player.GetScore().ToString();
+                    ShowResult += Environment.NewLine;
+                }
             }
             return ShowResult;
         }
 
         private void Show_Click(object sender, EventArgs e)
         {
-            ResultBox.Text += Environment.NewLine;
             ResultBox.Text += ShowArray();
         }
     }

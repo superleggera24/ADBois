@@ -94,7 +94,7 @@ namespace AD.Collections
             BinaryNode<T> current = root; //begin bij de root
             while (!(current.Data.Equals(key))) //zodra de key gelijk is aan de data
             {
-                if (current.Data.CompareTo(key) < 0)
+                if (current.Data.CompareTo(key) > 0)
                 {
                     current = current.Left;
                 }
@@ -104,7 +104,7 @@ namespace AD.Collections
                 }
                 if (current == null)
                 {
-                    return null;
+                    current = null;
                 }
             }
             return current; //weergeef de current node
