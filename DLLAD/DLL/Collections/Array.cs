@@ -8,19 +8,23 @@ namespace AD.Collections
 {
     public static class RandArray<T>
     {
+        // create random array vul met 300 iets
         public static T[] _RandomArray = new T[300];
+
         public static T[] RandomArray
         {
-            get { return _RandomArray; }
+            get { return _RandomArray; } //get de random array
         }
+
+        //initieer de array
         public static void InitiateArray(List<T> list, int size)
         {
             
-            int count = 0;
+            int count = 0; //houd positie in de array bij.
             // De foreach zorgt dat de array gevuld wordt en dat de textbox gevuld wordt.
             foreach (T player in list)
             {
-                _RandomArray[count] = player;
+                _RandomArray[count] = player; //weergeef speler
                 count++;
             }
         }

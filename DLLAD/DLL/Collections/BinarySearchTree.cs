@@ -92,9 +92,9 @@ namespace AD.Collections
         public static BinaryNode<T> Find(int key) //zoekfunctie op key
         {
             BinaryNode<T> current = root; //begin bij de root
-            while (!(current.Data.Equals(key))) //zodra de key gelijk is aan de data
+            while (!(current.Data.Equals(key))) //zodra de key niet gelijk is aan de data
             {
-                if (current.Data.CompareTo(key) > 0)
+                if (current.Data.CompareTo(key) > 0) //compare de data en zet deze links of rechts neer
                 {
                     current = current.Left;
                 }

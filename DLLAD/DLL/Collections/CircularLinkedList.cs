@@ -8,9 +8,9 @@ namespace AD.Collections
 {
     public class CircularLinkedList<T> where T : IComparable 
     {
-        protected Node<T> current;
-        protected Node<T> header;
-        private int count;
+        protected Node<T> current; //de current node
+        protected Node<T> header; //de eerste node
+        private int count; //positie in de lijst bijhouden
 
         public CircularLinkedList()
         {
@@ -19,26 +19,18 @@ namespace AD.Collections
             header.next = header;
         }
 
-        public bool IsEmpty()
-        {
-            return (header.next == null);
-        }
-
-        public void MakeEmpty()
-        {
-            header.next = null;
-        }
-
+        //vind volgende node, tot deze null is.
         private Node<T> FindPrevious(T n)
         {
             Node<T> current = header;
-            while (!(current.next == null) && current.next.data.CompareTo(n) == 0)
+            while (!(current.next == null) && current.next.data.CompareTo(n) == 0) //wanneer volgende node gevuld is ga naar next
             {
-                current = current.next;
+                current = current.next; //switch naar volgende node
             }
             return current;
         }
 
+        //vind een node
         private Node<T> Find(T n)
         {
             Node<T> current = new Node<T>(default(T));
@@ -50,6 +42,7 @@ namespace AD.Collections
             return current;
         }
 
+        //verwijder een node
         public void Remove(T n)
         {
             Node<T> p = FindPrevious(n);
@@ -60,17 +53,8 @@ namespace AD.Collections
             count--;
         }
 
-        public void Insert(T n1, T n2)
-        {
-            Node<T> current = new Node<T>(default(T));
-            Node<T> newnode = new Node<T>(n1);
-            current = Find(n2);
-            newnode.next = current.next;
-            current.next = newnode;
-            count++;
-        }
-
-        public void InsertFirst(T n)
+         //insert nodes
+         public void InsertFirst(T n)
         {
             Node<T> current = new Node<T>(n);
             current.next = header;
