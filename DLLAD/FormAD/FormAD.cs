@@ -16,17 +16,17 @@ namespace DLLAD
         // Hier worden de verschillende collecties aangemaakt zodat zij later kunnen worden aangeroepen in code.
         public static List<AD.Players> PlayerBase = PlayerList<AD.Players>.PlayerBase;
         public static AD.Players[] _RandomArray = new AD.Players[300];
-        public static RandStack<AD.Players> PlayerStack = new RandStack<AD.Players>();
-        public static RandQueue<AD.Players> PlayerQueue = new RandQueue<AD.Players>();
-        public static RandLinkedList<AD.Players> PlayerLinkedList = new RandLinkedList<AD.Players>();
-        public static DoublyLinkedList<AD.Players> PlayerDoublyLinkedList = new DoublyLinkedList<AD.Players>();
-        public static CircularLinkedList<AD.Players> PlayerCircularLinkedList = new CircularLinkedList<AD.Players>();
-        public static BinarySearchTree<AD.Players> PlayerBinarySearchTree = new BinarySearchTree<AD.Players>();
+        public RandStack<AD.Players> PlayerStack = new RandStack<AD.Players>();
+        public RandQueue<AD.Players> PlayerQueue = new RandQueue<AD.Players>();
+        public RandLinkedList<AD.Players> PlayerLinkedList = new RandLinkedList<AD.Players>();
+        public DoublyLinkedList<AD.Players> PlayerDoublyLinkedList = new DoublyLinkedList<AD.Players>();
+        public CircularLinkedList<AD.Players> PlayerCircularLinkedList = new CircularLinkedList<AD.Players>();
+        public BinarySearchTree<AD.Players> PlayerBinarySearchTree = new BinarySearchTree<AD.Players>();
         public static BucketHash<AD.Players> PlayerBucketHash = new BucketHash<AD.Players>();
         public static LinearHash<AD.Players> PlayerLinearHash = new LinearHash<AD.Players>();
         public static QuadraticHash<AD.Players> PlayerQuadraticHash = new QuadraticHash<AD.Players>();
         public static BinaryNode<AD.Players> PlayerBinaryNode = new BinaryNode<AD.Players>();
-        public static Iterator<AD.Players> PlayerIterator;
+        public Iterator<AD.Players> PlayerIterator;
 
         static bool ArrayCreated = false;
         static Random random = new Random();
@@ -371,46 +371,17 @@ namespace DLLAD
         // Hier dan alle eventhandlers voor de sorteer- en zoekmethoden.
         private void SmartButton_Click(object sender, EventArgs e)
         {
-            if (ArrayCreated == true)
-            {
-                QPCounter.Start();
-                _RandomArray = AD.Sort.SmartBubbleSort<AD.Players>.Sort(_RandomArray);
-                QPCounter.Stop();
-                double duration = QPCounter.Duration(size);
-                ResultBox.Text += Logger("SmartBubbleSorted", duration, null, null, 3);
-            }
-            else
-            {
-                ResultBox.Text += "Create an array first!" + Environment.NewLine;
-            }
+            SmartBubbleSort();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            QPCounter.Start();
-            AD.Players player = AD.Search.Min<AD.Players>.Search(_RandomArray);
-            QPCounter.Stop();
-            double duration = QPCounter.Duration(size);
-            string playerId = player.GetId().ToString();
-            if (ArrayCreated == false)
-            {
-                playerId = "Create an Array First!";
-            }
-            ResultBox.Text += Logger("Min", duration, player, playerId, 2);
+            ArrayMin();
         }
 
         private void Max_Click(object sender, EventArgs e)
         {
-            QPCounter.Start();
-            AD.Players player = AD.Search.Max<AD.Players>.Search(_RandomArray);
-            QPCounter.Stop();
-            double duration = QPCounter.Duration(size);
-            string playerId = player.GetId().ToString();
-            if (ArrayCreated == false)
-            {
-                playerId = "Create an Array First!";
-            }
-            ResultBox.Text += Logger("Max", duration, player, playerId, 2);
+            ArrayMax();
         }
 
         private void CreateDoubly_Click(object sender, EventArgs e)
@@ -439,116 +410,37 @@ namespace DLLAD
 
         private void button6_Click(object sender, EventArgs e)
         {
-            QPCounter.Start();
-            string answer = FormBinarySearch(Convert.ToInt32(textBox1.Text));
-            QPCounter.Stop();
-            double duration = QPCounter.Duration(size);
-            if (answer == null)
-            {
-                answer = "Create an Array first!" + Environment.NewLine;
-            }
-            ResultBox.Text += Logger("BinarySearch", duration, null, answer, 2);
+            SearchBinaryTreeMethod();
         }
 
         private void BinaryMin_Click(object sender, EventArgs e)
         {
-            AD.Players player;
-            QPCounter.Start();
-            player = MinBinSearch();
-            QPCounter.Stop();
-            double duration = QPCounter.Duration(size);
-            ResultBox.Text += Logger("Min in Binary", duration, player, player.GetId().ToString(), 2);
+            BinaryMinMethod();
         }
 
         private void BinaryMax_Click(object sender, EventArgs e)
         {
-            AD.Players player;
-            QPCounter.Start();
-            player = MaxBinSearch();
-            QPCounter.Stop();
-            double duration = QPCounter.Duration(size);
-            ResultBox.Text += Logger("Max in Binary", duration, player, player.GetId().ToString(), 2);
+            BinaryMaxMethod();
         }
 
         private void BubbleButton_Click(object sender, EventArgs e)
         {
-            if (ArrayCreated == true)
-            {
-                QPCounter.Start();
-                _RandomArray = AD.Sort.BubbleSort<AD.Players>.Sort(_RandomArray);
-                QPCounter.Stop();
-                double duration = QPCounter.Duration(size);
-                ResultBox.Text += Logger("Bubblesorted", duration, null, null, 1);
-            } else
-            {
-                ResultBox.Text += "Create an array first!" + Environment.NewLine;
-            }
+            BubbleSort();
         }
 
         private void SeqSearch_Click(object sender, EventArgs e)
         {
-            if (SearchBox.Text != "")
-            {
-                if (ArrayCreated == true)
-                {
-                    int number = Convert.ToInt32(SearchBox.Text);
-                    QPCounter.Start();
-                    int Answer = AD.Search.SequentialSearch<AD.Players>.SeqSearch(_RandomArray, number);
-                    QPCounter.Stop();
-                    ResultBox.Text += Logger(number.ToString(), QPCounter.Duration(Answer), null, Answer.ToString(), 2);
-                }
-                else
-                {
-                    ResultBox.Text += "Create an array first!" + Environment.NewLine;
-                }
-            }
-            else
-            {
-                ResultBox.Text += "Insert a number in the textbox please!" + Environment.NewLine;
-            }
+            SequentialSearchMethod();
         }
         
         private void BinarySearch_Click(object sender, EventArgs e)
         {
-            int Answer = 0;
-            if (SearchBox.Text != "")
-            {
-                int number = Convert.ToInt32(SearchBox.Text);
-                string output = "";
-                if (ArrayCreated == true)
-                {
-                    QPCounter.Start();
-                    Answer = AD.Search.BinarySearch<AD.Players>.binSearch(_RandomArray, number);
-                    QPCounter.Stop();
-                    output = Answer.ToString();
-                }
-                else
-                {
-                    output = "Create an Array first!" + Environment.NewLine;
-                }
-                double duration = QPCounter.Duration(Answer);
-                ResultBox.Text += Logger(number.ToString(), duration, null, output, 2);
-            }
-            else
-            {
-                ResultBox.Text += "Insert a number in the textbox first please." + Environment.NewLine;
-            }
+            BinarySearchMethod();
         }
 
         private void InsertButton_Click(object sender, EventArgs e)
         {
-            if (ArrayCreated == true)
-            {
-                QPCounter.Start();
-                AD.Sort.InsertSort<AD.Players>.InsertSortArrayList(_RandomArray);
-                QPCounter.Stop();
-                double duration = QPCounter.Duration(size);
-                ResultBox.Text += Logger("InsertSorted", duration, null, null, 1);
-            }
-            else
-            {
-                ResultBox.Text += "Create an array first!" + Environment.NewLine;
-            }
+            InsertSort();
         }
 
         // oorspronkelijk bedoeld om te testen, maar we hebben onderstaande methode erin gelaten omdat hij achteraf ook voor toekomstige gebruikers
@@ -595,8 +487,8 @@ namespace DLLAD
         // Laat volgende node zien.
         private void ShowNext_Click(object sender, EventArgs e)
         {
-            Iterator<AD.Players>.NextLink();
-            Node<AD.Players> node = Iterator<AD.Players>.GetCurrent();
+            PlayerIterator.NextLink();
+            Node<AD.Players> node = PlayerIterator.GetCurrent();
             AD.Players player = node.data;
             IteratorShow.Text = GetPlayerStats(player);
         }
@@ -605,6 +497,189 @@ namespace DLLAD
         private void button3_Click(object sender, EventArgs e)
         {
             IteratorShow.Text = "";
+        }
+
+        private void AllButton_Click(object sender, EventArgs e)
+        {
+            CreateArray(PlayerBase);
+            BubbleSort();
+            CreateArray(PlayerBase);
+            InsertSort();
+            CreateArray(PlayerBase);
+            SmartBubbleSort();
+            ArrayMax();
+            ArrayMin();
+            string number = RandomNo(10).ToString();
+            SearchBox.Text = number;
+            textBox1.Text = number;
+            BinarySearchMethod();
+            SequentialSearchMethod();
+            QueueCreation(PlayerBase);
+            StackCreation(PlayerBase);
+            CreatePQueue(PlayerBase);
+            LinkedListCreation(PlayerBase);
+            DoublyListCreation(PlayerBase);
+            CircularLinkedListCreation(PlayerBase);
+            CreateBinarySearchTree(PlayerBase);
+            BinaryMaxMethod();
+            BinaryMinMethod();
+            SearchBinaryTreeMethod();
+        }
+
+        // All the sort methods
+        private void BubbleSort()
+        {
+            if (ArrayCreated == true)
+            {
+                QPCounter.Start();
+                _RandomArray = AD.Sort.BubbleSort<AD.Players>.Sort(_RandomArray);
+                QPCounter.Stop();
+                double duration = QPCounter.Duration(size);
+                ResultBox.Text += Logger("Bubblesorted", duration, null, null, 1);
+            }
+            else
+            {
+                ResultBox.Text += "Create an array first!" + Environment.NewLine;
+            }
+        }
+        private void InsertSort()
+        {
+            if (ArrayCreated == true)
+            {
+                QPCounter.Start();
+                AD.Sort.InsertSort<AD.Players>.InsertSortArrayList(_RandomArray);
+                QPCounter.Stop();
+                double duration = QPCounter.Duration(size);
+                ResultBox.Text += Logger("InsertSorted", duration, null, null, 1);
+            }
+            else
+            {
+                ResultBox.Text += "Create an array first!" + Environment.NewLine;
+            }
+        }
+
+        private void SmartBubbleSort()
+        {
+            if (ArrayCreated == true)
+            {
+                QPCounter.Start();
+                _RandomArray = AD.Sort.SmartBubbleSort<AD.Players>.Sort(_RandomArray);
+                QPCounter.Stop();
+                double duration = QPCounter.Duration(size);
+                ResultBox.Text += Logger("SmartBubbleSorted", duration, null, null, 3);
+            }
+            else
+            {
+                ResultBox.Text += "Create an array first!" + Environment.NewLine;
+            }
+        }
+
+        // All search methods
+        private void ArrayMax()
+        {
+            QPCounter.Start();
+            AD.Players player = AD.Search.Max<AD.Players>.Search(_RandomArray);
+            QPCounter.Stop();
+            double duration = QPCounter.Duration(size);
+            string playerId = player.GetId().ToString();
+            if (ArrayCreated == false)
+            {
+                playerId = "Create an Array First!";
+            }
+            ResultBox.Text += Logger("Max in array", duration, player, playerId, 2);
+        }
+
+        private void ArrayMin()
+        {
+            QPCounter.Start();
+            AD.Players player = AD.Search.Min<AD.Players>.Search(_RandomArray);
+            QPCounter.Stop();
+            double duration = QPCounter.Duration(size);
+            string playerId = player.GetId().ToString();
+            if (ArrayCreated == false)
+            {
+                playerId = "Create an Array First!";
+            }
+            ResultBox.Text += Logger("Min in array", duration, player, playerId, 2);
+        }
+
+        private void BinarySearchMethod()
+        {
+            int Answer = 0;
+            if (SearchBox.Text != "")
+            {
+                int number = Convert.ToInt32(SearchBox.Text);
+                string output = "";
+                if (ArrayCreated == true)
+                {
+                    QPCounter.Start();
+                    Answer = AD.Search.BinarySearch<AD.Players>.binSearch(_RandomArray, number);
+                    QPCounter.Stop();
+                    output = Answer.ToString();
+                }
+                else
+                {
+                    output = "Create an Array first!" + Environment.NewLine;
+                }
+                double duration = QPCounter.Duration(Answer);
+                ResultBox.Text += Logger(number.ToString(), duration, null, output, 2);
+            }
+            else
+            {
+                ResultBox.Text += "Insert a number in the textbox first please." + Environment.NewLine;
+            }
+        }
+        private void SequentialSearchMethod()
+        {
+            if (SearchBox.Text != "")
+            {
+                if (ArrayCreated == true)
+                {
+                    int number = Convert.ToInt32(SearchBox.Text);
+                    QPCounter.Start();
+                    int Answer = AD.Search.SequentialSearch<AD.Players>.SeqSearch(_RandomArray, number);
+                    QPCounter.Stop();
+                    ResultBox.Text += Logger(number.ToString(), QPCounter.Duration(Answer), null, Answer.ToString(), 2);
+                }
+                else
+                {
+                    ResultBox.Text += "Create an array first!" + Environment.NewLine;
+                }
+            }
+            else
+            {
+                ResultBox.Text += "Insert a number in the textbox please!" + Environment.NewLine;
+            }
+        }
+        private void BinaryMaxMethod()
+        {
+            AD.Players player;
+            QPCounter.Start();
+            player = MaxBinSearch();
+            QPCounter.Stop();
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("Max in Binary", duration, player, player.GetId().ToString(), 2);
+        }
+        private void BinaryMinMethod()
+        {
+            AD.Players player;
+            QPCounter.Start();
+            player = MinBinSearch();
+            QPCounter.Stop();
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("Min in Binary", duration, player, player.GetId().ToString(), 2);
+        }
+        private void SearchBinaryTreeMethod()
+        {
+            QPCounter.Start();
+            string answer = FormBinarySearch(Convert.ToInt32(textBox1.Text));
+            QPCounter.Stop();
+            double duration = QPCounter.Duration(size);
+            if (answer == null)
+            {
+                answer = "Create an Array first!" + Environment.NewLine;
+            }
+            ResultBox.Text += Logger("BinarySearch", duration, null, answer, 2);
         }
     }
 }

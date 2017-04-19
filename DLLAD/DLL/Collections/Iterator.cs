@@ -10,29 +10,29 @@ namespace AD.Collections
     {
         // De iterator class maakt ook gebruik van de Node class. Deze class heeft een vorige node, een header node en een huidige node
         // nodig, en initieert deze dus.
-        private static Node<T> current;
-        private static Node<T> header;
-        private static Node<T> prev;
+        private Node<T> current { get; set; }
+        private Node<T> header { get; set; }
+        private Node<T> prev { get; set; }
         RandLinkedList<T> theList;
 
         // Hier wordt de iterator begonnen, en heeft daarvoor de eerste node uit de ingevoerde lijst nodig en maakt deze de huidige node. 
         // Ook wordt de 'vorige' node geset, naar null.
         public Iterator(RandLinkedList<T> list)
         {
-            theList = list;
+            this.theList = list;
             current = theList.getFirst();
             prev = null;
         }
 
         // Deze methode selecteert de volgende node en wordt gebruikt in andere methoden.
-        public static void NextLink()
+        public void NextLink()
         {
             prev = current;
             current = current.next;
         }
 
         // Deze methode is een simpele getmethode om de huidige node weer te geven.
-        public static Node<T> GetCurrent()
+        public Node<T> GetCurrent()
         {
             return current;
         }
