@@ -22,13 +22,11 @@ namespace AD
         [DllImport("Kernel32.dll")]
         private static extern bool QueryPerformanceFrequency(out long lpFrequency);
 
-        
         private long start;
         private long stop;
         private long frequency;
         Decimal multiplier = new Decimal(1.0e9);
 
-        // Constructor
         public QueryPerfCounter()
         {
             if (QueryPerformanceFrequency(out frequency) == false)

@@ -40,7 +40,7 @@ namespace AD.Collections
             else
             {
                 BinaryNode<T> current = root; //als root bestaat set de current node gelijk aan root
-                BinaryNode<T> parent;
+                BinaryNode<T> parent; // houdt de parentnode bij
 
                 while (true)
                 {
