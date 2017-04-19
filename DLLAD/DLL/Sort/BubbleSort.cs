@@ -25,11 +25,10 @@ namespace AD.Sort
                         temp = array[j];
                         array[j] = array[j+1];
                         array[j+1] = temp;
-                        //swapclass.Swap<T>(ref array[j], ref array[j + 1]);
                     }
                 }
             }
-            
+            // En geeft vervolgens de gesorteerde array terug
             return array;
         }
     }

@@ -16,7 +16,6 @@ namespace AD.Search
             {
                 if (array[i].CompareTo(min) < 0) // alleen als het huidige punt lager is dan de huidige min, verander de min naar de huidige.
                     min = array[i];
-
             }
             return min;
         }

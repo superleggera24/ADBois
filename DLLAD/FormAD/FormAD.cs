@@ -49,7 +49,7 @@ namespace DLLAD
             } 
             else if (action == 2)
             {
-                if (!(output.Contains("=") || duration > 0))
+                if (!(output.Contains("=") || !(duration > 0)))
                 {
                     build.AppendFormat("{0} found in: {1}. {2}Found at: {3}. {2}", method, time, Environment.NewLine, output);
                 }

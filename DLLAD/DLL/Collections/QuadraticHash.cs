@@ -12,7 +12,8 @@ namespace AD.Collections
         private const int SIZE = 101;
 
         ArrayList[] data;
-
+        // De funtie om deze collectie aan te roepen. Deze functie heeft geen verdere invoer nodig, omdat hij gebruik maakt
+        // van een vaste SIZE. Er wordt dan vervolgens een array mee aangemaakt.
         public QuadraticHash()
         {
             data = new ArrayList[SIZE];
@@ -22,9 +23,9 @@ namespace AD.Collections
             }
         }
 
+        // Deze methode is de methode waarom het een hash is. Hiermee wordt namelijk een hashgetal gemaakt.
         public int Hash(string s, int count)
         {
-
             long tot = 0;
 
             char[] charray;
@@ -40,6 +41,8 @@ namespace AD.Collections
             }
             tot = tot % SIZE;
 
+            // Deze methode is de methode waardoor dit een Quadratichash betreft. Wanneer namelijk het hashgetal (en dus de plaats) 
+            // al bestaat, voert hij een berekening uit om de hash te veranderen naar een (hopelijk) lege plaats.
             if (count > 0)
             {
                 tot = (tot + count*1 + 1*count*count) % SIZE;
@@ -47,12 +50,15 @@ namespace AD.Collections
             return (int)tot;
         }
 
+        // Deze methode voegt een generic item toe en vraagt daar ook een value op. Deze value is nodig om te hashen.
         public void AddItem(T item, string value)
         {
             HashNode<T> Node = new HashNode<T>(item, value);
             Insert(Node);
         }
 
+        // Deze methode voegt een nieuwe gehashte node toe aan de gecreëerde array. Ook wordt hier gecheckt of de plaats reeds
+        // bezet is. Is dit het geval, wordt er opnieuw gehasht met een verhoogde count.
         public void Insert(HashNode<T> item)
         {
             int hash_value;

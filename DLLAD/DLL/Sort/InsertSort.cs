@@ -11,6 +11,7 @@ namespace AD.Sort
         public static T[] InsertSortArrayList(T[] arr)
         {
             T z;
+            // Deze loop zorgt ervoor dat de complete array bijlangs gaat
             for (var i = 1; i < arr.Length; i++)
             {
                 z = arr[i];
@@ -21,6 +22,7 @@ namespace AD.Sort
                 }
                 arr[i] = z;
             }
+            // Geeft de gesorteerde array terug
             return arr;
         }
     }
