@@ -26,6 +26,7 @@ namespace DLLAD
         public static LinearHash<AD.Players> PlayerLinearHash = new LinearHash<AD.Players>();
         public static QuadraticHash<AD.Players> PlayerQuadraticHash = new QuadraticHash<AD.Players>();
         public static BinaryNode<AD.Players> PlayerBinaryNode = new BinaryNode<AD.Players>();
+        public static Iterator<AD.Players> PlayerIterator;
 
         static bool ArrayCreated = false;
         static Random random = new Random();
@@ -126,6 +127,7 @@ namespace DLLAD
             QPCounter.Start();
             LinkedListCreation(PlayerBase);
             QPCounter.Stop();
+            PlayerIterator = new Iterator<AD.Players>(PlayerLinkedList);
             double duration = QPCounter.Duration(size);
             ResultBox.Text += Logger("LinkedList", duration, null, null, 1);
         }
@@ -139,11 +141,10 @@ namespace DLLAD
             ResultBox.Text += Logger("CircularLinkedList", duration, null, null, 1);
         }
 
-        public static string GetPlayerStats(List<AD.Players> PlayerBase)
+        public static string GetPlayerStats(AD.Players player)
         {
             string stats = null;
-            foreach (AD.Players player in PlayerBase)
-            {
+            
                 stats += "ID";
                 stats += player.GetId().ToString();
                 stats += "Name: ";
@@ -152,7 +153,6 @@ namespace DLLAD
                 stats += player.GetScore().ToString();
                 stats += Environment.NewLine;
 
-            }
             return stats;
         }
         
@@ -578,9 +578,33 @@ namespace DLLAD
             ResultBox.Text += ShowArray();
         }
 
+        // Voeg random player voor geselecteerde node.
         private void InsertBefore_Click(object sender, EventArgs e)
         {
+            // InsertBefore;
+            IteratorShow.Text += "Random Player ingevoerd voor de geselecteerde node.";
+        }
 
+        // Voeg random player in na geselecteerde node.
+        private void InsertAfter_Click(object sender, EventArgs e)
+        {
+            // InsertAfter;
+            IteratorShow.Text += "Random Player ingevoerd na de geselecteerde node.";
+        }
+
+        // Laat volgende node zien.
+        private void ShowNext_Click(object sender, EventArgs e)
+        {
+            Iterator<AD.Players>.NextLink();
+            Node<AD.Players> node = Iterator<AD.Players>.GetCurrent();
+            AD.Players player = node.data;
+            IteratorShow.Text = GetPlayerStats(player);
+        }
+
+        //empty Iterator Show screen
+        private void button3_Click(object sender, EventArgs e)
+        {
+            IteratorShow.Text = "";
         }
     }
 }
