@@ -40,13 +40,12 @@
             this.SmartButton = new System.Windows.Forms.Button();
             this.BubbleButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.CreateQueue = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.CreateStack = new System.Windows.Forms.Button();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.CreatePriorityQueue = new System.Windows.Forms.Button();
             this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.CreateStack = new System.Windows.Forms.Button();
+            this.CreatePriorityQueue = new System.Windows.Forms.Button();
+            this.CreateQueue = new System.Windows.Forms.Button();
+            this.InsertAfter = new System.Windows.Forms.Button();
+            this.InsertBefore = new System.Windows.Forms.Button();
             this.CreateCircularLinkedList = new System.Windows.Forms.Button();
             this.CreateDoubly = new System.Windows.Forms.Button();
             this.CreateLinkedList = new System.Windows.Forms.Button();
@@ -64,9 +63,6 @@
             this.button4 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
             this.tabPage5.SuspendLayout();
             this.tabPage8.SuspendLayout();
             this.tabPage9.SuspendLayout();
@@ -75,9 +71,6 @@
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage9);
@@ -85,7 +78,7 @@
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(382, 371);
+            this.tabControl1.Size = new System.Drawing.Size(536, 371);
             this.tabControl1.SizeMode = System.Windows.Forms.TabSizeMode.Fixed;
             this.tabControl1.TabIndex = 0;
             // 
@@ -104,17 +97,17 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(374, 342);
+            this.tabPage1.Size = new System.Drawing.Size(528, 342);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ArrayList";
             // 
             // Show
             // 
-            this.Show.Location = new System.Drawing.Point(120, 266);
+            this.Show.Location = new System.Drawing.Point(247, 258);
             this.Show.Name = "Show";
-            this.Show.Size = new System.Drawing.Size(75, 45);
+            this.Show.Size = new System.Drawing.Size(117, 78);
             this.Show.TabIndex = 9;
-            this.Show.Text = "Show";
+            this.Show.Text = "Show Current Array";
             this.Show.UseVisualStyleBackColor = true;
             this.Show.Click += new System.EventHandler(this.Show_Click);
             // 
@@ -122,7 +115,7 @@
             // 
             this.SeqSearch.Location = new System.Drawing.Point(251, 91);
             this.SeqSearch.Name = "SeqSearch";
-            this.SeqSearch.Size = new System.Drawing.Size(113, 50);
+            this.SeqSearch.Size = new System.Drawing.Size(113, 59);
             this.SeqSearch.TabIndex = 8;
             this.SeqSearch.Text = "Sequential Search";
             this.SeqSearch.UseVisualStyleBackColor = true;
@@ -152,7 +145,7 @@
             // 
             this.SearchBox.Location = new System.Drawing.Point(251, 7);
             this.SearchBox.Name = "SearchBox";
-            this.SearchBox.Size = new System.Drawing.Size(100, 22);
+            this.SearchBox.Size = new System.Drawing.Size(113, 22);
             this.SearchBox.TabIndex = 4;
             // 
             // button2
@@ -167,9 +160,9 @@
             // 
             // InsertButton
             // 
-            this.InsertButton.Location = new System.Drawing.Point(6, 183);
+            this.InsertButton.Location = new System.Drawing.Point(6, 206);
             this.InsertButton.Name = "InsertButton";
-            this.InsertButton.Size = new System.Drawing.Size(95, 50);
+            this.InsertButton.Size = new System.Drawing.Size(121, 70);
             this.InsertButton.TabIndex = 3;
             this.InsertButton.Text = "Insertion Sort";
             this.InsertButton.UseVisualStyleBackColor = true;
@@ -177,9 +170,9 @@
             // 
             // SmartButton
             // 
-            this.SmartButton.Location = new System.Drawing.Point(6, 127);
+            this.SmartButton.Location = new System.Drawing.Point(6, 138);
             this.SmartButton.Name = "SmartButton";
-            this.SmartButton.Size = new System.Drawing.Size(95, 50);
+            this.SmartButton.Size = new System.Drawing.Size(121, 62);
             this.SmartButton.TabIndex = 2;
             this.SmartButton.Text = "Smart BubbleSort";
             this.SmartButton.UseVisualStyleBackColor = true;
@@ -189,7 +182,7 @@
             // 
             this.BubbleButton.Location = new System.Drawing.Point(6, 71);
             this.BubbleButton.Name = "BubbleButton";
-            this.BubbleButton.Size = new System.Drawing.Size(95, 50);
+            this.BubbleButton.Size = new System.Drawing.Size(121, 61);
             this.BubbleButton.TabIndex = 1;
             this.BubbleButton.Text = "BubbleSort";
             this.BubbleButton.UseVisualStyleBackColor = true;
@@ -199,89 +192,83 @@
             // 
             this.button1.Location = new System.Drawing.Point(6, 6);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 50);
+            this.button1.Size = new System.Drawing.Size(121, 59);
             this.button1.TabIndex = 0;
             this.button1.Text = "Create";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.CreateQueue);
-            this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(374, 342);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Queue";
-            // 
-            // CreateQueue
-            // 
-            this.CreateQueue.Location = new System.Drawing.Point(6, 6);
-            this.CreateQueue.Name = "CreateQueue";
-            this.CreateQueue.Size = new System.Drawing.Size(95, 50);
-            this.CreateQueue.TabIndex = 1;
-            this.CreateQueue.Text = "Create";
-            this.CreateQueue.UseVisualStyleBackColor = true;
-            this.CreateQueue.Click += new System.EventHandler(this.CreateQueue_Click);
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.CreateStack);
-            this.tabPage3.Location = new System.Drawing.Point(4, 25);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(374, 342);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Stack";
-            // 
-            // CreateStack
-            // 
-            this.CreateStack.Location = new System.Drawing.Point(4, 4);
-            this.CreateStack.Name = "CreateStack";
-            this.CreateStack.Size = new System.Drawing.Size(94, 51);
-            this.CreateStack.TabIndex = 0;
-            this.CreateStack.Text = "Create";
-            this.CreateStack.UseVisualStyleBackColor = true;
-            this.CreateStack.Click += new System.EventHandler(this.CreateStack_Click);
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.CreatePriorityQueue);
-            this.tabPage4.Location = new System.Drawing.Point(4, 25);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(374, 342);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "PriorityQueue";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // CreatePriorityQueue
-            // 
-            this.CreatePriorityQueue.Location = new System.Drawing.Point(7, 7);
-            this.CreatePriorityQueue.Name = "CreatePriorityQueue";
-            this.CreatePriorityQueue.Size = new System.Drawing.Size(101, 51);
-            this.CreatePriorityQueue.TabIndex = 0;
-            this.CreatePriorityQueue.Text = "Create";
-            this.CreatePriorityQueue.UseVisualStyleBackColor = true;
-            this.CreatePriorityQueue.Click += new System.EventHandler(this.CreatePriorityQueue_Click);
-            // 
             // tabPage5
             // 
+            this.tabPage5.Controls.Add(this.CreateStack);
+            this.tabPage5.Controls.Add(this.CreatePriorityQueue);
+            this.tabPage5.Controls.Add(this.CreateQueue);
+            this.tabPage5.Controls.Add(this.InsertAfter);
+            this.tabPage5.Controls.Add(this.InsertBefore);
             this.tabPage5.Controls.Add(this.CreateCircularLinkedList);
             this.tabPage5.Controls.Add(this.CreateDoubly);
             this.tabPage5.Controls.Add(this.CreateLinkedList);
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(374, 342);
+            this.tabPage5.Size = new System.Drawing.Size(528, 342);
             this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "LinkedList";
+            this.tabPage5.Text = "Other Collections";
             this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // CreateStack
+            // 
+            this.CreateStack.Location = new System.Drawing.Point(402, 174);
+            this.CreateStack.Name = "CreateStack";
+            this.CreateStack.Size = new System.Drawing.Size(112, 82);
+            this.CreateStack.TabIndex = 8;
+            this.CreateStack.Text = "Create Stack";
+            this.CreateStack.UseVisualStyleBackColor = true;
+            this.CreateStack.Click += new System.EventHandler(this.CreateStack_Click);
+            // 
+            // CreatePriorityQueue
+            // 
+            this.CreatePriorityQueue.Location = new System.Drawing.Point(402, 83);
+            this.CreatePriorityQueue.Name = "CreatePriorityQueue";
+            this.CreatePriorityQueue.Size = new System.Drawing.Size(112, 85);
+            this.CreatePriorityQueue.TabIndex = 7;
+            this.CreatePriorityQueue.Text = "Create PriorityQueue";
+            this.CreatePriorityQueue.UseVisualStyleBackColor = true;
+            this.CreatePriorityQueue.Click += new System.EventHandler(this.CreatePriorityQueue_Click_1);
+            // 
+            // CreateQueue
+            // 
+            this.CreateQueue.Location = new System.Drawing.Point(402, 13);
+            this.CreateQueue.Name = "CreateQueue";
+            this.CreateQueue.Size = new System.Drawing.Size(112, 64);
+            this.CreateQueue.TabIndex = 6;
+            this.CreateQueue.Text = "Create Queue";
+            this.CreateQueue.UseVisualStyleBackColor = true;
+            this.CreateQueue.Click += new System.EventHandler(this.CreateQueue_Click_1);
+            // 
+            // InsertAfter
+            // 
+            this.InsertAfter.Location = new System.Drawing.Point(148, 83);
+            this.InsertAfter.Name = "InsertAfter";
+            this.InsertAfter.Size = new System.Drawing.Size(94, 85);
+            this.InsertAfter.TabIndex = 5;
+            this.InsertAfter.Text = "Insert After";
+            this.InsertAfter.UseVisualStyleBackColor = true;
+            // 
+            // InsertBefore
+            // 
+            this.InsertBefore.Location = new System.Drawing.Point(148, 16);
+            this.InsertBefore.Name = "InsertBefore";
+            this.InsertBefore.Size = new System.Drawing.Size(94, 61);
+            this.InsertBefore.TabIndex = 4;
+            this.InsertBefore.Text = "Insert Before";
+            this.InsertBefore.UseVisualStyleBackColor = true;
+            this.InsertBefore.Click += new System.EventHandler(this.InsertBefore_Click);
             // 
             // CreateCircularLinkedList
             // 
-            this.CreateCircularLinkedList.Location = new System.Drawing.Point(17, 141);
+            this.CreateCircularLinkedList.Location = new System.Drawing.Point(17, 174);
             this.CreateCircularLinkedList.Name = "CreateCircularLinkedList";
-            this.CreateCircularLinkedList.Size = new System.Drawing.Size(102, 66);
+            this.CreateCircularLinkedList.Size = new System.Drawing.Size(113, 82);
             this.CreateCircularLinkedList.TabIndex = 3;
             this.CreateCircularLinkedList.Text = "Create CircularLinkedList";
             this.CreateCircularLinkedList.UseVisualStyleBackColor = true;
@@ -289,9 +276,9 @@
             // 
             // CreateDoubly
             // 
-            this.CreateDoubly.Location = new System.Drawing.Point(17, 69);
+            this.CreateDoubly.Location = new System.Drawing.Point(17, 83);
             this.CreateDoubly.Name = "CreateDoubly";
-            this.CreateDoubly.Size = new System.Drawing.Size(102, 66);
+            this.CreateDoubly.Size = new System.Drawing.Size(113, 85);
             this.CreateDoubly.TabIndex = 2;
             this.CreateDoubly.Text = "Create DoublyLinkedList";
             this.CreateDoubly.UseVisualStyleBackColor = true;
@@ -301,7 +288,7 @@
             // 
             this.CreateLinkedList.Location = new System.Drawing.Point(17, 16);
             this.CreateLinkedList.Name = "CreateLinkedList";
-            this.CreateLinkedList.Size = new System.Drawing.Size(102, 47);
+            this.CreateLinkedList.Size = new System.Drawing.Size(113, 61);
             this.CreateLinkedList.TabIndex = 0;
             this.CreateLinkedList.Text = "Create LinkedList";
             this.CreateLinkedList.UseVisualStyleBackColor = true;
@@ -316,7 +303,7 @@
             this.tabPage8.Controls.Add(this.button5);
             this.tabPage8.Location = new System.Drawing.Point(4, 25);
             this.tabPage8.Name = "tabPage8";
-            this.tabPage8.Size = new System.Drawing.Size(374, 342);
+            this.tabPage8.Size = new System.Drawing.Size(528, 342);
             this.tabPage8.TabIndex = 7;
             this.tabPage8.Text = "BinarySearchTree";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -350,11 +337,11 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(229, 80);
+            this.button6.Location = new System.Drawing.Point(229, 53);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(75, 23);
+            this.button6.Size = new System.Drawing.Size(100, 41);
             this.button6.TabIndex = 3;
-            this.button6.Text = "button6";
+            this.button6.Text = "Search";
             this.button6.UseVisualStyleBackColor = true;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -362,7 +349,7 @@
             // 
             this.button5.Location = new System.Drawing.Point(24, 25);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(102, 66);
+            this.button5.Size = new System.Drawing.Size(133, 69);
             this.button5.TabIndex = 2;
             this.button5.Text = "Create BinarySearchTree";
             this.button5.UseVisualStyleBackColor = true;
@@ -375,7 +362,7 @@
             this.tabPage9.Controls.Add(this.CreateBucketHash);
             this.tabPage9.Location = new System.Drawing.Point(4, 25);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(374, 342);
+            this.tabPage9.Size = new System.Drawing.Size(528, 342);
             this.tabPage9.TabIndex = 8;
             this.tabPage9.Text = "Hashes";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -443,9 +430,6 @@
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
             this.tabPage5.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
@@ -459,10 +443,7 @@
 
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.TextBox ResultBox;
@@ -474,9 +455,6 @@
         private System.Windows.Forms.Button SmartButton;
         private System.Windows.Forms.Button BubbleButton;
         private System.Windows.Forms.Button SeqSearch;
-        private System.Windows.Forms.Button CreateQueue;
-        private System.Windows.Forms.Button CreateStack;
-        private System.Windows.Forms.Button CreatePriorityQueue;
         private new System.Windows.Forms.Button Show;
         private System.Windows.Forms.Button CreateLinkedList;
         private System.Windows.Forms.Button button4;
@@ -491,5 +469,10 @@
         private System.Windows.Forms.Button CreateLinearHash;
         private System.Windows.Forms.Button CreateDoubly;
         private System.Windows.Forms.Button CreateCircularLinkedList;
+        private System.Windows.Forms.Button CreateStack;
+        private System.Windows.Forms.Button CreatePriorityQueue;
+        private System.Windows.Forms.Button CreateQueue;
+        private System.Windows.Forms.Button InsertAfter;
+        private System.Windows.Forms.Button InsertBefore;
     }
 }

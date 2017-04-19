@@ -8,10 +8,15 @@ namespace AD.Collections
 {
     public class Iterator<T> where T : IComparable
     {
+        // De iterator class maakt ook gebruik van de Node class. Deze class heeft een vorige node, een header node en een huidige node
+        // nodig, en initieert deze dus.
         private Node<T> current;
         private Node<T> header;
         private Node<T> prev;
         RandLinkedList<T> theList;
+
+        // Hier wordt de iterator begonnen, en heeft daarvoor de eerste node uit de ingevoerde lijst nodig en maakt deze de huidige node. 
+        // Ook wordt de 'vorige' node geset, naar null.
         public Iterator(RandLinkedList<T> list)
         {
             theList = list;
@@ -19,25 +24,26 @@ namespace AD.Collections
             prev = null;
         }
 
+        // Deze methode selecteert de volgende node en wordt gebruikt in andere methoden.
         public void NextLink()
         {
             prev = current;
             current = current.next;
         }
 
+        // Deze methode is een simpele getmethode om de huidige node weer te geven.
         public Node<T> GetCurrent()
         {
             return current;
         }
 
+        // Deze methode gebruik je als je een element vóór de volgende node wilt implementeren.
         public void InsertBefore(T theElement)
         {
             Node<T> newNode = new Node<T>(theElement);
-            if (current == header)
-            {
-                //throw new InsertBeforeHeaderException();
-            }
-            else
+            
+            // Er zit echter ook een errorafhandeling in, die zorgt dat de methode niets doet wanneer de huidige node de header is.
+            if (current != header)
             {
                 newNode.next = prev.next;
                 prev.next = newNode;
@@ -45,6 +51,7 @@ namespace AD.Collections
             }
         }
 
+        // Deze methode gebruik je als je een element na de volgende node wilt implementeren.
         public void InsertAfter(T theElement)
         {
             Node<T> newnode = new Node<T>(theElement);

@@ -48,7 +48,14 @@ namespace DLLAD
             } 
             else if (action == 2)
             {
-                build.AppendFormat("{0} found in: {1}. {2}Found at: {3}. {2}", method, time, Environment.NewLine, output);
+                if (!(output.Contains("=") || duration > 0))
+                {
+                    build.AppendFormat("{0} found in: {1}. {2}Found at: {3}. {2}", method, time, Environment.NewLine, output);
+                }
+                else
+                {
+                    build.AppendFormat("Something went wrong, try another input" + Environment.NewLine);
+                }
             }
             else if (action == 3)
             {
@@ -56,6 +63,7 @@ namespace DLLAD
             }
             
             string result = build.ToString();
+            
             return result;
         } 
 
@@ -148,7 +156,7 @@ namespace DLLAD
             return stats;
         }
         
-        private void CreateQueue_Click(object sender, EventArgs e)
+        private void CreateQueue_Click_1(object sender, EventArgs e)
         {
             QPCounter.Start();
             QueueCreation(PlayerBase);
@@ -156,7 +164,7 @@ namespace DLLAD
             ResultBox.Text += Logger("QueueCreation", QPCounter.Duration(size), null, null, 1);
         }
 
-        private void CreatePriorityQueue_Click(object sender, EventArgs e)
+        private void CreatePriorityQueue_Click_1(object sender, EventArgs e)
         {
             QPCounter.Start();
             CreatePQueue(PlayerBase);
@@ -241,6 +249,7 @@ namespace DLLAD
         //creatie van onze Array.
         private void CreateArray(List<AD.Players> List)
         {
+            ArrayCreated = true;
             int count = 0;
             foreach (AD.Players player in PlayerBase)
             {
@@ -362,11 +371,18 @@ namespace DLLAD
         // Hier dan alle eventhandlers voor de sorteer- en zoekmethoden.
         private void SmartButton_Click(object sender, EventArgs e)
         {
-            QPCounter.Start();
-            _RandomArray = AD.Sort.SmartBubbleSort<AD.Players>.Sort(_RandomArray);
-            QPCounter.Stop();
-            double duration = QPCounter.Duration(size);
-            ResultBox.Text += Logger("SmartBubbleSorted", duration, null, null, 3);
+            if (ArrayCreated == true)
+            {
+                QPCounter.Start();
+                _RandomArray = AD.Sort.SmartBubbleSort<AD.Players>.Sort(_RandomArray);
+                QPCounter.Stop();
+                double duration = QPCounter.Duration(size);
+                ResultBox.Text += Logger("SmartBubbleSorted", duration, null, null, 3);
+            }
+            else
+            {
+                ResultBox.Text += "Create an array first!" + Environment.NewLine;
+            }
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -376,7 +392,7 @@ namespace DLLAD
             QPCounter.Stop();
             double duration = QPCounter.Duration(size);
             string playerId = player.GetId().ToString();
-            if (player == null)
+            if (ArrayCreated == false)
             {
                 playerId = "Create an Array First!";
             }
@@ -390,7 +406,7 @@ namespace DLLAD
             QPCounter.Stop();
             double duration = QPCounter.Duration(size);
             string playerId = player.GetId().ToString();
-            if (player == null)
+            if (ArrayCreated == false)
             {
                 playerId = "Create an Array First!";
             }
@@ -429,7 +445,7 @@ namespace DLLAD
             double duration = QPCounter.Duration(size);
             if (answer == null)
             {
-                answer = "Create an Array first!";
+                answer = "Create an Array first!" + Environment.NewLine;
             }
             ResultBox.Text += Logger("BinarySearch", duration, null, answer, 2);
         }
@@ -456,49 +472,83 @@ namespace DLLAD
 
         private void BubbleButton_Click(object sender, EventArgs e)
         {
-            QPCounter.Start();
-            _RandomArray = AD.Sort.BubbleSort<AD.Players>.Sort(_RandomArray);
-            QPCounter.Stop();
-            double duration = QPCounter.Duration(size);
-            ResultBox.Text += Logger("Bubblesorted", duration, null, null, 1);
+            if (ArrayCreated == true)
+            {
+                QPCounter.Start();
+                _RandomArray = AD.Sort.BubbleSort<AD.Players>.Sort(_RandomArray);
+                QPCounter.Stop();
+                double duration = QPCounter.Duration(size);
+                ResultBox.Text += Logger("Bubblesorted", duration, null, null, 1);
+            } else
+            {
+                ResultBox.Text += "Create an array first!" + Environment.NewLine;
+            }
         }
 
         private void SeqSearch_Click(object sender, EventArgs e)
         {
-            int number = Convert.ToInt32(SearchBox.Text);
-            QPCounter.Start();
-            int Answer = AD.Search.SequentialSearch<AD.Players>.SeqSearch(_RandomArray, number);
-            QPCounter.Stop();
-            ResultBox.Text += Logger(number.ToString(), QPCounter.Duration(Answer), null, Answer.ToString(), 2);
+            if (SearchBox.Text != "")
+            {
+                if (ArrayCreated == true)
+                {
+                    int number = Convert.ToInt32(SearchBox.Text);
+                    QPCounter.Start();
+                    int Answer = AD.Search.SequentialSearch<AD.Players>.SeqSearch(_RandomArray, number);
+                    QPCounter.Stop();
+                    ResultBox.Text += Logger(number.ToString(), QPCounter.Duration(Answer), null, Answer.ToString(), 2);
+                }
+                else
+                {
+                    ResultBox.Text += "Create an array first!" + Environment.NewLine;
+                }
+            }
+            else
+            {
+                ResultBox.Text += "Insert a number in the textbox please!" + Environment.NewLine;
+            }
         }
         
         private void BinarySearch_Click(object sender, EventArgs e)
         {
             int Answer = 0;
-            int number = Convert.ToInt32(SearchBox.Text);
-            string output = "";
-            if (ArrayCreated == true)
+            if (SearchBox.Text != "")
             {
-                QPCounter.Start();
-                Answer = AD.Search.BinarySearch<AD.Players>.binSearch(_RandomArray, number);
-                QPCounter.Stop();
-                output = Answer.ToString();
+                int number = Convert.ToInt32(SearchBox.Text);
+                string output = "";
+                if (ArrayCreated == true)
+                {
+                    QPCounter.Start();
+                    Answer = AD.Search.BinarySearch<AD.Players>.binSearch(_RandomArray, number);
+                    QPCounter.Stop();
+                    output = Answer.ToString();
+                }
+                else
+                {
+                    output = "Create an Array first!" + Environment.NewLine;
+                }
+                double duration = QPCounter.Duration(Answer);
+                ResultBox.Text += Logger(number.ToString(), duration, null, output, 2);
             }
             else
             {
-                output = "Create an Array first!";
+                ResultBox.Text += "Insert a number in the textbox first please." + Environment.NewLine;
             }
-            double duration = QPCounter.Duration(Answer);
-            ResultBox.Text += Logger(number.ToString(), duration, null, output, 2);
         }
 
         private void InsertButton_Click(object sender, EventArgs e)
         {
-            QPCounter.Start();
-            AD.Sort.InsertSort<AD.Players>.InsertSortArrayList(_RandomArray);
-            QPCounter.Stop();
-            double duration = QPCounter.Duration(size);
-            ResultBox.Text += Logger("InsertSorted", duration, null, null, 1);
+            if (ArrayCreated == true)
+            {
+                QPCounter.Start();
+                AD.Sort.InsertSort<AD.Players>.InsertSortArrayList(_RandomArray);
+                QPCounter.Stop();
+                double duration = QPCounter.Duration(size);
+                ResultBox.Text += Logger("InsertSorted", duration, null, null, 1);
+            }
+            else
+            {
+                ResultBox.Text += "Create an array first!" + Environment.NewLine;
+            }
         }
 
         // oorspronkelijk bedoeld om te testen, maar we hebben onderstaande methode erin gelaten omdat hij achteraf ook voor toekomstige gebruikers
@@ -526,6 +576,11 @@ namespace DLLAD
         private void Show_Click(object sender, EventArgs e)
         {
             ResultBox.Text += ShowArray();
+        }
+
+        private void InsertBefore_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

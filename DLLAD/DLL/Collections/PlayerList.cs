@@ -26,9 +26,5 @@ namespace AD.Collections
             Random rnd = new Random();
             return rnd.Next(size * 2);
         }
-        public static List<T> GetList()
-        {
-            return PlayerBase;
-        }
     }
 }
