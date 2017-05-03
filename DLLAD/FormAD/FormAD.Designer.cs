@@ -477,15 +477,15 @@
             this.ResultBox.Name = "ResultBox";
             this.ResultBox.ReadOnly = true;
             this.ResultBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.ResultBox.Size = new System.Drawing.Size(320, 323);
+            this.ResultBox.Size = new System.Drawing.Size(512, 323);
             this.ResultBox.TabIndex = 1;
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(721, 342);
+            this.button4.Location = new System.Drawing.Point(826, 343);
             this.button4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(166, 36);
+            this.button4.Size = new System.Drawing.Size(253, 36);
             this.button4.TabIndex = 8;
             this.button4.Text = "Empty output";
             this.button4.UseVisualStyleBackColor = true;
@@ -495,7 +495,7 @@
             // 
             this.AllButton.Location = new System.Drawing.Point(567, 343);
             this.AllButton.Name = "AllButton";
-            this.AllButton.Size = new System.Drawing.Size(148, 35);
+            this.AllButton.Size = new System.Drawing.Size(253, 35);
             this.AllButton.TabIndex = 9;
             this.AllButton.Text = "Execute All";
             this.AllButton.UseVisualStyleBackColor = true;
@@ -505,7 +505,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(899, 395);
+            this.ClientSize = new System.Drawing.Size(1091, 395);
             this.Controls.Add(this.AllButton);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.ResultBox);

@@ -18,6 +18,7 @@ namespace DLLAD
         public static AD.Players[] _RandomArray = new AD.Players[300];
         public RandStack<AD.Players> PlayerStack = new RandStack<AD.Players>();
         public RandQueue<AD.Players> PlayerQueue = new RandQueue<AD.Players>();
+        public RandPriorityQueue<int, AD.Players> PlayerPriorityQueue = new RandPriorityQueue<int, AD.Players>();
         public RandLinkedList<AD.Players> PlayerLinkedList = new RandLinkedList<AD.Players>();
         public DoublyLinkedList<AD.Players> PlayerDoublyLinkedList = new DoublyLinkedList<AD.Players>();
         public CircularLinkedList<AD.Players> PlayerCircularLinkedList = new CircularLinkedList<AD.Players>();
@@ -45,13 +46,13 @@ namespace DLLAD
             string time = duration.ToString();
             if (action == 1)
             {
-                build.AppendFormat("{0} in: {1}. {2}", method, time, Environment.NewLine);
+                build.AppendFormat("{2}{0} in: {1}. {2}", method, time, Environment.NewLine);
             } 
             else if (action == 2)
             {
                 if (!(output.Contains("=") || !(duration > 0)))
                 {
-                    build.AppendFormat("{0} found in: {1}. {2}Found at: {3}. {2}", method, time, Environment.NewLine, output);
+                    build.AppendFormat("{2}{0} found in: {1}. {2}Found at: {3}. {2}", method, time, Environment.NewLine, output);
                 }
                 else
                 {
@@ -60,7 +61,7 @@ namespace DLLAD
             }
             else if (action == 3)
             {
-                build.AppendFormat("{0} in: {1}.{2}", method, duration, Environment.NewLine);
+                build.AppendFormat("{2}{0} in: {1}.{2}", method, duration, Environment.NewLine);
             }
             
             string result = build.ToString();
@@ -175,11 +176,7 @@ namespace DLLAD
 
         private void CreateStack_Click(object sender, EventArgs e)
         {
-            QPCounter.Start();
-            StackCreation(PlayerBase);
-            QPCounter.Stop();
-            double duration = QPCounter.Duration(size);
-            ResultBox.Text += Logger("StackCreation", duration, null, null, 1);
+            Stack();
         }
 
         private void CreateBucketHash_Click(object sender, EventArgs e)
@@ -227,7 +224,7 @@ namespace DLLAD
                 PlayerBase.Add(new AD.Players(ID, Name, HScore));
             }
         }
-
+        
         //creatie van onze stack.
         private void StackCreation(List<AD.Players> List) 
         {
@@ -265,7 +262,7 @@ namespace DLLAD
             foreach (AD.Players player in List)
             {
                 priority = RandomNo(2);
-                //PlayerPriorityQueue.Enqueue(priority, player);
+                PlayerPriorityQueue.Enqueue(priority, player);
             }
         }
         
@@ -514,16 +511,22 @@ namespace DLLAD
             textBox1.Text = number;
             BinarySearchMethod();
             SequentialSearchMethod();
-            QueueCreation(PlayerBase);
-            StackCreation(PlayerBase);
-            CreatePQueue(PlayerBase);
-            LinkedListCreation(PlayerBase);
-            DoublyListCreation(PlayerBase);
-            CircularLinkedListCreation(PlayerBase);
-            CreateBinarySearchTree(PlayerBase);
+            Array();
+            Queue();
+            Stack();
+            PQueue();
+
+            LinkedList();
+            DoublyList();
+            CircularList();
+            BinarySearchTree();
             BinaryMaxMethod();
             BinaryMinMethod();
             SearchBinaryTreeMethod();
+
+            BucketHash();
+            LinearHash();
+            QuadraticHash();
         }
 
         // All the sort methods
@@ -680,6 +683,103 @@ namespace DLLAD
                 answer = "Create an Array first!" + Environment.NewLine;
             }
             ResultBox.Text += Logger("BinarySearch", duration, null, answer, 2);
+        }
+
+        // CollectionCreations
+        private void Array()
+        {
+            QPCounter.Start();
+            CreateArray(PlayerBase);
+            QPCounter.Stop();
+            ResultBox.Text += Logger("ArrayCreation", QPCounter.Duration(size), null, null, 1);
+        }
+
+        private void Stack()
+        {
+            QPCounter.Start();
+            StackCreation(PlayerBase);
+            QPCounter.Stop();
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("StackCreation", duration, null, null, 1);
+        }
+        
+        private void Queue()
+        {
+            QPCounter.Start();
+            QueueCreation(PlayerBase);
+            QPCounter.Stop();
+            ResultBox.Text += Logger("QueueCreation", QPCounter.Duration(size), null, null, 1);
+        }
+
+        private void PQueue()
+        {
+            QPCounter.Start();
+            CreatePQueue(PlayerBase);
+            QPCounter.Stop();
+            ResultBox.Text += Logger("PriorityQueueCreation", QPCounter.Duration(size), null, null, 1);
+        }
+
+        private void LinkedList()
+        {
+            QPCounter.Start();
+            LinkedListCreation(PlayerBase);
+            QPCounter.Stop();
+            PlayerIterator = new Iterator<AD.Players>(PlayerLinkedList);
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("LinkedList", duration, null, null, 1);
+        }
+
+        private void DoublyList()
+        {
+            QPCounter.Start();
+            DoublyListCreation(PlayerBase);
+            QPCounter.Stop();
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("DoublyLinkedList", duration, null, null, 1);
+        }
+
+        private void CircularList()
+        {
+            QPCounter.Start();
+            CircularLinkedListCreation(PlayerBase);
+            QPCounter.Stop();
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("CircularLinkedList", duration, null, null, 1);
+        }
+
+        private void BinarySearchTree()
+        {
+            QPCounter.Start();
+            CreateBinarySearchTree(PlayerBase);
+            QPCounter.Stop();
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("BinarySearchTree", duration, null, null, 1);
+        }
+
+        private void BucketHash()
+        {
+            QPCounter.Start();
+            BucketHashCreation(PlayerBase);
+            QPCounter.Stop();
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("BucketHash Creation", duration, null, null, 1);
+        }
+
+        private void LinearHash()
+        {
+            QPCounter.Start();
+            LinearHashCreation(PlayerBase);
+            QPCounter.Stop();
+            double duration = QPCounter.Duration(size);
+            ResultBox.Text += Logger("LinearHash Creation", duration, null, null, 1);
+        }
+
+        private void QuadraticHash()
+        {
+            QPCounter.Start();
+            QuadraticHashCreation(PlayerBase);
+            QPCounter.Stop();
+            ResultBox.Text += Logger("QuadraticHash Creation", QPCounter.Duration(size), null, null, 1);
         }
     }
 }
