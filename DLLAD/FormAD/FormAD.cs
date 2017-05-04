@@ -125,21 +125,12 @@ namespace DLLAD
 
         private void CreateLinkedList_Click(object sender, EventArgs e)
         {
-            QPCounter.Start();
-            LinkedListCreation(PlayerBase);
-            QPCounter.Stop();
-            PlayerIterator = new Iterator<AD.Players>(PlayerLinkedList);
-            double duration = QPCounter.Duration(size);
-            ResultBox.Text += Logger("LinkedList", duration, null, null, 1);
+            LinkedList();
         }
 
         private void CreateCircularLinkedList_Click(object sender, EventArgs e)
         {
-            QPCounter.Start();
-            CircularLinkedListCreation(PlayerBase);
-            QPCounter.Stop();
-            double duration = QPCounter.Duration(size);
-            ResultBox.Text += Logger("CircularLinkedList", duration, null, null, 1);
+            CircularList();
         }
 
         public static string GetPlayerStats(AD.Players player)
@@ -159,19 +150,12 @@ namespace DLLAD
         
         private void CreateQueue_Click_1(object sender, EventArgs e)
         {
-            QPCounter.Start();
-            QueueCreation(PlayerBase);
-            QPCounter.Stop();
-            ResultBox.Text += Logger("QueueCreation", QPCounter.Duration(size), null, null, 1);
+            Queue();
         }
 
         private void CreatePriorityQueue_Click_1(object sender, EventArgs e)
         {
-            QPCounter.Start();
-            CreatePQueue(PlayerBase);
-            QPCounter.Stop();
-            ResultBox.Text += Logger("PriorityQueueCreation", QPCounter.Duration(size), null, null, 1);
-            //ResultBox.Text += PlayerPriorityQueue.Count.ToString();
+            PQueue();
         }
 
         private void CreateStack_Click(object sender, EventArgs e)
@@ -181,28 +165,17 @@ namespace DLLAD
 
         private void CreateBucketHash_Click(object sender, EventArgs e)
         {
-            QPCounter.Start();
-            BucketHashCreation(PlayerBase);
-            QPCounter.Stop();
-            double duration = QPCounter.Duration(size);
-            ResultBox.Text += Logger("BucketHash Creation", duration, null, null, 1);
+            BucketHash();
         }
 
         private void CreateLinearHash_Click(object sender, EventArgs e)
         {
-            QPCounter.Start();
-            LinearHashCreation(PlayerBase);
-            QPCounter.Stop();
-            double duration = QPCounter.Duration(size);
-            ResultBox.Text += Logger("LinearHash Creation", duration, null, null, 1);
+            LinearHash();
         }
 
         private void CreateQuadraticHash_Click(object sender, EventArgs e)
         {
-            QPCounter.Start();
-            QuadraticHashCreation(PlayerBase);
-            QPCounter.Stop();
-            ResultBox.Text += Logger("QuadraticHash Creation", QPCounter.Duration(size), null, null, 1);
+            QuadraticHash();
         }
 
         // Hier zijn alle creatie methoden bij elkaar. Ze worden aangeroepen wanneer er op de betreffende knop wordt gedrukt.
@@ -383,11 +356,7 @@ namespace DLLAD
 
         private void CreateDoubly_Click(object sender, EventArgs e)
         {
-            QPCounter.Start();
-            DoublyListCreation(PlayerBase);
-            QPCounter.Stop();
-            double duration = QPCounter.Duration(size);
-            ResultBox.Text += Logger("DoublyLinkedList", duration, null, null, 1);
+            DoublyList();
         }
 
         //onderstaande event handler zorgt dat het veld van de resultaten leeg is, zodat op dat moment overbodige informatie weg gaat.
@@ -398,11 +367,7 @@ namespace DLLAD
 
         private void button5_Click(object sender, EventArgs e)
         {
-            QPCounter.Start();
-            CreateBinarySearchTree(PlayerBase);
-            QPCounter.Stop();
-            double duration = QPCounter.Duration(size);
-            ResultBox.Text += Logger("BinarySearchTree", duration, null, null, 1);
+            BinarySearchTree();
         }
 
         private void button6_Click(object sender, EventArgs e)

@@ -10,34 +10,22 @@ namespace AD.Collections
     {
         private List<T> Queue;
 
+        // Met deze methode kan een queue van onze eigen klasse (deze) worden geinitieerd.
         public RandQueue()
         {
             Queue = new List<T>();
         }
 
+        // Deze methode voegt een item toe aan de list die fungeert als queue.
         public void Enqueue(T item)
         {
             Queue.Add(item);
         }
 
+        // Hiermee verwijder je het item dat het eerste is toegevoegt.
         public virtual void Dequeue()
         {
             Queue.RemoveAt(0);
-        }
-
-        public object Peek()
-        {
-            return Queue[0];
-        }
-
-        public void ClearQueue()
-        {
-            Queue.Clear();
-        }
-
-        public int Count()
-        {
-            return Queue.Count;
         }
     }
 }

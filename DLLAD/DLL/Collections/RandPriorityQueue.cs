@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
+    // Klasse van de priorityqueue.
     public class RandPriorityQueue<Tpriority, TItem>
     {
+        // Hier wordt een priorityqueue geinitieerd.
         readonly SortedDictionary<Tpriority, Queue<TItem>> _subqueues;
 
+        // Deze methode staat de creatie van de klasse toe.
         public RandPriorityQueue(IComparer<Tpriority> priorityComparer)
         {
             _subqueues = new SortedDictionary<Tpriority, Queue<TItem>>(priorityComparer);
@@ -18,16 +21,7 @@ namespace AD.Collections
 
         public RandPriorityQueue() : this(Comparer<Tpriority>.Default) { }
 
-        public bool HasItems
-        {
-            get { return _subqueues.Any(); }
-        }
-
-        public int Count
-        {
-            get { return _subqueues.Sum(q => q.Value.Count); }
-        }
-
+        // Deze methode zorgt ervoor dat er een item kan worden toegevoegd, en geeft er een prioriteit aan.
         public void Enqueue(Tpriority priority, TItem item)
         {
             if (!_subqueues.ContainsKey(priority))
@@ -38,42 +32,11 @@ namespace AD.Collections
             _subqueues[priority].Enqueue(item);
         }
 
+        // Deze methode voegt een item toe aan een nieuwe queue, die gecreëerd wordt omdat die prioriteit nog niet bestaat.
+        // Deze methode wordt aangeroepen vanuit de Enqueue methode.
         private void AddQueueOfPriority(Tpriority priority)
         {
             _subqueues.Add(priority, new Queue<TItem>());
-        }
-
-        public TItem Dequeue()
-        {
-            if (_subqueues.Any())
-            { return DequeueFromHighPriorityQueue(); }
-            else
-            {
-                throw new InvalidOperationException("De queue is leeg");
-            }
-        }
-
-        private TItem DequeueFromHighPriorityQueue()
-        {
-            KeyValuePair<Tpriority, Queue<TItem>> first = _subqueues.First();
-            TItem nextItem = first.Value.Dequeue();
-            if (!first.Value.Any())
-            {
-                _subqueues.Remove(first.Key);
-            }
-            return nextItem;
-        }
-
-        public TItem Peek()
-        {
-            if (HasItems)
-            {
-                return _subqueues.First().Value.Peek();
-            }
-            else
-            {
-                throw new InvalidOperationException("Queue is leeg!");
-            }
         }
     }
 }
