@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
+    // Klasse gemaakt door: Frans Orsel
+    // Source: Datastructures & Algorithms in C# door Michael McMillan
+
     // Klasse voor het creëeren van een eigen Stack
     public class RandStack<T>
     {

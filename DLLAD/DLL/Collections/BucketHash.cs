@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
+    // Klasse gemaakt door: Frans Orsel
+    // Source: Datastructures & Algorithms in C# door Michael McMillan
+
     // Het genereren van een aparte klasse zodat er een string wordt geleverd voor het creëren van de buckethash
     public class HashNode<T>
     {

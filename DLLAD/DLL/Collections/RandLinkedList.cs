@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
+    // Klasse gemaakt door: Frans Orsel
+    // Source: Datastructures & Algorithms in C# door Michael McMillan
+
     public class RandLinkedList<T> where T : IComparable
     {
         private Node<T> head; // Deze lijst heeft maar een node nodig om geinitieerd te worden. De eerste node.

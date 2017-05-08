@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
+    // Klasse gemaakt en geschreven door: Frans Orsel
+
     // Deze klasse wordt gebruikt voor ons formulier.
     public class PlayerList<T>
     {

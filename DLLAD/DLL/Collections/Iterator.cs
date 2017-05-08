@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
+    // Klasse gemaakt door: Frans Orsel
+    // Source: Datastructures & Algorithms in C# door Michael McMillan
+
     public class Iterator<T> where T : IComparable
     {
         // De iterator class maakt ook gebruik van de Node class. Deze class heeft een vorige node, een header node en een huidige node

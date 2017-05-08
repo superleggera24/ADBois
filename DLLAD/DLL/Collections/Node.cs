@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
+    // Klasse gemaakt door: Frans Orsel
+    // Source: Datastructures & Algorithms in C# door Michael McMillan
+
     public class Node<T>// where T : IComparable
     {
         public Node<T> next; //opvolgende node

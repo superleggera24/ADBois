@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
+
+    // Klasse gemaakt door: Frans Orsel
+    // Source: Datastructures & Algorithms in C# door Michael McMillan
+
     public class DoublyLinkedList<T> where T : IComparable
     {
         private Node<T> head; //de eerste node 

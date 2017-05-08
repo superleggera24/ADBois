@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
+    // Gemaakt door: Frans Orsel
+    // Source: http://www.blackwasp.co.uk/PriorityQueue.aspx
+
     // Klasse van de priorityqueue.
     public class RandPriorityQueue<Tpriority, TItem>
     {

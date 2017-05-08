@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
+    // Klasse gemaakt door: Frans Orsel
+    // Source: Datastructures & Algorithms in C# door Michael McMillan
+
     public class CircularLinkedList<T> where T : IComparable 
     {
         protected Node<T> current; //de current node
