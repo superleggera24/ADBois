@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AD.Search
 {
+    // Klasse gemaakt door: Frans Orsel
+    // Source: Datastructures & Algorithms Using C# door Michael McMillan
+
     public static class SequentialSearch<T> where T : IComparable
     {
         // Dit is de methode voor de sequentialsearch methode. er wordt een generieke array en een nummer meegestuurd

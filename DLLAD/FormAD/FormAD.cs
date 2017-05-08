@@ -46,13 +46,13 @@ namespace DLLAD
             string time = duration.ToString();
             if (action == 1)
             {
-                build.AppendFormat("{2}{0} in: {1}. {2} nanoseconds", method, time, Environment.NewLine);
+                build.AppendFormat("{2}{0} in: {1} nanoseconds. {2}", method, time, Environment.NewLine);
             } 
             else if (action == 2)
             {
                 if (!(output.Contains("=") || !(duration > 0)))
                 {
-                    build.AppendFormat("{2}{0} found in: {1}. {2}Found at: {3}. {2} nanoseconds", method, time, Environment.NewLine, output);
+                    build.AppendFormat("{2}{0} found in: {1}. {2}Found at: {3} nanoseconds. {2}", method, time, Environment.NewLine, output);
                 }
                 else
                 {
@@ -61,7 +61,7 @@ namespace DLLAD
             }
             else if (action == 3)
             {
-                build.AppendFormat("{2}{0} in: {1}.{2} nanoseconds", method, duration, Environment.NewLine);
+                build.AppendFormat("{2}{0} in: {1} nanoseconds.{2}", method, duration, Environment.NewLine);
             }
             
             string result = build.ToString();

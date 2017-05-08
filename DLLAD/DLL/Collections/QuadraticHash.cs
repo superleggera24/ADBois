@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
+
+    // Klasse gemaakt door: Frans Orsel
+    // Source: https://simpledevcode.wordpress.com/2015/07/07/hash-tables-tutorial-c-c-java/
+
     public class QuadraticHash<T> where T : IComparable
     {
         private const int SIZE = 101;

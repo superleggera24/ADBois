@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
+    // Klasse gemaakt door: Frans Orsel
+    // Geen source gebruikt
+
     public static class RandArray<T>
     {
         // create random array vul met 300 iets
