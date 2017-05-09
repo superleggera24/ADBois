@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AD.Search
 {
+    // Klasse gemaakt door: Manuel Weidijk
+    // Source: Datastructures & Algorithms in C# door Michael McMillan
+
     public static class Max<T> where T : IComparable
     {
         // Deze methode brengt de speler met de hoogste Highscore terug.

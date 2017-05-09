@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AD.Search
 {
+    // Klasse gemaakt door: Frans Orsel
+    // Source: http://www.c-sharpcorner.com/blogs/binary-search-implementation-using-c-sharp1
+
     public class BinarySearch<T> where T : IComparable
     {
         public static int binSearch(T[] arr, int value)

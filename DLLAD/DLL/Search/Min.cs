@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace AD.Search
 {
+    // Klasse gemaakt door: Manuel Weidijk
+    // Source: Datastructures & Algorithms in C# door Michael McMillan
+
     public static class Min<T> where T : IComparable
     {
         // Deze methode brengt de speler met de laagste Highscore terug.
