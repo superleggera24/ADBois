@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace AD.Sort
 {
+    // Klasse gemaakt door: Frans Orsel
+    // Source: Rob Smit (BlackBoard)
+
     public static class BubbleSort<T> where T : IComparable
     {
         // maak generic arraylist 

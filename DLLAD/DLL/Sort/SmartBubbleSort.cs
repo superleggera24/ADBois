@@ -8,6 +8,8 @@ namespace AD.Sort
 {
     public static class SmartBubbleSort<T> where T : IComparable
     {
+        // Klasse gemaakt door: Frans Orsel
+        
         // maak generic arraylist 
         public static T[] Sort(T[] array)
         {
@@ -21,7 +23,7 @@ namespace AD.Sort
                 //loop door array -1, j
                 for (var j = 0; j < array.Length - 1; j++)
                 {
-                    //wanneer de waarde groter is dan de volgende waarde word hieronder dmv swapclass.cs de waardes omgedraaid
+                    //wanneer de waarde groter is dan de volgende waarde word hieronder de waardes omgedraaid
                     if (array[j].CompareTo(array[j + 1]) > 0)
                     {
                         T temp;
@@ -29,7 +31,6 @@ namespace AD.Sort
                         array[j] = array[j + 1];
                         array[j + 1] = temp;
                         swap_flag = true;
-                        //swapclass.Swap<T>(ref arr[j], ref arr[j + 1]);
                     }
                 }
             }

@@ -8,6 +8,9 @@ namespace AD
 {
     public class Players : IComparable
     {
+        // Klasse gemaakt door: Frans Orsel
+        // Een klasse om een speler object te maken.
+
         public int ID { get; set; } // wordt uniek gegenereerd
         public string Name { get; set; } // Niet perse uniek, maar wordt voor deze casus even random aangemaakt.
         public int Highscore { get; set; } // De highscores. Een van de mogelijkheden om mee te vergelijken.

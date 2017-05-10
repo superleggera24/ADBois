@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 namespace AD.Sort
 {
+    // Klasse gemaakt door: Frans Orsel
+    // Source: http://www.developerin.net/a/55-Algorithm-in-CSharp/38-Insertion-Sort
     public static class InsertSort<T> where T : IComparable
     {
         public static T[] InsertSortArrayList(T[] arr)
