@@ -11,6 +11,9 @@ using System.Diagnostics;
 
 namespace AD
 {
+    // Klasse gemaakt door: Dennis Dekker
+    // Source: https://msdn.microsoft.com/en-us/library/system.diagnostics.performancecounter(v=vs.110).aspx
+
     // Query Performance Counter class, meet de duur van de uit te voeren sorteermethode
     public class QueryPerfCounter
     {
@@ -68,7 +71,7 @@ namespace AD
 
 
 
-    /*WRAPPER CLASS testestsetstestestttset
+    /*WRAPPER CLASS
      * To use the QueryPerfCounter wrapper class in your code, you need to reference QueryPerfCounter.dll and 
      * then instantiate the QueryPerfCounter class.
 

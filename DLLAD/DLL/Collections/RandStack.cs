@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AD.Collections
 {
-    // Klasse gemaakt door: Frans Orsel
+    // Klasse gemaakt door: Frans Orsel en Dennis Dekker
     // Source: Datastructures & Algorithms in C# door Michael McMillan
 
     // Klasse voor het creëeren van een eigen Stack

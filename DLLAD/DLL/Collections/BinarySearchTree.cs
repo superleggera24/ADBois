@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace AD.Collections
 {
     // Klasse gemaakt door: Dennis Dekker
-    // source: 
+    // source: https://msdn.microsoft.com/en-us/library/ms379572(v=vs.80).aspx
 
     public class BinaryNode<T> //maak node aan
     {
